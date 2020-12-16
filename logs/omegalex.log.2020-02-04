@@ -1,0 +1,23 @@
+2020-02-04 09:05:12,321 INFO OmegaLex start
+2020-02-04 09:21:05,354 INFO OmegaLex start
+2020-02-04 09:46:10,422 INFO OmegaLex start
+2020-02-04 09:46:58,181 INFO (admin) navigate to lexicon editor
+2020-02-04 09:47:17,796 INFO (null) DURATA QUERY SENSO: 1
+2020-02-04 09:47:17,798 INFO (admin) LOCK the lexical entry related to abba_aoc_lemma
+2020-02-04 09:47:17,799 INFO (null) DURATA QUERY LEMMA: 1855
+2020-02-04 09:47:26,284 INFO (null) DURATA QUERY SENSO: 2
+2020-02-04 09:47:26,287 INFO (admin) UNLOCK the lexical entry related to acassia2_aoc_lemma
+2020-02-04 09:47:26,287 INFO (admin) LOCK the lexical entry related to acassia2_aoc_lemma
+2020-02-04 09:47:26,287 INFO (null) DURATA QUERY LEMMA: 1888
+2020-02-04 09:47:30,119 INFO (admin) NEW Lemma Word
+2020-02-04 09:47:33,475 INFO (admin) UPDATE Lemma name from a to a
+2020-02-04 09:47:34,229 INFO (admin) UPDATE Lemma name from aaaa to aaaa
+2020-02-04 09:47:34,878 INFO (admin) UPDATE Lemma name from aaaaaa to aaaaaa
+2020-02-04 09:47:35,582 INFO (admin) UPDATE Lemma name from aaaaaa to aaaaaa
+2020-02-04 09:47:36,245 INFO (admin) UPDATE Lemma name from aaaaaa to aaaaaa
+2020-02-04 09:47:36,935 INFO (admin) UPDATE Lemma name from aaaaaa to aaaaaa
+2020-02-04 09:47:39,322 INFO (admin) UPDATE Lemma name from aaaaaa to aaaaaa
+2020-02-04 09:47:40,770 INFO (admin) UPDATE Lemma language of aaaaaa to aoc
+2020-02-04 09:47:47,328 INFO (admin) SAVE new Lemma and its default sense aaaaaa
+2020-02-04 09:47:51,797 INFO (admin) LOCK the lexical entry related to aaaaaa_aoc_lemma
+2020-02-04 10:25:20,804 INFO OmegaLex start

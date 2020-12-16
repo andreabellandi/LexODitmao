@@ -1,0 +1,137 @@
+
+            <p:panelGrid styleClass="filterPanelGrid">
+                <p:row>
+                    <p:column colspan="2">
+                        <p:outputLabel styleClass="filterLabel" value="#{label['translation.filter.value']}"/><br/>
+                        <p:inputText styleClass="filterField" value="#{translationControllerFilter.value}" >
+                            <p:ajax event="keyup" process="@this" update="@(.filterCheckbox)"/>
+                        </p:inputText>
+                    </p:column>
+                    <p:column colspan="2">
+                        <table>
+                            <tr>
+                                <td>
+                                    <h:selectBooleanCheckbox id="resourceTitle" styleClass="filterCheckbox" disabled="#{translationControllerFilter.disabledValue}"
+                                                             value="#{translationControllerFilter.resourceTitle}" />
+                                    <p:outputLabel styleClass="filterLabel" for="resourceTitle" value="#{label['translation.filter.resourceTitle']}"/>
+                                </td>
+                                <td>
+                                    <h:selectBooleanCheckbox id="resourceDescription" styleClass="filterCheckbox" disabled="#{translationControllerFilter.disabledValue}"
+                                                             value="#{translationControllerFilter.resourceDescription}" />
+                                    <p:outputLabel styleClass="filterLabel" for="resourceDescription" value="#{label['translation.filter.resourceDescription']}"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h:selectBooleanCheckbox id="translationOriginal" styleClass="filterCheckbox" disabled="#{translationControllerFilter.disabledValue}"
+                                                             value="#{translationControllerFilter.translationOriginal}" />
+                                    <p:outputLabel styleClass="filterLabel" for="translationOriginal" value="#{label['translation.filter.translationOriginal']}"/>
+                                </td>
+                                <td>
+                                    <h:selectBooleanCheckbox id="translationTranslation" styleClass="filterCheckbox" disabled="#{translationControllerFilter.disabledValue}"
+                                                             value="#{translationControllerFilter.translationTranslation}" />
+                                    <p:outputLabel styleClass="filterLabel" for="translationTranslation" value="#{label['translation.filter.translationTranslation']}"/>
+                                </td>
+                                <td>
+                                    <h:selectBooleanCheckbox id="noteText" styleClass="filterCheckbox" disabled="#{translationControllerFilter.disabledValue}"
+                                                             value="#{translationControllerFilter.noteText}" />
+                                    <p:outputLabel styleClass="filterLabel" for="noteText" value="#{label['translation.filter.noteText']}"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </p:column>
+                </p:row>
+                <p:row>
+                    <p:column style="width: 25%">
+                        <p:outputLabel styleClass="filterLabel" value="#{label['translation.filter.account']}"/><br/>
+                        <p:autoComplete styleClass="filterField" value="#{translationControllerFilter.username}" 
+                                        completeMethod="#{translationControllerFilter.completeAccount}" 
+                                        var="account" itemLabel="#{account.name}" itemValue="#{account.username}"/>
+                    </p:column>
+                    <p:column style="width: 25%">
+                        <p:outputLabel styleClass="filterLabel" value="#{label['translation.filter.glossaryType']}"/><br/>
+                        <p:selectOneMenu styleClass="filterTypes" style="width: 80%" var="type" value="#{translationControllerFilter.glossaryType}">
+                            <p:ajax update="translationFilterGlossaryName"/>
+                            <f:selectItems value="#{translationControllerFilter.glossaryTypes}" var="t" itemLabel="#{label['glossaryType.'.concat(t.name)]}" itemValue="#{t}" />
+                            <p:column>
+                                <span class="colorCircle" style="background-color: #{type.color}" />
+                                <h:outputText styleClass="colorCircleText" value="#{label['glossaryType.'.concat(type.name)]}" />
+                            </p:column>
+                        </p:selectOneMenu>
+                    </p:column>
+                    <p:column style="width: 25%">
+                        <p:outputLabel styleClass="filterLabel" value="#{label['translation.filter.glossaryName']}"/><br/>
+                        <p:inputText id="translationFilterGlossaryName" styleClass="filterField serifText" disabled="#{translationControllerFilter.glossaryNameDisabled}"
+                                     value="#{translationControllerFilter.glossaryName}"/>
+                    </p:column>
+                    <p:column style="width: 25%">
+                        <p:panelGrid>
+                            <p:row>
+                                <p:column style="width: 72px">
+                                    <p:outputLabel styleClass="filterLabel" value="#{label['translation.filter.page']}"/><br/>
+                                    <p:inputText styleClass="filterField fieldRight" value="#{translationControllerFilter.page}" />
+                                </p:column>
+                                <p:column style="width: 72px">
+                                    <p:outputLabel styleClass="filterLabel" value="#{label['translation.filter.paragraph']}"/><br/>
+                                    <p:inputText styleClass="filterField fieldRight" value="#{translationControllerFilter.paragraph}" />
+                                </p:column>
+                            </p:row>
+                        </p:panelGrid>
+                    </p:column>
+                </p:row>
+            </p:panelGrid>
+            <p:panelGrid styleClass="filterPanelGrid">
+                <p:row style="height: 32px">
+                    <p:column style="width: 20%">
+                        <h:selectBooleanCheckbox id="matchCase" styleClass="filterCheckbox" disabled="#{translationControllerFilter.disabledValue}"
+                                                 value="#{translationControllerFilter.matchCase}"/>
+                        <p:outputLabel styleClass="filterLabel" for="matchCase" value="#{label['translation.filter.matchCase']}"/>
+                    </p:column>
+                    <p:column style="width: 30%">
+                        <h:selectBooleanCheckbox id="wholeWord" styleClass="filterCheckbox" disabled="#{translationControllerFilter.disabledValue}"
+                                                 value="#{translationControllerFilter.wholeWord}" />
+                        <p:outputLabel styleClass="filterLabel" for="wholeWord" value="#{label['translation.filter.wholeWord']}"/>
+                    </p:column>
+                    <p:column>
+                        <h:selectBooleanCheckbox id="bold" styleClass="filterCheckbox" disabled="#{translationControllerFilter.disabledValue}"
+                                                 value="#{translationControllerFilter.bold}" />
+                        <p:outputLabel styleClass="filterLabel" for="bold" value="#{label['translation.filter.bold']}"/>
+                    </p:column>
+                    <p:column>
+                        <h:selectBooleanCheckbox id="italic" styleClass="filterCheckbox" disabled="#{translationControllerFilter.disabledValue}"
+                                                 value="#{translationControllerFilter.italic}" />
+                        <p:outputLabel styleClass="filterLabel" for="italic" value="#{label['translation.filter.italic']}"/>
+                    </p:column>
+                    <p:column>
+                        <h:selectBooleanCheckbox id="smallCaps" styleClass="filterCheckbox" disabled="#{translationControllerFilter.disabledValue}"
+                                                 value="#{translationControllerFilter.smallCaps}" />
+                        <p:outputLabel styleClass="filterLabel" for="smallCaps" value="#{label['translation.filter.smallCaps']}"/>
+                    </p:column>
+                </p:row>
+                <p:row>
+                    <p:column>
+                        <h:selectBooleanCheckbox id="onlyResources" value="#{translationControllerFilter.onlyResources}" />
+                        <p:outputLabel styleClass="filterLabel" for="onlyResources" value="#{label['translation.filter.onlyResources']}"/>
+                    </p:column>
+                    <p:column/>
+                    <p:column colspan="3">
+                        <p:outputLabel styleClass="filterLabel" value="#{label['translation.filter.occurrences']}: "/> 
+                        <p:outputLabel styleClass="statisticsLabel" value="#{translationControllerFilter.statistics.count}"/>
+
+                        <p:outputLabel styleClass="filterLabel" value="#{label['translation.filter.characterCount']}: "/> 
+                        <p:outputLabel styleClass="statisticsLabel" value="#{translationControllerFilter.statistics.translationCharacters}"/>
+                    </p:column>
+                </p:row>
+            </p:panelGrid>
+            <div align="right">       
+                <p:commandButton styleClass="translationToolbarButton filterButton" value="#{label['translation.filter.filter']}" icon="ui-icon-search"
+                                 action="#{translationControllerFilter.filterAction()}"
+                                 update=":translationToolbarForm :translationTableForm :translationDescriptionForm :translationNoteForm :translationGlossaryForm :translationSuggestionForm :growl @(.statisticsLabel)"
+                                 onstart="PF('loadingDialog').show()" oncomplete="PF('translationTable').getPaginator().setPage(0); PF('loadingDialog').hide()"/> 
+
+                <p:commandButton styleClass="translationToolbarButton filterButton" value="#{label['translation.filter.cancel']}" icon="ui-icon-refresh"
+                                 action="#{translationControllerFilter.cancelAction()}"
+                                 update=":translationFilterForm :translationToolbarForm :translationTableForm :translationDescriptionForm :translationNoteForm :translationGlossaryForm :translationSuggestionForm :growl"
+                                 onstart="PF('loadingDialog').show()" oncomplete="PF('translationTable').getPaginator().setPage(0); PF('loadingDialog').hide()"/> 
+            </div>
+

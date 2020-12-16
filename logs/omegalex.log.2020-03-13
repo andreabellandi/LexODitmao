@@ -1,0 +1,82 @@
+2020-03-13 17:28:24,447 INFO OmegaLex start
+2020-03-13 17:29:04,723 INFO (admin) navigate to lexicon editor
+2020-03-13 17:29:27,462 INFO (admin) LOAD lexicon fr
+2020-03-13 17:29:40,307 INFO (null) DURATA QUERY SENSO: 1
+2020-03-13 17:29:40,309 INFO (admin) LOCK the lexical entry related to tégument_d_APOS_oignon_fr_lemma
+2020-03-13 17:29:40,309 INFO (null) DURATA QUERY LEMMA: 1618
+2020-03-13 17:29:56,083 INFO (admin) LOAD lexicon aoc
+2020-03-13 17:30:10,624 INFO (null) DURATA QUERY FORMA: 4
+2020-03-13 17:30:10,629 INFO (null) DURATA QUERY FORMA: 3
+2020-03-13 17:30:10,633 INFO (null) DURATA QUERY FORMA: 4
+2020-03-13 17:30:10,977 INFO (null) DURATA QUERY SENSO: 2
+2020-03-13 17:30:10,979 INFO (admin) UNLOCK the lexical entry related to suc_d_APOS_aranhons_aoc_lemma
+2020-03-13 17:30:10,979 INFO (admin) LOCK the lexical entry related to suc_d_APOS_aranhons_aoc_lemma
+2020-03-13 17:30:10,979 INFO (null) DURATA QUERY LEMMA: 1516
+2020-03-13 17:30:16,699 INFO (null) DURATA QUERY FORMA: 3
+2020-03-13 17:30:16,704 INFO (null) DURATA QUERY FORMA: 3
+2020-03-13 17:30:16,711 INFO (null) DURATA QUERY FORMA: 5
+2020-03-13 17:30:17,101 INFO (null) DURATA QUERY SENSO: 2
+2020-03-13 17:30:17,103 INFO (admin) UNLOCK the lexical entry related to suc_d_APOS_aranhons_aoc_lemma
+2020-03-13 17:30:17,103 INFO (admin) LOCK the lexical entry related to suc_d_APOS_aranhons_aoc_lemma
+2020-03-13 17:30:17,104 INFO (null) DURATA QUERY LEMMA: 1541
+2020-03-13 17:30:40,262 INFO (admin) UPDATE Lemma name from suc d’aranhons to suc d’aranhons
+2020-03-13 17:30:41,090 INFO (admin) UPDATE Lemma name from suc d’aranhons to suc d’aranhons
+2020-03-13 17:30:41,841 INFO (admin) UPDATE Lemma name from suc d’aranhons to suc d’aranhons
+2020-03-13 17:30:42,602 INFO (admin) UPDATE Lemma name from suc d’aranhons to suc d’aranhons
+2020-03-13 17:33:49,455 INFO (null) DURATA QUERY SENSO: 2
+2020-03-13 17:33:49,457 INFO (admin) UNLOCK the lexical entry related to suc_d_APOS_armiges_aoc_lemma
+2020-03-13 17:33:49,457 INFO (admin) LOCK the lexical entry related to suc_d_APOS_armiges_aoc_lemma
+2020-03-13 17:33:49,457 INFO (null) DURATA QUERY LEMMA: 1508
+2020-03-13 17:34:03,288 INFO (null) DURATA QUERY FORMA: 3
+2020-03-13 17:34:03,293 INFO (null) DURATA QUERY FORMA: 3
+2020-03-13 17:34:03,296 INFO (null) DURATA QUERY FORMA: 2
+2020-03-13 17:34:03,694 INFO (null) DURATA QUERY SENSO: 1
+2020-03-13 17:34:03,696 INFO (admin) UNLOCK the lexical entry related to suc_d_APOS_aranhons_aoc_lemma
+2020-03-13 17:34:03,696 INFO (admin) LOCK the lexical entry related to suc_d_APOS_aranhons_aoc_lemma
+2020-03-13 17:34:03,697 INFO (null) DURATA QUERY LEMMA: 1505
+2020-03-13 17:34:12,285 INFO (null) DURATA QUERY FORMA: 2
+2020-03-13 17:34:12,289 INFO (null) DURATA QUERY FORMA: 2
+2020-03-13 17:34:12,291 INFO (null) DURATA QUERY FORMA: 1
+2020-03-13 17:34:12,660 INFO (null) DURATA QUERY SENSO: 1
+2020-03-13 17:34:12,663 INFO (admin) UNLOCK the lexical entry related to suc_d_APOS_aranhons_aoc_lemma
+2020-03-13 17:34:12,663 INFO (admin) LOCK the lexical entry related to suc_d_APOS_aranhons_aoc_lemma
+2020-03-13 17:34:12,663 INFO (null) DURATA QUERY LEMMA: 1515
+2020-03-13 17:37:10,134 INFO (null) DURATA QUERY FORMA: 2
+2020-03-13 17:37:10,139 INFO (null) DURATA QUERY FORMA: 3
+2020-03-13 17:37:10,141 INFO (null) DURATA QUERY FORMA: 2
+2020-03-13 17:37:10,516 INFO (null) DURATA QUERY SENSO: 2
+2020-03-13 17:37:10,518 INFO (admin) UNLOCK the lexical entry related to suc_d_APOS_aranhons_aoc_lemma
+2020-03-13 17:37:10,519 INFO (admin) LOCK the lexical entry related to suc_d_APOS_aranhons_aoc_lemma
+2020-03-13 17:37:10,519 INFO (null) DURATA QUERY LEMMA: 1465
+2020-03-13 17:46:45,107 INFO OmegaLex start
+2020-03-13 17:46:53,891 INFO (admin) navigate to lexicon editor
+2020-03-13 17:47:24,563 INFO (null) DURATA QUERY FORMA: 22
+2020-03-13 17:47:24,567 INFO (null) DURATA QUERY FORMA: 3
+2020-03-13 17:47:24,573 INFO (null) DURATA QUERY FORMA: 5
+2020-03-13 17:47:24,957 INFO (null) DURATA QUERY SENSO: 2
+2020-03-13 17:47:24,960 INFO (admin) LOCK the lexical entry related to suc_d_APOS_aranhons_aoc_lemma
+2020-03-13 17:47:24,960 INFO (null) DURATA QUERY LEMMA: 1613
+2020-03-13 17:47:29,870 INFO (null) DURATA QUERY FORMA: 3
+2020-03-13 17:47:29,875 INFO (null) DURATA QUERY FORMA: 3
+2020-03-13 17:47:29,880 INFO (null) DURATA QUERY FORMA: 4
+2020-03-13 17:47:30,269 INFO (null) DURATA QUERY SENSO: 2
+2020-03-13 17:47:30,271 INFO (admin) UNLOCK the lexical entry related to suc_d_APOS_aranhons_aoc_lemma
+2020-03-13 17:47:30,271 INFO (admin) LOCK the lexical entry related to suc_d_APOS_aranhons_aoc_lemma
+2020-03-13 17:47:30,271 INFO (null) DURATA QUERY LEMMA: 1557
+2020-03-13 17:56:45,584 INFO OmegaLex start
+2020-03-13 17:56:56,361 INFO OmegaLex start
+2020-03-13 17:57:08,965 INFO (admin) navigate to lexicon editor
+2020-03-13 18:21:37,054 INFO OmegaLex start
+2020-03-13 18:21:47,576 INFO (admin) navigate to lexicon editor
+2020-03-13 18:27:20,952 INFO OmegaLex start
+2020-03-13 18:28:07,392 INFO (admin) navigate to lexicon editor
+2020-03-13 18:36:12,849 INFO OmegaLex start
+2020-03-13 18:36:20,993 INFO (admin) navigate to lexicon editor
+2020-03-13 18:38:03,770 INFO OmegaLex start
+2020-03-13 18:38:32,519 INFO (admin) navigate to lexicon editor
+2020-03-13 18:39:42,528 INFO (null) DURATA QUERY FORMA: 3
+2020-03-13 18:39:42,533 INFO (null) DURATA QUERY FORMA: 3
+2020-03-13 18:39:42,538 INFO (null) DURATA QUERY FORMA: 3
+2020-03-13 18:39:42,924 INFO (null) DURATA QUERY SENSO: 3
+2020-03-13 18:39:42,929 INFO (admin) LOCK the lexical entry related to suc_d_APOS_aranhons_aoc_lemma
+2020-03-13 18:39:42,929 INFO (null) DURATA QUERY LEMMA: 1971

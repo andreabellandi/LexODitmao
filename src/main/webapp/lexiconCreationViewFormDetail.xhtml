@@ -1,0 +1,714 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <h:form id="lexiconCreationFormDetailForm">
+
+        <h:panelGrid id="LemmaPanelGrid" styleClass="#{lexiconCreationControllerFormDetail.lemma.correspondence.equals('true') ? 'correspondenceTextBlock' : 'lemmaTextBlock'}" columns="2" columnClasses="column" cellpadding="5" 
+                     rendered="#{lexiconCreationControllerFormDetail.lemmaRendered}">
+
+            <h:outputLabel id="lemmaLabel" styleClass="titleStyle" value="Lemma (*):" rendered="#{!lexiconCreationControllerFormDetail.lemma.correspondence.equals('true')}"/>
+            <h:outputLabel id="corrLabel" styleClass="titleStyle" value="Corr. (*):" rendered="#{lexiconCreationControllerFormDetail.lemma.correspondence.equals('true')}"/>
+            <h:panelGrid columns="4" cellpadding="0" cellspacing="0">
+                <p:keyboard id="lemmaName" styleClass="inputTextStyle" readonly="#{lexiconCreationControllerFormDetail.locked}"
+                            value="#{lexiconCreationControllerFormDetail.lemma.formWrittenRepr}"   
+                            layoutTemplate="אבגדהוזחט,יכךלמםנןס,עפףצץקרשת,-space-space-space-space-space-space-space-space-space,اأإآءبتثج,حخدذرزسشص,ضطظعغفقكل,منهةوؤيىئ"
+                            showMode="button" buttonImageOnly="true" buttonImage="/resources/image/keyboardpencil.png">
+                    <p:ajax event="keyup" listener="#{lexiconCreationControllerFormDetail.lemmaNameKeyupEvent}"
+                            update="errorLemma lemmaButtons ComponentGroup_1 ComponentGroup_2"/>
+                    <p:ajax event="change" listener="#{lexiconCreationControllerFormDetail.lemmaNameKeyupEvent}"
+                            update="errorLemma lemmaButtons ComponentGroup_1 ComponentGroup_2"/>
+                </p:keyboard>
+                <h:panelGrid id="lemmaNote" columns="1" columnClasses="column" cellpadding="0">
+                    <p:commandLink id="lemmaNoteLink" title="Comment to lemma" action="#{lexiconCreationControllerFormDetail.openNote}"
+                                   disabled="#{lexiconCreationControllerFormDetail.newAction}"
+                                   update=":editViewTab:lexiconCreationFormDetailForm:lemmaNotePanel lemmaNote" 
+                                   oncomplete="PF('lemmaNotePanel').show('#{component.clientId}')">
+                        <span class="#{lexiconCreationControllerFormDetail.commentIcon}"></span>
+                    </p:commandLink>
+                </h:panelGrid>
+                <h:panelGrid id="userLock" columns="1" columnClasses="column" cellpadding="0" rendered="#{lexiconCreationControllerFormDetail.locked}">
+                    <p:graphicImage id="permission" value="/resources/image/permission.png" height="20px" width="20px"/>
+                    <p:tooltip for="permission" value="#{lexiconCreationControllerFormDetail.locker}" position="top"/>
+                </h:panelGrid>
+            </h:panelGrid>
+
+            <h:outputLabel id="correspLabel" styleClass="titleStyle" value="Correspondences:" 
+                           rendered="#{lexiconCreationControllerFormDetail.newAction or lexiconCreationControllerFormDetail.lemma.correspondence.equals('true')}"/> 
+            <p:selectBooleanCheckbox value="#{lexiconCreationControllerFormDetail.lemma.correspondence}" 
+                                     rendered="#{lexiconCreationControllerFormDetail.newAction or lexiconCreationControllerFormDetail.lemma.correspondence.equals('true')}">
+                <p:ajax listener="#{lexiconCreationControllerFormDetail.correspondenceCheck}" 
+                        update="lemmaButtons editViewTab:lexiconCreationFormDetailForm" />
+            </p:selectBooleanCheckbox>
+
+            <h:outputLabel styleClass="titleStyle" value="Type:" 
+                           rendered="#{!lexiconCreationControllerFormDetail.lemma.type.equals('Word')}"/>   
+            <h:panelGrid columns="1" style="margin-bottom:10px; font-size: 11px; font-weight: bold;"  
+                         styleClass="#{lexiconCreationControllerFormDetail.lemma.correspondence.equals('true') ? 'typeCorrespondenceTextBlock' : 'typeLemmaTextBlock'}"
+                         cellpadding="2" rendered="#{!lexiconCreationControllerFormDetail.lemma.type.equals('Word')}">
+                <p:selectOneRadio id="multiwordTypeForm" value="#{lexiconCreationControllerFormDetail.lemma.type}">
+                    <f:selectItems itemDisabled="#{lexiconCreationControllerFormDetail.locked}" value="#{lexiconCreationControllerFormDetail.multiwordType}" var="t" itemLabel="#{t}" itemValue="#{t}"/>
+                    <p:ajax event="valueChange" update="multiwordTypeForm lemmaButtons langPanel" listener="#{lexiconCreationControllerFormDetail.changeMultiwordType}"/>
+                </p:selectOneRadio> 
+            </h:panelGrid>
+
+            <h:panelGrid id="ComponentGroup_1" columns="1" cellpadding="0" 
+                         rendered="#{(lexiconCreationControllerFormDetail.newAction and !lexiconCreationControllerFormDetail.lemma.type.equals('Word')) or lexiconCreationControllerFormDetail.lemma.multiword.size() > 0}">
+                <h:outputLabel id="componentLabel_1" styleClass="multiwordTitleStyle" value="Words:"/>
+            </h:panelGrid>
+            <h:panelGrid id="ComponentGroup_2" 
+                         rendered="#{(lexiconCreationControllerFormDetail.newAction and !lexiconCreationControllerFormDetail.lemma.type.equals('Word')) or lexiconCreationControllerFormDetail.lemma.multiword.size() > 0}"
+                         styleClass="#{lexiconCreationControllerFormDetail.lemma.multiword.size() > 0 ? 'typeLemmaTextBlock' : 'multiwordTitleStyle'}" columns="2">
+                <ui:repeat value="#{lexiconCreationControllerFormDetail.lemma.multiword}" var="comp">
+                    <h:panelGrid columns="4">
+                        <p:graphicImage style="padding-right: 5px;" value="#{'/resources/image/'.concat(comp.writtenRep.contains('not found') ? 'alertIcon.png' : 'checkIcon.png')}" 
+                                        height="#{comp.writtenRep.contains('not found') ? '20px' : '15px'}" width="#{comp.writtenRep.contains('not found') ? '20px' : '15px'}"/>
+                        <p:autoComplete id="lemmaWord" maxResults="10" dropdown="true"
+                                        value="#{comp.label}" forceSelection="true" readonly="#{lexiconCreationControllerFormDetail.locked}"
+                                        rendered="#{!comp.writtenRep.contains('not found')}"
+                                        completeMethod="#{lexiconCreationControllerFormDetail.completeComponents}">
+                            <f:attribute name="currentComponent" value="#{comp}"/>
+                            <p:ajax event="itemSelect" listener="#{lexiconCreationControllerFormDetail.onWordSelect(comp)}" 
+                                    update="lexicalEntryViewButtons :editViewTab:lexiconCreationFormDetailForm:lemmaButtons"/>
+                        </p:autoComplete>
+                        <h:outputLabel styleClass="noLemmaFoundMessage" value="#{comp.writtenRep}" 
+                                       rendered="#{comp.writtenRep.contains('not found')}"/>
+                        <p:commandButton id="lexicalEntryViewButtons" title="View the lexical entry" icon="fa fa-eye" rendered="#{!comp.writtenRep.contains('not found')}"
+                                         onstart="PF('loadingDialog').show()"  oncomplete="PF('loadingDialog').hide();" 
+                                         action="#{lexiconCreationControllerFormDetail.addEntryOfMultiwordComponent(comp, 'Multiword component')}"
+                                         update=":editViewTab"
+                                         disabled="#{comp.viewButtonDisabled}"/> 
+                    </h:panelGrid>
+                </ui:repeat>
+            </h:panelGrid>
+
+            <h:outputLabel styleClass="titleStyle" rendered="#{lexiconCreationControllerFormDetail.newAction}" value="Language (*):" for="lemmaLang"/>
+            <h:panelGrid id="langPanel" columns="1" cellpadding="0" rendered="#{lexiconCreationControllerFormDetail.newAction}">
+                <p:selectOneMenu id="lemmaLang" styleClass="menu" 
+                                 panelStyleClass="panel" value="#{lexiconCreationControllerFormDetail.lemma.language}" 
+                                 appendTo="lemmaLang">
+                    <p:ajax event="valueChange" listener="#{lexiconCreationControllerFormDetail.languageChanged}" update="lemmaButtons errorLemma lemmaUsedIn"/>
+                    <f:selectItem itemDisabled="#{lexiconCreationControllerFormDetail.locked}" itemLabel="No entry specified" itemValue="" />
+                    <f:selectItems itemDisabled="#{lexiconCreationControllerFormDetail.locked}" value="#{lexiconCreationControllerFormDetail.lexicaLanguages}" />
+                </p:selectOneMenu>
+            </h:panelGrid>
+
+
+            <h:outputLabel styleClass="titleStyle" value="Alphabet:" />
+            <p:selectOneMenu id="lemmaAlphabet" styleClass="menu" panelStyleClass="panel" value="#{lexiconCreationControllerFormDetail.lemma.alphabet}"
+                             rendered="#{!lexiconCreationControllerFormDetail.locked}">
+                <p:ajax listener="#{lexiconCreationControllerFormDetail.lemmaAlphabet}" update="lemmaButtons" />
+                <f:selectItem itemLabel="No entry specified" itemValue="" />
+                <f:selectItems value="#{lexiconCreationControllerFormDetail.alphabet}" />
+            </p:selectOneMenu>
+            <p:inputText styleClass="inputTextStyle" 
+                         value="#{lexiconCreationControllerFormDetail.lemma.alphabet.length() > 0 ? lexiconCreationControllerFormDetail.lemma.alphabet : 'No entry specified'}" 
+                         readonly="true"
+                         rendered="#{lexiconCreationControllerFormDetail.locked}"/>
+
+            <h:outputLabel styleClass="titleStyle" value="Transliteration:"/>
+            <h:panelGrid id="transliterationGroup" columns="1" style="margin-bottom:10px"  
+                         styleClass="#{lexiconCreationControllerFormDetail.lemma.correspondence.equals('true') ? 'typeCorrespondenceTextBlock' : 'typeLemmaTextBlock'}" 
+                         cellpadding="2">
+                <p:keyboard id="lemmaTransliteration" styleClass="inputTextStyle" readonly="#{lexiconCreationControllerFormDetail.locked}"
+                            value="#{lexiconCreationControllerFormDetail.lemma.transliteration}" layoutTemplate="ʾʿāīūḍḏǧġ,ḥḫṣšṭṯẓḌḎ,ǦĠḤḪṢŠṬṮẒ,-clear-spacebar"
+                            showMode="button" buttonImageOnly="true" buttonImage="/resources/image/keyboardpencil.png"
+                            rendered="#{!lexiconCreationControllerFormDetail.lemma.transilterationType.equals('') and !lexiconCreationControllerFormDetail.lemma.transilterationType.equals('none')}">
+                    <p:watermark for="lemmaTransliteration" value="No entry specified"/>
+                    <p:ajax event="change" listener="#{lexiconCreationControllerFormDetail.lemmaTransliteration}" update="lemmaButtons" />
+                    <p:ajax event="keyup" listener="#{lexiconCreationControllerFormDetail.lemmaTransliteration}" update="lemmaButtons" />
+                </p:keyboard>
+
+                <p:selectOneRadio id="transliterationType" value="#{lexiconCreationControllerFormDetail.lemma.transilterationType}" >
+                    <f:selectItems itemDisabled="#{lexiconCreationControllerFormDetail.locked}" value="#{lexiconCreationControllerFormDetail.transliterationType}" 
+                                   var="t" itemLabel="#{t}" itemValue="#{t}"/>
+                    <p:ajax update="transliterationGroup lemmaButtons" listener="#{lexiconCreationControllerFormDetail.changeLemmaTransliterationType}"/>
+                </p:selectOneRadio>      
+
+            </h:panelGrid>
+
+            <h:outputLabel styleClass="titleStyle" value="Bilingual variant:" rendered="#{!lexiconCreationControllerFormDetail.lemma.type.equals('Word') and !lexiconCreationControllerFormDetail.lemma.correspondence.equals('true')}"/> 
+            <p:selectBooleanCheckbox value="#{lexiconCreationControllerFormDetail.lemma.bilingualVariant}" disabled="#{lexiconCreationControllerFormDetail.locked}"
+                                     rendered="#{!lexiconCreationControllerFormDetail.lemma.type.equals('Word') and !lexiconCreationControllerFormDetail.lemma.correspondence.equals('true')}">
+                <p:ajax listener="#{lexiconCreationControllerFormDetail.bilingualVariantType}" update="lemmaButtons" />
+            </p:selectBooleanCheckbox>
+
+            <h:outputLabel styleClass="titleStyle" value="Info:" for="lemmaInfo" rendered="#{!lexiconCreationControllerFormDetail.lemma.correspondence.equals('true')}"/>
+            <p:selectOneMenu id="lemmaInfo" styleClass="menu" panelStyleClass="panel" value="#{lexiconCreationControllerFormDetail.lemma.info}" appendTo="lemmaInfo"
+                             rendered="#{!lexiconCreationControllerFormDetail.locked and !lexiconCreationControllerFormDetail.lemma.correspondence.equals('true')}">
+                <p:ajax event="valueChange" listener="#{lexiconCreationControllerFormDetail.lemmaInfoChanged}" update="lemmaButtons"/>
+                <f:selectItem itemLabel="No entry specified" itemValue="" />
+                <f:selectItems value="#{lexiconCreationControllerFormDetail.lemmaInfo}" />
+            </p:selectOneMenu>
+            <p:inputText styleClass="inputTextStyle" 
+                         value="#{lexiconCreationControllerFormDetail.lemma.info.length() > 0 ? lexiconCreationControllerFormDetail.lemma.info : 'No entry specified'}" 
+                         readonly="true"
+                         rendered="#{lexiconCreationControllerFormDetail.locked and !lexiconCreationControllerFormDetail.lemma.correspondence.equals('true')}"/>
+
+            <h:outputLabel styleClass="titleStyle" value="Part of Speech:" for="lemmaPoS"/>
+            <p:selectOneMenu id="lemmaPoS" appendTo="lemmaPoS" styleClass="menu" panelStyleClass="panel" value="#{lexiconCreationControllerFormDetail.lemma.poS}" 
+                             rendered="#{!lexiconCreationControllerFormDetail.locked}">
+                <p:ajax event="valueChange" listener="#{lexiconCreationControllerFormDetail.lemmaPoSChanged}" 
+                        update="lemmaButtons editViewTab:lexiconCreationFormDetailForm"/>
+                <f:selectItem itemLabel="No entry specified" itemValue="" />
+                <f:selectItems value="#{lexiconCreationControllerFormDetail.poS}" />
+            </p:selectOneMenu>
+            <p:inputText styleClass="inputTextStyle" 
+                         value="#{lexiconCreationControllerFormDetail.lemma.poS.length() > 0 ? lexiconCreationControllerFormDetail.lemma.poS : 'No entry specified'}" 
+                         readonly="true"
+                         rendered="#{lexiconCreationControllerFormDetail.locked}"/>
+
+            <h:outputLabel id="lemmaGenderLabel" styleClass="titleStyle" value="Gender:" 
+                           rendered="#{lexiconCreationControllerFormDetail.lemma.poS.equals('noun') or lexiconCreationControllerFormDetail.lemma.poS.equals('syntagma')
+                                       or lexiconCreationControllerFormDetail.lemma.poS.equals('adjective') or lexiconCreationControllerFormDetail.lemma.poS.equals('participleAdjective')
+                                       or lexiconCreationControllerFormDetail.lemma.poS.equals('verb')}" />
+            <p:selectOneMenu id="lemmaGender" appendTo="lemmaGender" styleClass="menu" panelStyleClass="panel" value="#{lexiconCreationControllerFormDetail.lemma.gender}"
+                             rendered="#{!lexiconCreationControllerFormDetail.locked and (lexiconCreationControllerFormDetail.lemma.poS.equals('noun') or lexiconCreationControllerFormDetail.lemma.poS.equals('syntagma') or lexiconCreationControllerFormDetail.lemma.poS.equals('verb')
+                                         or lexiconCreationControllerFormDetail.lemma.poS.equals('adjective') or lexiconCreationControllerFormDetail.lemma.poS.equals('participleAdjective'))}">
+                <p:ajax event="valueChange" listener="#{lexiconCreationControllerFormDetail.lemmaGenderChanged}" update="lemmaButtons"/>
+                <f:selectItem  itemLabel="No entry specified" itemValue="" />
+                <f:selectItems value="#{lexiconCreationControllerFormDetail.gender}" />
+            </p:selectOneMenu>
+            <p:inputText styleClass="inputTextStyle" 
+                         value="#{lexiconCreationControllerFormDetail.lemma.gender.length() > 0 ? lexiconCreationControllerFormDetail.lemma.gender : 'No entry specified'}" 
+                         readonly="true"
+                         rendered="#{lexiconCreationControllerFormDetail.locked and (lexiconCreationControllerFormDetail.lemma.poS.equals('noun')  or lexiconCreationControllerFormDetail.lemma.poS.equals('syntagma'))}"/>
+
+            <h:outputLabel id="lemmaNumberLabel" styleClass="titleStyle" value="Number:" 
+                           rendered="#{lexiconCreationControllerFormDetail.lemma.poS.equals('noun') or lexiconCreationControllerFormDetail.lemma.poS.equals('syntagma') or lexiconCreationControllerFormDetail.lemma.poS.equals('verb')
+                                       or lexiconCreationControllerFormDetail.lemma.poS.equals('adjective') or lexiconCreationControllerFormDetail.lemma.poS.equals('participleAdjective')}"/>
+            <p:selectOneMenu id="lemmaNumber" appendTo="lemmaNumber" styleClass="menu" panelStyleClass="panel" value="#{lexiconCreationControllerFormDetail.lemma.number}"
+                             rendered="#{!lexiconCreationControllerFormDetail.locked and (lexiconCreationControllerFormDetail.lemma.poS.equals('noun') or lexiconCreationControllerFormDetail.lemma.poS.equals('syntagma') or lexiconCreationControllerFormDetail.lemma.poS.equals('verb')
+                                         or lexiconCreationControllerFormDetail.lemma.poS.equals('adjective') or lexiconCreationControllerFormDetail.lemma.poS.equals('participleAdjective'))}">
+                <p:ajax event="valueChange" listener="#{lexiconCreationControllerFormDetail.lemmaNumberChanged}" update="lemmaButtons"/>
+                <f:selectItem itemLabel="No entry specified" itemValue="" />
+                <f:selectItems value="#{lexiconCreationControllerFormDetail.number}" />
+            </p:selectOneMenu>
+            <p:inputText styleClass="inputTextStyle" 
+                         value="#{lexiconCreationControllerFormDetail.lemma.number.length() > 0 ? lexiconCreationControllerFormDetail.lemma.number : 'No entry specified'}" 
+                         readonly="true"
+                         rendered="#{lexiconCreationControllerFormDetail.locked and (lexiconCreationControllerFormDetail.lemma.poS.equals('noun') or lexiconCreationControllerFormDetail.lemma.poS.equals('syntagma'))}"/>
+
+            <h:outputLabel id="lemmaPersonLabel" styleClass="titleStyle" value="Person:" 
+                           rendered="#{lexiconCreationControllerFormDetail.lemma.poS.equals('verb')}" />
+            <p:selectOneMenu id="lemmaPerson" appendTo="lemmaPerson" styleClass="menu" panelStyleClass="panel" value="#{lexiconCreationControllerFormDetail.lemma.person}"
+                             rendered="#{!lexiconCreationControllerFormDetail.locked and lexiconCreationControllerFormDetail.lemma.poS.equals('verb')}">
+                <p:ajax event="valueChange" listener="#{lexiconCreationControllerFormDetail.lemmaPersonChanged}" update="lemmaButtons"/>
+                <f:selectItem  itemLabel="No entry specified" itemValue="" />
+                <f:selectItems value="#{lexiconCreationControllerFormDetail.person}" />
+            </p:selectOneMenu>
+            <p:inputText styleClass="inputTextStyle" 
+                         value="#{lexiconCreationControllerFormDetail.lemma.person.length() > 0 ? lexiconCreationControllerFormDetail.lemma.person : 'No entry specified'}" 
+                         readonly="true"
+                         rendered="#{lexiconCreationControllerFormDetail.locked and lexiconCreationControllerFormDetail.lemma.poS.equals('verb')}"/>
+
+            <h:outputLabel id="lemmaMoodLabel" styleClass="titleStyle" value="Mood:" 
+                           rendered="#{lexiconCreationControllerFormDetail.lemma.poS.equals('verb')}" />
+            <p:selectOneMenu id="lemmaMood" appendTo="lemmaMood" styleClass="menu" panelStyleClass="panel" value="#{lexiconCreationControllerFormDetail.lemma.mood}"
+                             rendered="#{!lexiconCreationControllerFormDetail.locked and lexiconCreationControllerFormDetail.lemma.poS.equals('verb')}">
+                <p:ajax event="valueChange" listener="#{lexiconCreationControllerFormDetail.lemmaMoodChanged}" update="lemmaButtons"/>
+                <f:selectItem  itemLabel="No entry specified" itemValue="" />
+                <f:selectItems value="#{lexiconCreationControllerFormDetail.mood}" />
+            </p:selectOneMenu>
+            <p:inputText styleClass="inputTextStyle" 
+                         value="#{lexiconCreationControllerFormDetail.lemma.mood.length() > 0 ? lexiconCreationControllerFormDetail.lemma.mood : 'No entry specified'}" 
+                         readonly="true"
+                         rendered="#{lexiconCreationControllerFormDetail.locked and lexiconCreationControllerFormDetail.lemma.poS.equals('verb')}"/>
+
+            <h:outputLabel id="lemmaVoiceLabel" styleClass="titleStyle" value="Voice:" 
+                           rendered="#{lexiconCreationControllerFormDetail.lemma.poS.equals('verb')}" />
+            <p:selectOneMenu id="lemmaVoice" appendTo="lemmaVoice" styleClass="menu" panelStyleClass="panel" value="#{lexiconCreationControllerFormDetail.lemma.voice}"
+                             rendered="#{!lexiconCreationControllerFormDetail.locked and lexiconCreationControllerFormDetail.lemma.poS.equals('verb')}">
+                <p:ajax event="valueChange" listener="#{lexiconCreationControllerFormDetail.lemmaVoiceChanged}" update="lemmaButtons"/>
+                <f:selectItem  itemLabel="No entry specified" itemValue="" />
+                <f:selectItems value="#{lexiconCreationControllerFormDetail.voice}" />
+            </p:selectOneMenu>
+            <p:inputText styleClass="inputTextStyle" 
+                         value="#{lexiconCreationControllerFormDetail.lemma.voice.length() > 0 ? lexiconCreationControllerFormDetail.lemma.voice : 'No entry specified'}" 
+                         readonly="true"
+                         rendered="#{lexiconCreationControllerFormDetail.locked and lexiconCreationControllerFormDetail.lemma.poS.equals('verb')}"/>
+
+            <h:outputLabel styleClass="titleStyle" value="Used in:" rendered="#{!lexiconCreationControllerFormDetail.lemma.correspondence.equals('true')}"/>
+            <p:selectOneMenu id="lemmaUsedIn" appendTo="lemmaUsedIn" styleClass="menu" panelStyleClass="panel" value="#{lexiconCreationControllerFormDetail.lemma.usedIn}"
+                             rendered="#{!lexiconCreationControllerFormDetail.locked and !lexiconCreationControllerFormDetail.lemma.correspondence.equals('true')}">
+                <p:ajax event="valueChange" listener="#{lexiconCreationControllerFormDetail.lemmaUsedInChanged}" update="lemmaButtons"/>
+                <f:selectItem itemLabel="No entry specified" itemValue="" />
+                <f:selectItems value="#{lexiconCreationControllerFormDetail.usedIn}" />
+            </p:selectOneMenu>
+            <p:inputText styleClass="inputTextStyle" 
+                         value="#{lexiconCreationControllerFormDetail.lemma.usedIn.length() > 0 ? lexiconCreationControllerFormDetail.lemma.usedIn : 'No entry specified'}" 
+                         readonly="true"
+                         rendered="#{lexiconCreationControllerFormDetail.locked and !lexiconCreationControllerFormDetail.lemma.correspondence.equals('true')}"/>
+
+            <h:outputLabel styleClass="titleStyle" value="See AOc:" rendered="#{!lexiconCreationControllerFormDetail.lemma.language.equals('aoc') and !lexiconCreationControllerFormDetail.lemma.correspondence.equals('true')}"/>
+            <h:panelGrid id="linguisticType" columns="4" style="margin-bottom:10px"  styleClass="typeLemmaTextBlock" cellpadding="2"
+                         rendered="#{!lexiconCreationControllerFormDetail.lemma.language.equals('aoc') and !lexiconCreationControllerFormDetail.lemma.correspondence.equals('true')}">
+                <p:selectBooleanCheckbox disabled="#{lexiconCreationControllerFormDetail.locked}" value="#{lexiconCreationControllerFormDetail.lemma.linguisticType}"
+                                         rendered="#{!lexiconCreationControllerFormDetail.lemma.correspondence.equals('true')}">
+                    <p:ajax listener="#{lexiconCreationControllerFormDetail.lemmaLinguisticType}" update="linguisticType lemmaButtons" />
+                </p:selectBooleanCheckbox>
+                <h:outputLabel styleClass="titleStyle" value="linguistic" rendered="#{!lexiconCreationControllerFormDetail.lemma.correspondence.equals('true')}"/>
+                <p:autoComplete id="linguisticVariant" maxResults="10" disabled="#{!lexiconCreationControllerFormDetail.lemma.linguisticType}" 
+                                value="#{lexiconCreationControllerFormDetail.lemma.linguisticTypeEntry.writtenRep}" size="20"
+                                forceSelection="true" readonly="#{lexiconCreationControllerFormDetail.locked}"
+                                completeMethod="#{lexiconCreationControllerFormDetail.completeTextSeeAOc}"
+                                rendered="#{!lexiconCreationControllerFormDetail.lemma.correspondence.equals('true')}">
+                    <p:ajax event="itemSelect" listener="#{lexiconCreationControllerFormDetail.onLinguisticVariantSelect(lexiconCreationControllerFormDetail.lemma.linguisticTypeEntry)}" 
+                            update="linguisticType lemmaButtons" />
+                </p:autoComplete>
+                <h:outputLabel value="@#{lexiconCreationControllerFormDetail.lemma.linguisticTypeEntry.language}" 
+                               rendered="#{lexiconCreationControllerFormDetail.lemma.linguisticTypeEntry.language.length() > 0 and !lexiconCreationControllerFormDetail.lemma.correspondence.equals('true')}"/>
+            </h:panelGrid>
+
+            <h:outputLabel styleClass="titleStyle" value="Documented in:" rendered="#{lexiconCreationControllerFormDetail.lemma.internalAttestation.size() > 0}"/>
+            <p:accordionPanel styleClass="accordionBackground" activeIndex="-1" rendered="#{lexiconCreationControllerFormDetail.lemma.internalAttestation.size() > 0}">
+                <p:tab id="InternalTitle" title="#{lexiconCreationControllerFormDetail.internalAttestaionTabHeader}" rendered="#{lexiconCreationControllerFormDetail.lemma.internalAttestation.size() > 0}">
+                    <ui:repeat value="#{lexiconCreationControllerFormDetail.lemma.internalAttestation}" var="intAtt" 
+                               rendered="#{lexiconCreationControllerFormDetail.lemma.internalAttestation.size() > 0}">
+                        <h:panelGrid id="lemmaIntAtt" styleClass="lemmaBoxBackground" columns="3" cellpadding="5">
+                            <p:inputText styleClass="inputTextStyle" value="#{lexiconCreationControllerFormDetail.getInternalAttestationLabel(intAtt)}" readonly="true" 
+                                         size="#{lexiconCreationControllerFormDetail.internalAttestationSize()}"/>
+                            <p:commandButton title="Edit item" icon="fa fa-edit" styleClass="lexiconTabView"  
+                                             actionListener="#{lexiconCreationControllerFormDetail.updateInternalAttestation(intAtt)}"
+                                             onstart="PF('loadingDialog').show();"
+                                             oncomplete="PF('intAttestationDialog').show();PF('loadingDialog').hide();"
+                                             update=":internalAttestationCreationDialog 
+                                             :lexiconCreationTabViewForm:tabView:attTree :lexiconCreationTabViewForm:tabView:attFilterLabel"/>
+                            <p:commandButton title="Delete item" icon="fa fa-trash-o" styleClass="lexiconTabView" 
+                                             actionListener="#{lexiconCreationControllerFormDetail.deleteInternalAttestation(intAtt)}"
+                                             onstart="PF('loadingDialog').show()" oncomplete="PF('loadingDialog').hide()"                                         
+                                             update=":editViewTab:lexiconCreationFormDetailForm:LemmaPanelGrid :lexiconCreationTabViewForm:tabView:attTree :lexiconCreationTabViewForm:tabView:attFilterLabel"/>
+                        </h:panelGrid>
+                    </ui:repeat>
+                </p:tab>
+            </p:accordionPanel>
+
+            <h:outputLabel styleClass="titleStyle" value="Other Documentation:" rendered="#{lexiconCreationControllerFormDetail.lemma.externalAttestation.size() > 0}"/>
+            <p:accordionPanel styleClass="accordionBackground" activeIndex="-1" rendered="#{lexiconCreationControllerFormDetail.lemma.externalAttestation.size() > 0}">
+                <p:tab id="ExternalTitle" title="#{lexiconCreationControllerFormDetail.externalAttestaionTabHeader}" rendered="#{lexiconCreationControllerFormDetail.lemma.externalAttestation.size() > 0}">
+                    <ui:repeat value="#{lexiconCreationControllerFormDetail.lemma.externalAttestation}" var="extAtt" 
+                               rendered="#{lexiconCreationControllerFormDetail.lemma.externalAttestation.size() > 0}">
+                        <h:panelGrid id="lemmaExtAtt" styleClass="lemmaBoxBackground" columns="3" cellpadding="5">
+                            <p:inputText styleClass="inputTextStyle" value="#{lexiconCreationControllerFormDetail.getExternalAttestationLabelByType(extAtt)}" 
+                                         readonly="true" size="#{lexiconCreationControllerFormDetail.externalAttestationSize()}"/>
+                            <p:commandButton title="Edit item" icon="fa fa-edit" styleClass="lexiconTabView"  
+                                             actionListener="#{lexiconCreationControllerFormDetail.updateExternalAttestation(extAtt)}"
+                                             onstart="PF('loadingDialog').show();"
+                                             oncomplete="PF('extAttestationDialog').show();PF('loadingDialog').hide();"
+                                             update=":externalAttestationCreationDialog :lexiconCreationTabViewForm:tabView:attTree :lexiconCreationTabViewForm:tabView:attFilterLabel"/>
+                            <p:commandButton title="Delete item" icon="fa fa-trash-o" styleClass="lexiconTabView" 
+                                             actionListener="#{lexiconCreationControllerFormDetail.deleteExternalAttestation(extAtt)}"
+                                             onstart="PF('loadingDialog').show()" oncomplete="PF('loadingDialog').hide()"                                         
+                                             update=":editViewTab:lexiconCreationFormDetailForm:LemmaPanelGrid :lexiconCreationTabViewForm:tabView:attTree :lexiconCreationTabViewForm:tabView:attFilterLabel"/>
+                        </h:panelGrid>
+                    </ui:repeat>
+                </p:tab>
+            </p:accordionPanel>
+
+            <h:outputLabel styleClass="titleStyle" value="See Also:" rendered="#{lexiconCreationControllerFormDetail.lemma.seeAlso.size() > 0}"/>
+            <ui:repeat value="#{lexiconCreationControllerFormDetail.lemma.seeAlso}" var="reference" 
+                       rendered="#{lexiconCreationControllerFormDetail.lemma.seeAlso.size() > 0}">
+                <h:panelGrid id="Reference" columns="4">
+                    <p:autoComplete id="seeAlsoInput" maxResults="10" value="#{reference.writtenRep}" forceSelection="true"
+                                    readonly="#{lexiconCreationControllerFormDetail.locked}" 
+                                    completeMethod="#{lexiconCreationControllerFormDetail.completeText}">
+                        <f:attribute name="corr" value="#{lexiconCreationControllerFormDetail.lemma.correspondence.equals('true')}"/>
+                        <p:ajax event="itemSelect" listener="#{lexiconCreationControllerFormDetail.onReferenceSelect(reference)}" 
+                                update="Reference :editViewTab:lexiconCreationFormDetailForm:lemmaButtons"/>
+                    </p:autoComplete>
+                    <p:watermark class="filterLabel" for="seeAlsoInput" value="Type a lemma"/>   
+                    <p:commandButton id="seeAlsoShowLE" title="View the lexical entry" icon="fa fa-eye"
+                                     onstart="PF('loadingDialog').show()" oncomplete="setHeight();PF('loadingDialog').hide()" 
+                                     action="#{lexiconCreationControllerFormDetail.addEntryOfLexicalRelation(reference, 'See Also')}"
+                                     update=":editViewTab"
+                                     disabled="#{reference.viewButtonDisabled}"/> 
+                    <p:commandButton title="Delete reference" icon="fa fa-trash-o" rendered="#{!lexiconCreationControllerFormDetail.locked}"
+                                     actionListener="#{lexiconCreationControllerFormDetail.removeReference(reference)}" 
+                                     disabled="#{reference.deleteButtonDisabled}" 
+                                     update=":editViewTab:lexiconCreationFormDetailForm:LemmaPanelGrid :editViewTab:lexiconCreationRelationDetailForm"/> 
+                </h:panelGrid>
+            </ui:repeat>
+
+            <h:outputLabel styleClass="titleStyle" value="Bilingual variant:" rendered="#{lexiconCreationControllerFormDetail.lemma.bilingual.size() > 0 and !lexiconCreationControllerFormDetail.lemma.correspondence.equals('true')}"/>
+            <ui:repeat value="#{lexiconCreationControllerFormDetail.lemma.bilingual}" var="bilingual" 
+                       rendered="#{lexiconCreationControllerFormDetail.lemma.bilingual.size() > 0 and !lexiconCreationControllerFormDetail.lemma.correspondence.equals('true')}">
+                <h:panelGrid id="Bilingual" columns="4">
+                    <p:autoComplete id="bilingualInput" maxResults="10" value="#{bilingual.writtenRep}" forceSelection="true"  
+                                    readonly="#{lexiconCreationControllerFormDetail.locked}" completeMethod="#{lexiconCreationControllerFormDetail.completeTextForBilingual}">
+                        <p:ajax event="itemSelect" listener="#{lexiconCreationControllerFormDetail.onBilingualSelect(bilingual)}" 
+                                update="Bilingual :editViewTab:lexiconCreationFormDetailForm:lemmaButtons"/>
+                    </p:autoComplete>
+                    <p:watermark class="filterLabel" for="bilingualInput" value="Type a multiword"/>
+                    <p:commandButton title="View the lexical entry" icon="fa fa-eye"
+                                     onstart="PF('loadingDialog').show()" oncomplete="setHeight();PF('loadingDialog').hide()" 
+                                     action="#{lexiconCreationControllerFormDetail.addEntryOfLexicalRelation(bilingual, 'Bilingual')}"
+                                     update=":editViewTab"
+                                     disabled="#{bilingual.viewButtonDisabled}"/> 
+                    <!--update=":editViewTab:lexiconCreationRelationDetailForm :editViewTab:lexiconCreationSenseDetailForm:SenseDataList :editViewTab:lexiconCreationFormDetailForm:LemmaPanelGrid"-->
+                    <p:commandButton title="Delete bilingual" icon="fa fa-trash-o" rendered="#{!lexiconCreationControllerFormDetail.locked}"
+                                     actionListener="#{lexiconCreationControllerFormDetail.removeBilingual(bilingual)}" 
+                                     disabled="#{bilingual.deleteButtonDisabled}" 
+                                     update=":editViewTab:lexiconCreationFormDetailForm:LemmaPanelGrid :editViewTab:lexiconCreationRelationDetailForm"/> 
+                </h:panelGrid>
+            </ui:repeat>
+
+            <h:outputLabel styleClass="titleStyle" value="Sublemma:" rendered="#{lexiconCreationControllerFormDetail.lemma.sublemma.size() > 0 and !lexiconCreationControllerFormDetail.lemma.correspondence.equals('true')}"/>
+            <ui:repeat value="#{lexiconCreationControllerFormDetail.lemma.sublemma}" var="sublemma" 
+                       rendered="#{lexiconCreationControllerFormDetail.lemma.sublemma.size() > 0 and !lexiconCreationControllerFormDetail.lemma.correspondence.equals('true')}">
+                <h:panelGrid id="Sublemma" columns="4">
+                    <p:autoComplete id="sublemmaInput" maxResults="10" value="#{sublemma.writtenRep}" forceSelection="true"  
+                                    readonly="#{lexiconCreationControllerFormDetail.locked}" completeMethod="#{lexiconCreationControllerFormDetail.completeTextOnlyForMW}">
+                        <p:ajax event="itemSelect" listener="#{lexiconCreationControllerFormDetail.onSublemmaSelect(sublemma)}" 
+                                update="Sublemma :editViewTab:lexiconCreationFormDetailForm:lemmaButtons"/>
+                    </p:autoComplete>
+                    <p:watermark class="filterLabel" for="sublemmaInput" value="Type a sublemma"/>
+                    <p:commandButton title="View the lexical entry" icon="fa fa-eye"
+                                     onstart="PF('loadingDialog').show()" oncomplete="setHeight();PF('loadingDialog').hide()" 
+                                     action="#{lexiconCreationControllerFormDetail.addEntryOfLexicalRelation(sublemma, 'Sublemma')}"
+                                     update=":editViewTab"
+                                     disabled="#{sublemma.viewButtonDisabled}"/> 
+
+                    <p:commandButton title="Delete sublemma" icon="fa fa-trash-o" rendered="#{!lexiconCreationControllerFormDetail.locked}"
+                                     actionListener="#{lexiconCreationControllerFormDetail.removeSublemma(sublemma)}" 
+                                     disabled="#{sublemma.deleteButtonDisabled}" 
+                                     update=":editViewTab:lexiconCreationFormDetailForm:LemmaPanelGrid :editViewTab:lexiconCreationRelationDetailForm"/> 
+                </h:panelGrid>
+            </ui:repeat>
+
+            <h:outputLabel styleClass="titleStyle" value="Collocation:" rendered="#{lexiconCreationControllerFormDetail.lemma.collocation.size() > 0 and !lexiconCreationControllerFormDetail.lemma.correspondence.equals('true')}"/>
+            <ui:repeat value="#{lexiconCreationControllerFormDetail.lemma.collocation}" var="collocation" 
+                       rendered="#{lexiconCreationControllerFormDetail.lemma.collocation.size() > 0 and !lexiconCreationControllerFormDetail.lemma.correspondence.equals('true')}">
+                <h:panelGrid id="Collocation" columns="4">
+                    <p:autoComplete id="collocationInput" maxResults="10" value="#{collocation.writtenRep}" forceSelection="true"  
+                                    readonly="#{lexiconCreationControllerFormDetail.locked}" completeMethod="#{lexiconCreationControllerFormDetail.completeTextOnlyForMW}">
+                        <p:ajax event="itemSelect" listener="#{lexiconCreationControllerFormDetail.onCollocationSelect(collocation)}" 
+                                update="Collocation :editViewTab:lexiconCreationFormDetailForm:lemmaButtons" />
+                    </p:autoComplete>
+                    <p:watermark class="filterLabel" for="collocationInput" value="Type a collocation"/>
+                    <p:commandButton title="View the lexical entry" icon="fa fa-eye"
+                                     onstart="PF('loadingDialog').show()" oncomplete="setHeight();PF('loadingDialog').hide()" 
+                                     action="#{lexiconCreationControllerFormDetail.addEntryOfLexicalRelation(collocation, 'Collocation')}"
+                                     update=":editViewTab"
+                                     disabled="#{collocation.viewButtonDisabled}"/> 
+
+                    <p:commandButton title="Delete collocation" icon="fa fa-trash-o" rendered="#{!lexiconCreationControllerFormDetail.locked}"
+                                     actionListener="#{lexiconCreationControllerFormDetail.removeCollocation(collocation)}" 
+                                     disabled="#{collocation.deleteButtonDisabled}" 
+                                     update=":editViewTab:lexiconCreationFormDetailForm:LemmaPanelGrid :editViewTab:lexiconCreationRelationDetailForm"/> 
+                </h:panelGrid>
+            </ui:repeat>
+
+            <h:outputLabel styleClass="verifiedStyle" value="Verified " rendered="#{!lexiconCreationControllerFormDetail.newAction}"/>
+            <p:selectBooleanCheckbox value="#{lexiconCreationControllerFormDetail.lemma.verified}" rendered="#{!lexiconCreationControllerFormDetail.newAction}"
+                                     disabled="#{!lexiconCreationControllerFormDetail.userEnable or lexiconCreationControllerFormDetail.locked}">
+                <p:ajax update=":editViewTab:lexiconCreationFormDetailForm:lemmaButtons" listener="#{lexiconCreationControllerFormDetail.verifiedChanged}" />
+            </p:selectBooleanCheckbox>
+
+            <h:panelGrid id="lemmaButtons" columns="4" columnClasses="column" cellpadding="0" 
+                         rendered="#{!lexiconCreationControllerFormDetail.locked and (!lexiconCreationControllerFormDetail.verified 
+                                     or (lexiconCreationControllerFormDetail.verified and lexiconCreationControllerFormDetail.userEnable))}">
+                <p:commandButton id="menuButton" type="button" icon="fa fa-plus" title="Add lexical entities and relations"/>
+                <p:menu overlay="true" trigger="menuButton" my="left top" at="left bottom">
+                    <p:menuitem styleClass="lexiconTabView" value="Add new Variant" icon="fa fa-plus" 
+                                disabled="#{lexiconCreationControllerFormDetail.newAction or lexiconCreationControllerFormDetail.lemma.correspondence.equals('true')}" 
+                                update="FormDataList"  
+                                actionListener="#{lexiconCreationControllerFormDetail.addForm()}"/>
+                    <p:menuitem styleClass="lexiconTabView" value="Add new Sense" icon="fa fa-plus" 
+                                actionListener="#{lexiconCreationControllerFormDetail.addSense()}"
+                                onstart="PF('loadingDialog').show()" oncomplete="setHeight();PF('loadingDialog').hide()"
+                                disabled="#{lexiconCreationControllerFormDetail.newAction or lexiconCreationControllerFormDetail.lemma.correspondence.equals('true')}" 
+                                update=":editViewTab:lexiconCreationSenseDetailForm:SenseDataList :systemMessage"/>
+                    <p:menuitem styleClass="lexiconTabView" value="Add new See also" icon="fa fa-plus" 
+                                actionListener="#{lexiconCreationControllerFormDetail.addReference()}"
+                                onstart="PF('loadingDialog').show()" oncomplete="setHeight();PF('loadingDialog').hide()"
+                                disabled="#{lexiconCreationControllerFormDetail.newAction}" 
+                                update="LemmaPanelGrid"/>
+                    <p:separator/>
+                    <p:menuitem styleClass="lexiconTabView" value="Add new Bilingual variant" icon="fa fa-plus" 
+                                actionListener="#{lexiconCreationControllerFormDetail.addBilingual()}"
+                                onstart="PF('loadingDialog').show()" oncomplete="setHeight();PF('loadingDialog').hide()"
+                                update="LemmaPanelGrid" rendered="#{!lexiconCreationControllerFormDetail.lemma.type.equals('Word') or !lexiconCreationControllerFormDetail.lemma.correspondence.equals('true')}"
+                                disabled="#{lexiconCreationControllerFormDetail.newAction}"/>
+                    <p:menuitem styleClass="lexiconTabView" value="Add new Sublemma" icon="fa fa-plus" 
+                                actionListener="#{lexiconCreationControllerFormDetail.addSublemma()}"
+                                onstart="PF('loadingDialog').show()" oncomplete="setHeight();PF('loadingDialog').hide()"
+                                update="LemmaPanelGrid" rendered="#{lexiconCreationControllerFormDetail.lemma.type.equals('Word') and !lexiconCreationControllerFormDetail.lemma.correspondence.equals('true')}"
+                                disabled="#{lexiconCreationControllerFormDetail.newAction}"/>
+                    <p:menuitem styleClass="lexiconTabView" value="Add new Collocation" icon="fa fa-plus" 
+                                actionListener="#{lexiconCreationControllerFormDetail.addCollocation()}"
+                                onstart="PF('loadingDialog').show()" oncomplete="setHeight();PF('loadingDialog').hide()"
+                                update="LemmaPanelGrid" rendered="#{lexiconCreationControllerFormDetail.lemma.type.equals('Word') and !lexiconCreationControllerFormDetail.lemma.correspondence.equals('true')}"
+                                disabled="#{lexiconCreationControllerFormDetail.newAction}"/>
+                    <p:menuitem styleClass="lexiconTabView" value="Internal documentation" icon="fa fa-plus" 
+                                actionListener="#{lexiconCreationControllerFormDetail.addDocIn()}"
+                                oncomplete="PF('intAttestationDialog').show();"
+                                update=":internalAttestationCreationDialog" 
+                                disabled="#{lexiconCreationControllerFormDetail.newAction}"/>
+                    <p:menuitem styleClass="lexiconTabView" value="External documentation" icon="fa fa-plus" 
+                                actionListener="#{lexiconCreationControllerFormDetail.addBibliography()}"
+                                oncomplete="PF('extAttestationDialog').show();"
+                                disabled="#{lexiconCreationControllerFormDetail.newAction}" 
+                                update=":externalAttestationCreationDialog" />
+                </p:menu>
+                <p:commandButton title="Save Lemma" icon="fa fa-save" 
+                                 update="LemmaPanelGrid :lexiconCreationTabViewForm:tabView:lemmaTree :systemMessage
+                                 :editViewTab:lexiconCreationSenseDetailForm :lexiconCreationTabViewForm:tabView:lemmaFilterLabel 
+                                 :lexiconCreationTabViewForm:tabView:attTree :lexiconCreationTabViewForm:tabView:attFilterLabel 
+                                 :lexiconCreationTabViewForm:tabView:formTree :editViewTab:lexiconCreationSenseDetailForm
+                                 FormDataList :editViewTab:lexiconExplorationViewDictionaryForm" 
+                                 action="#{lexiconCreationControllerFormDetail.saveLemma()}"
+                                 onstart="PF('loadingDialog').show()" oncomplete="setHeight();PF('loadingDialog').hide()"
+                                 disabled="#{lexiconCreationControllerFormDetail.lemma.saveButtonDisabled}">
+                    <p:confirm message="If you save this entry as a lemma, it will no longer be possible neither to move it to correspondence nor change its language. Do you want proceed?" icon="ui-icon-alert"/>
+                </p:commandButton>
+                <p:commandButton title="Delete Lemma and all its entries" icon="fa fa-trash" 
+                                 update=":editViewTab:lexiconCreationFormDetailForm :editViewTab:lexiconCreationSenseDetailForm 
+                                 :lexiconCreationTabViewForm:tabView:lemmaTree :lexiconCreationTabViewForm:tabView:formTree 
+                                 :lexiconCreationTabViewForm:tabView:attTree :lexiconCreationTabViewForm:tabView:attFilterLabel 
+                                 :lexiconCreationTabViewForm:tabView:formFilterLabel 
+                                 :lexiconCreationTabViewForm:tabView:lemmaFilterLabel
+                                 :editViewTab:lexiconCreationRelationDetailForm :systemMessage"  
+                                 action="#{lexiconCreationControllerFormDetail.removeLemma()}"
+                                 onstart="PF('loadingDialog').show()" oncomplete="setHeight();PF('loadingDialog').hide()"
+                                 disabled="#{lexiconCreationControllerFormDetail.lemma.deleteButtonDisabled}">
+                    <p:confirm message="#{label['lexicon.creation.confirm.deleteLemma']}" icon="ui-icon-alert" />
+                </p:commandButton>
+            </h:panelGrid>
+
+
+            <h:panelGrid id="errorLemma" columns="1" columnClasses="column" cellpadding="0">
+                <h:outputLabel styleClass="entryErrorMessage" escape="false"
+                               value="#{lexiconCreationControllerFormDetail.entryErrorLabel}" 
+                               rendered="#{lexiconCreationControllerFormDetail.renderedEntryErrorLabel}"/>
+            </h:panelGrid>
+
+
+        </h:panelGrid>
+
+        <p:overlayPanel id="lemmaNotePanel" widgetVar="lemmaNotePanel" dismissable="false" showCloseIcon="true" style="width: 300px; height: 200px"  my="right top">
+            <p:inplace effectSpeed="fast" editor="#{!lexiconCreationControllerFormDetail.locked}">
+                <f:facet name="output">
+                    <h:outputText value="#{lexiconCreationControllerFormDetail.emptyMessage(lexiconCreationControllerFormDetail.lemma.note, '...')}"/>
+                </f:facet>
+                <f:facet name="input">
+                    <p:inputTextarea readonly="#{lexiconCreationControllerFormDetail.locked}" styleClass="managementNoteArea" value="#{lexiconCreationControllerFormDetail.lemma.note}" converter="simpleTextConverter"/>
+                </f:facet>
+                <p:ajax event="save" listener="#{lexiconCreationControllerFormDetail.saveNote()}" onstart="PF('loadingDialog').show()" 
+                        oncomplete="setHeight();PF('loadingDialog').hide()"
+                        update=":editViewTab:lexiconCreationFormDetailForm:lemmaNote :editViewTab:lexiconExplorationViewDictionaryForm :systemMessage"/>
+                <p:ajax event="cancel" listener="#{lexiconCreationControllerFormDetail.closeNote()}"/>
+            </p:inplace>
+        </p:overlayPanel>
+
+        <p:dataList id="FormDataList" styleClass="noBorder" type="definition" var="form" 
+                    value="#{lexiconCreationControllerFormDetail.forms}" emptyMessage="">
+            <h:panelGrid styleClass="formTextBlock" columns="2" cellpadding="5">
+                <h:outputLabel styleClass="titleStyle" value="Variant (*):" />
+                <h:panelGrid columns="2" cellpadding="0" cellspacing="0">
+                    <p:keyboard id="formName" styleClass="inputTextStyle"  readonly="#{lexiconCreationControllerFormDetail.locked}"
+                                value="#{form.formWrittenRepr}" layoutTemplate="אבגדהוזחט,יכךלמםנןס,עפףצץקרשת,-space-space-space-space-space-space-space-space-space,اأإآءبتثج,حخدذرزسشص,ضطظعغفقكل,منهةوؤيىئ,-clear-spacebar"
+                                showMode="button" buttonImageOnly="true" buttonImage="/resources/image/keyboardpencil.png">
+                        <p:ajax event="change" listener="#{lexiconCreationControllerFormDetail.formNameKeyupEvent}" update="formButtons errorForm" />
+                        <p:ajax event="keyup" listener="#{lexiconCreationControllerFormDetail.formNameKeyupEvent}" update="formButtons errorForm" />
+                        <f:attribute name="form" value="#{form}" />
+                    </p:keyboard>
+                    <h:panelGrid id="formNote" columns="1" columnClasses="column" cellpadding="0">
+                        <p:commandLink id="formNoteLink" title="Comment to variant" action="#{lexiconCreationControllerFormDetail.openNote(form.formWrittenRepr)}"
+                                       update="formNotePanel formNote" 
+                                       oncomplete="PF('formNotePanel').show('#{component.clientId}')">
+                            <span class="#{lexiconCreationControllerFormDetail.getCommentIcon(form)}"></span>
+                        </p:commandLink>
+                    </h:panelGrid>
+                </h:panelGrid>
+
+                <h:outputLabel styleClass="titleStyle" value="Alphabet:" />
+                <p:selectOneMenu id="formAlphabet" styleClass="menu" panelStyleClass="panel" value="#{form.alphabet}" rendered="#{!lexiconCreationControllerFormDetail.locked}">
+                    <p:ajax listener="#{lexiconCreationControllerFormDetail.formAlphabet}" update="formButtons" />
+                    <f:attribute name="form" value="#{form}" />
+                    <f:selectItem itemLabel="No entry specified" itemValue="" />
+                    <f:selectItems value="#{lexiconCreationControllerFormDetail.alphabet}" />
+                </p:selectOneMenu>
+                <p:inputText styleClass="inputTextStyle" 
+                             value="#{!form.alphabet.equals('') ? form.alphabet : 'No entry specified'}" 
+                             readonly="true"
+                             rendered="#{lexiconCreationControllerFormDetail.locked}"/>
+
+                <h:outputLabel styleClass="titleStyle" value="Transliteration:"/>
+                <h:panelGrid id="transliterationGroup" columns="1" style="margin-bottom:10px"  styleClass="typeFormTextBlock" cellpadding="2">
+                    <p:keyboard id="formTransliteration" styleClass="inputTextStyle" readonly="#{lexiconCreationControllerFormDetail.locked}"
+                                value="#{form.transliteration}" layoutTemplate="ʾʿāīūḍḏǧġ,ḥḫṣšṭṯẓḌḎ,ǦĠḤḪṢŠṬṮẒ,-clear-spacebar"
+                                showMode="button" buttonImageOnly="true" buttonImage="/resources/image/keyboardpencil.png"
+                                rendered="#{!form.transilterationType.equals('') and !form.transilterationType.equals('none')}">
+                        <p:watermark for="formTransliteration" value="No entry specified" id="watermarkTransliteration" />
+                        <p:ajax event="change" listener="#{lexiconCreationControllerFormDetail.formTransliteration}" update="formButtons" />
+                        <p:ajax event="keyup" listener="#{lexiconCreationControllerFormDetail.formTransliteration}" update="formButtons" />
+                        <f:attribute name="form" value="#{form}" />
+                    </p:keyboard>
+
+                    <p:selectOneRadio id="transliterationType" value="#{form.transilterationType}" >
+                        <f:selectItems itemDisabled="#{lexiconCreationControllerFormDetail.locked}" value="#{lexiconCreationControllerFormDetail.transliterationType}" var="t" itemLabel="#{t}" itemValue="#{t}"/>
+                        <p:ajax update="transliterationGroup formButtons" listener="#{lexiconCreationControllerFormDetail.changeTransliterationType}"/>
+                        <f:attribute name="form" value="#{form}" />
+                    </p:selectOneRadio>      
+
+                </h:panelGrid>
+
+                <h:outputLabel styleClass="titleStyle" value="Gender:" rendered="#{form.poS.equals('noun') or form.poS.equals('adjective') or form.poS.equals('syntagma') or form.poS.equals('verb') or form.poS.equals('participleAdjective')}"/>
+                <p:selectOneMenu id="formGender" styleClass="menu" panelStyleClass="panel" value="#{form.gender}" rendered="#{!lexiconCreationControllerFormDetail.locked 
+                                                                                                    and (form.poS.equals('noun') or form.poS.equals('adjective') or form.poS.equals('syntagma') or form.poS.equals('participleAdjective') or form.poS.equals('verb'))}">
+                    <p:ajax listener="#{lexiconCreationControllerFormDetail.formGenderChanged}" update="formButtons" />
+                    <f:attribute name="form" value="#{form}" />
+                    <f:selectItem itemLabel="No entry specified" itemValue="" />
+                    <f:selectItems value="#{lexiconCreationControllerFormDetail.gender}" />
+                </p:selectOneMenu>
+                <p:inputText styleClass="inputTextStyle" 
+                             value="#{!form.gender.equals('') ? form.gender : 'No entry specified'}" 
+                             readonly="true"
+                             rendered="#{lexiconCreationControllerFormDetail.locked and (form.poS.equals('noun') or form.poS.equals('adjective') or form.poS.equals('syntagma') or form.poS.equals('participleAdjective') or form.poS.equals('verb'))}"/>
+
+                <h:outputLabel styleClass="titleStyle" value="Number:"/>
+                <p:selectOneMenu id="formNumber" styleClass="menu" panelStyleClass="panel" value="#{form.number}" rendered="#{!lexiconCreationControllerFormDetail.locked}">
+                    <p:ajax listener="#{lexiconCreationControllerFormDetail.formNumberChanged}" update="formButtons" />
+                    <f:attribute name="form" value="#{form}" />
+                    <f:selectItem itemLabel="No entry specified" itemValue="" />
+                    <f:selectItems value="#{lexiconCreationControllerFormDetail.number}" />
+                </p:selectOneMenu>
+                <p:inputText styleClass="inputTextStyle" 
+                             value="#{!form.number.equals('') ? form.number : 'No entry specified'}" 
+                             readonly="true"
+                             rendered="#{lexiconCreationControllerFormDetail.locked}"/>
+
+                <h:outputLabel styleClass="titleStyle" value="Used in:" />
+                <p:selectOneMenu id="formUsedIn" appendTo="formUsedIn" styleClass="menu" panelStyleClass="panel" value="#{form.usedIn}"
+                                 rendered="#{!lexiconCreationControllerFormDetail.locked}">
+                    <p:ajax listener="#{lexiconCreationControllerFormDetail.formUsedInChanged}" update="formButtons" />
+                    <f:attribute name="form" value="#{form}" />
+                    <f:selectItem itemLabel="No entry specified" itemValue="" />
+                    <f:selectItems value="#{lexiconCreationControllerFormDetail.usedIn}" />
+                </p:selectOneMenu>
+                <p:inputText styleClass="inputTextStyle" 
+                             value="#{form.usedIn.equals('') ? form.usedIn : 'No entry specified'}" 
+                             readonly="true"
+                             rendered="#{lexiconCreationControllerFormDetail.locked}"/>
+
+                <h:outputLabel styleClass="titleStyle" value="Type:" />
+                <h:panelGrid id="formType" columns="4" style="margin-bottom:10px"  styleClass="typeFormTextBlock" cellpadding="2">
+                    <p:selectBooleanCheckbox disabled="#{lexiconCreationControllerFormDetail.locked}" value="#{form.alphabeticalType}">
+                        <p:ajax listener="#{lexiconCreationControllerFormDetail.formAlphabeticalType}" update="formButtons" />
+                        <f:attribute name="form" value="#{form}" />
+                    </p:selectBooleanCheckbox>
+                    <h:outputLabel styleClass="titleStyle" value="alphabetical" />                       
+                    <p:selectBooleanCheckbox disabled="#{lexiconCreationControllerFormDetail.locked}" value="#{form.graphicType}">
+                        <p:ajax listener="#{lexiconCreationControllerFormDetail.formGraphicType}" update="formButtons" />
+                        <f:attribute name="form" value="#{form}" />
+                    </p:selectBooleanCheckbox>
+                    <h:outputLabel styleClass="titleStyle" value="graphic" />                        
+                    <p:selectBooleanCheckbox disabled="#{lexiconCreationControllerFormDetail.locked}" value="#{form.morphologicalType}">
+                        <p:ajax listener="#{lexiconCreationControllerFormDetail.formMorphologicalType}" update="formButtons" />
+                        <f:attribute name="form" value="#{form}" />
+                    </p:selectBooleanCheckbox>
+                    <h:outputLabel styleClass="titleStyle" value="morphological" />                 
+                    <p:selectBooleanCheckbox disabled="#{lexiconCreationControllerFormDetail.locked}" value="#{form.graphophoneticType}">
+                        <p:ajax listener="#{lexiconCreationControllerFormDetail.formGraphophoneticType}" update="formButtons" />
+                        <f:attribute name="form" value="#{form}" />
+                    </p:selectBooleanCheckbox>
+                    <h:outputLabel styleClass="titleStyle" value="graphophonetic" />                
+                    <p:selectBooleanCheckbox disabled="#{lexiconCreationControllerFormDetail.locked}" value="#{form.morphosyntacticType}">
+                        <p:ajax listener="#{lexiconCreationControllerFormDetail.formMorphosyntacticType}" update="formButtons" />
+                        <f:attribute name="form" value="#{form}" />
+                    </p:selectBooleanCheckbox>
+                    <h:outputLabel styleClass="titleStyle" value="morphosyntactic" />
+                    <p:selectBooleanCheckbox disabled="#{lexiconCreationControllerFormDetail.locked}" value="#{form.unspecifiedType}">
+                        <p:ajax listener="#{lexiconCreationControllerFormDetail.formUnspecifiedType}" update="formButtons" />
+                        <f:attribute name="form" value="#{form}" />
+                    </p:selectBooleanCheckbox>
+                    <h:outputLabel styleClass="titleStyle" value="unspecified" />
+                </h:panelGrid>
+
+                <h:outputLabel styleClass="titleStyle" value="Documented in:" rendered="#{form.internalAttestation.size() > 0}"/>
+                <p:accordionPanel styleClass="accordionBackground" activeIndex="-1" rendered="#{form.internalAttestation.size() > 0}">
+                    <p:tab id="InternalTitle" title="#{lexiconCreationControllerFormDetail.updateAttestationFormBoxes(form)}" 
+                           rendered="#{form.internalAttestation.size() > 0}">
+                        <ui:repeat value="#{form.internalAttestation}" var="intAtt" 
+                                   rendered="#{form.internalAttestation.size() > 0}">
+                            <h:panelGrid id="formIntAtt" styleClass="formBoxBackground" columns="3" cellpadding="5" >
+                                <p:inputText styleClass="inputTextStyle" value="#{lexiconCreationControllerFormDetail.getInternalAttestationLabel(intAtt)}" readonly="true" 
+                                             size="#{lexiconCreationControllerFormDetail.internalAttestationSize()}"/>
+                                <p:commandButton title="Edit item" icon="fa fa-edit" styleClass="lexiconTabView"  
+                                                 actionListener="#{lexiconCreationControllerFormDetail.updateInternalAttestationForm(intAtt, form)}"
+                                                 onstart="PF('loadingDialog').show();"
+                                                 oncomplete="PF('intAttestationDialog').show();PF('loadingDialog').hide();"
+                                                 update=":internalAttestationCreationDialog 
+                                                 :lexiconCreationTabViewForm:tabView:attTree :lexiconCreationTabViewForm:tabView:attFilterLabel"/>
+                                <p:commandButton title="Delete item" icon="fa fa-trash-o" styleClass="lexiconTabView" 
+                                                 actionListener="#{lexiconCreationControllerFormDetail.deleteInternalAttestationForm(intAtt, form)}"
+                                                 onstart="PF('loadingDialog').show()" oncomplete="PF('loadingDialog').hide()"                                         
+                                                 update=":lexiconCreationTabViewForm:tabView:attTree :lexiconCreationTabViewForm:tabView:attFilterLabel 
+                                                 :editViewTab:lexiconCreationFormDetailForm:FormDataList"/>
+                            </h:panelGrid>
+                        </ui:repeat>
+                    </p:tab>
+                </p:accordionPanel>
+
+                <h:panelGrid id="formButtons" columns="4" cellpadding="0"
+                             rendered="#{!lexiconCreationControllerFormDetail.locked and (!lexiconCreationControllerFormDetail.verified 
+                                         or (lexiconCreationControllerFormDetail.verified and lexiconCreationControllerFormDetail.userEnable))}">
+                    <p:commandButton id="menuButton" type="button" icon="fa fa-plus" title="Add relations"/>
+                    <p:menu overlay="true" trigger="menuButton" my="left top" at="left bottom">
+                        <p:menuitem styleClass="lexiconTabView" value="Internal documentation" icon="fa fa-plus" 
+                                    actionListener="#{lexiconCreationControllerFormDetail.addFormDocIn(form)}"
+                                    oncomplete="PF('intAttestationDialog').show();"
+                                    update=":internalAttestationCreationDialog"/>
+
+                    </p:menu>
+                    <p:commandButton title="Save form" icon="fa fa-save" 
+                                     update="FormDataList :lexiconCreationTabViewForm:tabView:formTree :systemMessage
+                                     :lexiconCreationTabViewForm:tabView:attTree :lexiconCreationTabViewForm:tabView:attFilterLabel 
+                                     :lexiconCreationTabViewForm:tabView:formFilterLabel :editViewTab:lexiconExplorationViewDictionaryForm" 
+                                     onstart="PF('loadingDialog').show()" oncomplete="PF('loadingDialog').hide()"
+                                     action="#{lexiconCreationControllerFormDetail.saveForm(form)}"
+                                     disabled="#{form.saveButtonDisabled}">
+                    </p:commandButton>
+                    <p:commandButton title="Delete form" icon="fa fa-trash"
+                                     update="FormDataList :lexiconCreationTabViewForm:tabView:formTree :systemMessage 
+                                     :lexiconCreationTabViewForm:tabView:attTree :lexiconCreationTabViewForm:tabView:attFilterLabel 
+                                     :lexiconCreationTabViewForm:tabView:formFilterLabel" 
+                                     onstart="PF('loadingDialog').show()" oncomplete="PF('loadingDialog').hide()"
+                                     action="#{lexiconCreationControllerFormDetail.removeForm(form)}"
+                                     disabled="#{form.deleteButtonDisabled}">
+                        <p:confirm message="#{label['lexicon.creation.confirm.deleteForm']}" icon="ui-icon-alert" />
+                    </p:commandButton>
+                </h:panelGrid>
+
+                <h:panelGrid id="errorForm" columns="1" columnClasses="column" cellpadding="0">
+                    <h:outputLabel styleClass="entryErrorMessage" value="Variant already exists" 
+                                   rendered="#{lexiconCreationControllerFormDetail.formAlreadyExists}"/>
+                </h:panelGrid>
+            </h:panelGrid>
+            <p:separator style="border: 0;clear: both;padding: 0.6%;background-color: white"/>
+
+            <p:overlayPanel id="formNotePanel" widgetVar="formNotePanel" dismissable="false" showCloseIcon="true" style="width: 300px; height: 200px" my="right top">
+                <p:inplace effectSpeed="fast" editor="#{!lexiconCreationControllerFormDetail.locked}">
+                    <f:facet name="output">
+                        <h:outputText value="#{lexiconCreationControllerFormDetail.emptyMessage(form.note, '...')}"/>
+                    </f:facet>
+                    <f:facet name="input">
+                        <p:inputTextarea styleClass="managementNoteArea" readonly="#{lexiconCreationControllerFormDetail.locked}" 
+                                         value="#{form.note}" converter="simpleTextConverter"/>
+                    </f:facet>
+                    <p:ajax event="save" listener="#{lexiconCreationControllerFormDetail.saveNote(form)}" onstart="PF('loadingDialog').show()" 
+                            oncomplete="PF('loadingDialog').hide()"
+                            update="formNote :editViewTab:lexiconExplorationViewDictionaryForm :systemMessage"/>
+                    <p:ajax event="cancel" listener="#{lexiconCreationControllerFormDetail.closeNote(form.formWrittenRepr)}"/>
+                </p:inplace>
+            </p:overlayPanel>
+
+        </p:dataList>
+
+    </h:form>
+
+
+</ui:composition>

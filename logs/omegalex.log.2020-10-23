@@ -1,0 +1,128 @@
+2020-10-23 10:45:17,929 INFO OmegaLex start
+2020-10-23 10:45:29,276 INFO (admin) navigate to lexicon editor
+2020-10-23 10:46:02,279 INFO (null) DURATA QUERY FORMA: 4
+2020-10-23 10:46:02,286 INFO (null) DURATA QUERY FORMA: 5
+2020-10-23 10:46:02,290 INFO (null) DURATA QUERY FORMA: 4
+2020-10-23 10:46:02,296 INFO (null) DURATA QUERY FORMA: 5
+2020-10-23 10:46:02,299 INFO (null) DURATA QUERY FORMA: 2
+2020-10-23 10:46:02,303 INFO (null) DURATA QUERY FORMA: 3
+2020-10-23 10:46:02,306 INFO (null) DURATA QUERY FORMA: 2
+2020-10-23 10:46:02,309 INFO (null) DURATA QUERY FORMA: 2
+2020-10-23 10:46:02,640 INFO (null) DURATA QUERY SENSO: 2
+2020-10-23 10:46:02,643 INFO (admin) LOCK the lexical entry related to lazert2_aoc_lemma
+2020-10-23 10:46:02,643 INFO (null) DURATA QUERY LEMMA: 2114
+2020-10-23 10:46:19,062 INFO (null) DURATA QUERY SENSO: 1
+2020-10-23 10:46:19,064 INFO (admin) UNLOCK the lexical entry related to lazert1_aoc_lemma
+2020-10-23 10:46:19,064 INFO (admin) LOCK the lexical entry related to lazert1_aoc_lemma
+2020-10-23 10:46:19,064 INFO (null) DURATA QUERY LEMMA: 2044
+2020-10-23 10:46:21,903 INFO (null) DURATA QUERY FORMA: 2
+2020-10-23 10:46:21,912 INFO (null) DURATA QUERY FORMA: 3
+2020-10-23 10:46:22,242 INFO (null) DURATA QUERY SENSO: 1
+2020-10-23 10:46:22,244 INFO (admin) UNLOCK the lexical entry related to laz_aoc_lemma
+2020-10-23 10:46:22,244 INFO (admin) LOCK the lexical entry related to laz_aoc_lemma
+2020-10-23 10:46:22,245 INFO (null) DURATA QUERY LEMMA: 2020
+2020-10-23 10:46:27,558 INFO (admin) ADD empty External Documentation to lemma laz
+2020-10-23 10:47:03,025 INFO (admin) SAVE new external attestation (id DB: 65536) of laz
+2020-10-23 10:53:58,704 INFO (admin) navigate to lexicon editor
+2020-10-23 10:54:19,030 INFO (null) DURATA QUERY FORMA: 1
+2020-10-23 10:54:19,035 INFO (null) DURATA QUERY FORMA: 1
+2020-10-23 10:54:19,039 INFO (null) DURATA QUERY FORMA: 2
+2020-10-23 10:54:19,042 INFO (null) DURATA QUERY FORMA: 2
+2020-10-23 10:54:19,049 INFO (null) DURATA QUERY FORMA: 2
+2020-10-23 10:54:19,383 INFO (null) DURATA QUERY SENSO: 1
+2020-10-23 10:54:19,386 INFO (admin) LOCK the lexical entry related to laca_aoc_lemma
+2020-10-23 10:54:19,386 INFO (null) DURATA QUERY LEMMA: 2100
+2020-10-23 10:54:24,769 INFO (admin) ADD empty External Documentation to lemma laca
+2020-10-23 10:54:37,590 INFO (admin) SAVE new external attestation (id DB: 65537) of laca
+2020-10-23 11:23:26,779 INFO (admin) navigate to lexicon editor
+2020-10-23 11:23:40,848 INFO (admin) LOAD lexicon All languages
+2020-10-23 11:24:23,508 INFO (null) DURATA QUERY FORMA: 2
+2020-10-23 11:24:23,837 INFO (null) DURATA QUERY SENSO: 1
+2020-10-23 11:24:23,839 INFO (admin) LOCK the lexical entry related to affrodillus_lat_lemma
+2020-10-23 11:24:23,839 INFO (null) DURATA QUERY LEMMA: 2042
+2020-10-23 11:24:26,595 INFO (admin) UPDATE Lemma linguistic type of affrodillus to true
+2020-10-23 11:24:46,493 INFO (admin) ADD linguistic variant affrodil@aoc to the Lemma affrodillus
+2020-10-23 11:24:51,473 INFO (admin) UPDATE Lemma affrodillus
+2020-10-23 11:45:37,229 INFO OmegaLex start
+2020-10-23 11:45:48,797 INFO OmegaLex start
+2020-10-23 11:46:50,440 INFO (admin) navigate to lexicon editor
+2020-10-23 11:47:13,660 INFO (admin) LOAD lexicon All languages
+2020-10-23 11:47:37,611 INFO (null) DURATA QUERY FORMA: 5
+2020-10-23 11:47:44,987 INFO (null) DURATA QUERY SENSO: 7023
+2020-10-23 11:47:44,993 INFO (admin) LOCK the lexical entry related to affrodillus_lat_lemma
+2020-10-23 11:47:44,993 INFO (null) DURATA QUERY LEMMA: 10054
+2020-10-23 11:53:25,200 INFO OmegaLex start
+2020-10-23 11:53:31,327 INFO (admin) navigate to lexicon editor
+2020-10-23 11:53:54,586 INFO (admin) LOAD lexicon All languages
+2020-10-23 11:54:13,717 INFO (null) DURATA QUERY FORMA: 4
+2020-10-23 11:54:22,268 INFO (null) DURATA QUERY SENSO: 8205
+2020-10-23 11:54:22,271 INFO (admin) LOCK the lexical entry related to affrodillus_lat_lemma
+2020-10-23 11:54:22,271 INFO (null) DURATA QUERY LEMMA: 11326
+2020-10-23 11:55:22,274 INFO (null) DURATA QUERY SENSO: 5533
+2020-10-23 11:55:22,276 INFO (admin) UNLOCK the lexical entry related to accus_lat_lemma
+2020-10-23 11:55:22,276 INFO (admin) LOCK the lexical entry related to accus_lat_lemma
+2020-10-23 11:55:22,276 INFO (null) DURATA QUERY LEMMA: 7716
+2020-10-23 11:55:48,657 INFO (null) DURATA QUERY FORMA: 3
+2020-10-23 11:55:48,665 INFO (null) DURATA QUERY FORMA: 6
+2020-10-23 11:55:48,670 INFO (null) DURATA QUERY FORMA: 3
+2020-10-23 11:55:48,741 INFO (null) DURATA QUERY FORMA: 3
+2020-10-23 11:55:48,744 INFO (null) DURATA QUERY FORMA: 2
+2020-10-23 11:55:48,747 INFO (null) DURATA QUERY FORMA: 2
+2020-10-23 11:55:48,751 INFO (null) DURATA QUERY FORMA: 2
+2020-10-23 11:55:48,755 INFO (null) DURATA QUERY FORMA: 3
+2020-10-23 11:55:48,760 INFO (null) DURATA QUERY FORMA: 3
+2020-10-23 11:55:48,763 INFO (null) DURATA QUERY FORMA: 2
+2020-10-23 11:55:48,769 INFO (null) DURATA QUERY FORMA: 4
+2020-10-23 11:56:01,336 INFO (null) DURATA QUERY SENSO: 12138
+2020-10-23 11:56:01,339 INFO (admin) UNLOCK the lexical entry related to acassia2_aoc_lemma
+2020-10-23 11:56:01,339 INFO (admin) LOCK the lexical entry related to acassia2_aoc_lemma
+2020-10-23 11:56:01,339 INFO (null) DURATA QUERY LEMMA: 14507
+2020-10-23 11:59:09,628 INFO OmegaLex start
+2020-10-23 11:59:16,554 INFO (admin) navigate to lexicon editor
+2020-10-23 11:59:58,448 INFO (admin) LOAD lexicon All languages
+2020-10-23 12:00:09,197 INFO (null) DURATA QUERY FORMA: 4
+2020-10-23 12:00:09,563 INFO (null) DURATA QUERY SENSO: 2
+2020-10-23 12:00:09,647 INFO (admin) LOCK the lexical entry related to affrodillus_lat_lemma
+2020-10-23 12:00:09,647 INFO (null) DURATA QUERY LEMMA: 3259
+2020-10-23 12:00:22,068 INFO (null) DURATA QUERY SENSO: 1
+2020-10-23 12:00:22,070 INFO (admin) UNLOCK the lexical entry related to aclaminis_lataoc_lemma
+2020-10-23 12:00:22,070 INFO (admin) LOCK the lexical entry related to aclaminis_lataoc_lemma
+2020-10-23 12:00:22,070 INFO (null) DURATA QUERY LEMMA: 2199
+2020-10-23 12:00:29,108 INFO (null) DURATA QUERY FORMA: 2
+2020-10-23 12:00:29,112 INFO (null) DURATA QUERY FORMA: 2
+2020-10-23 12:00:29,116 INFO (null) DURATA QUERY FORMA: 3
+2020-10-23 12:00:29,216 INFO (null) DURATA QUERY FORMA: 3
+2020-10-23 12:00:29,219 INFO (null) DURATA QUERY FORMA: 2
+2020-10-23 12:00:29,223 INFO (null) DURATA QUERY FORMA: 2
+2020-10-23 12:00:29,226 INFO (null) DURATA QUERY FORMA: 2
+2020-10-23 12:00:29,229 INFO (null) DURATA QUERY FORMA: 2
+2020-10-23 12:00:29,232 INFO (null) DURATA QUERY FORMA: 1
+2020-10-23 12:00:29,235 INFO (null) DURATA QUERY FORMA: 2
+2020-10-23 12:00:29,241 INFO (null) DURATA QUERY FORMA: 4
+2020-10-23 12:00:29,602 INFO (null) DURATA QUERY SENSO: 2
+2020-10-23 12:00:29,604 INFO (admin) UNLOCK the lexical entry related to acassia2_aoc_lemma
+2020-10-23 12:00:29,605 INFO (admin) LOCK the lexical entry related to acassia2_aoc_lemma
+2020-10-23 12:00:29,605 INFO (null) DURATA QUERY LEMMA: 2355
+2020-10-23 12:08:12,192 INFO OmegaLex start
+2020-10-23 12:09:54,344 INFO (admin) navigate to lexicon editor
+2020-10-23 12:10:14,785 INFO (admin) LOAD lexicon All languages
+2020-10-23 12:10:24,531 INFO (null) DURATA QUERY FORMA: 5
+2020-10-23 12:10:24,894 INFO (null) DURATA QUERY SENSO: 2
+2020-10-23 12:10:25,023 INFO (admin) LOCK the lexical entry related to affrodillus_lat_lemma
+2020-10-23 12:10:25,023 INFO (null) DURATA QUERY LEMMA: 3370
+2020-10-23 12:19:18,910 INFO OmegaLex start
+2020-10-23 12:21:13,017 INFO (admin) navigate to lexicon editor
+2020-10-23 12:21:34,261 INFO (null) DURATA QUERY FORMA: 3
+2020-10-23 12:21:34,627 INFO (null) DURATA QUERY SENSO: 2
+2020-10-23 12:21:34,629 INFO (admin) LOCK the lexical entry related to adiman_aoc_lemma
+2020-10-23 12:21:34,629 INFO (null) DURATA QUERY LEMMA: 2505
+2020-10-23 12:21:46,045 INFO (admin) LOAD lexicon All languages
+2020-10-23 12:21:55,535 INFO (null) DURATA QUERY SENSO: 2
+2020-10-23 12:21:55,537 INFO (admin) UNLOCK the lexical entry related to accus_lat_lemma
+2020-10-23 12:21:55,537 INFO (admin) LOCK the lexical entry related to accus_lat_lemma
+2020-10-23 12:21:55,537 INFO (null) DURATA QUERY LEMMA: 2201
+2020-10-23 12:22:10,728 INFO (null) DURATA QUERY FORMA: 4
+2020-10-23 12:22:11,091 INFO (null) DURATA QUERY SENSO: 1
+2020-10-23 12:22:11,092 INFO (admin) UNLOCK the lexical entry related to affrodillus_lat_lemma
+2020-10-23 12:22:11,093 INFO (admin) LOCK the lexical entry related to affrodillus_lat_lemma
+2020-10-23 12:22:11,093 INFO (null) DURATA QUERY LEMMA: 2964

@@ -1,0 +1,79 @@
+2020-01-29 15:54:29,505 INFO OmegaLex start
+2020-01-29 15:54:57,857 INFO (admin) navigate to lexicon editor
+2020-01-29 15:56:32,958 INFO (null) DURATA QUERY FORMA: 3
+2020-01-29 15:56:33,255 INFO (null) DURATA QUERY SENSO: 2
+2020-01-29 15:56:33,257 INFO (admin) LOCK the lexical entry related to adust_aoc_lemma
+2020-01-29 15:56:33,257 INFO (null) DURATA QUERY LEMMA: 1845
+2020-01-29 15:57:07,863 INFO (admin) UPDATE Lemma name from adustt to adustt
+2020-01-29 15:57:08,505 INFO (admin) UPDATE Lemma name from adustte to adustte
+2020-01-29 15:57:09,145 INFO (admin) UPDATE Lemma name from adusttest to adusttest
+2020-01-29 15:57:09,803 INFO (admin) UPDATE Lemma name from adusttest to adusttest
+2020-01-29 15:57:14,942 INFO (admin) UPDATE Lemma name from adusttest to adusttest
+2020-01-29 15:57:21,627 INFO (admin) SAVE updated Lemma with renaming from adust to adusttest
+2020-01-29 15:57:24,802 INFO (null) DURATA QUERY SENSO: 2
+2020-01-29 15:57:34,975 INFO (admin) RESET Lemma Search Filter 
+2020-01-29 15:57:43,130 INFO (null) DURATA QUERY FORMA: 3
+2020-01-29 15:57:43,135 INFO (null) DURATA QUERY FORMA: 2
+2020-01-29 15:57:43,141 INFO (null) DURATA QUERY FORMA: 3
+2020-01-29 15:57:43,145 INFO (null) DURATA QUERY FORMA: 2
+2020-01-29 15:57:43,150 INFO (null) DURATA QUERY FORMA: 2
+2020-01-29 15:57:43,461 INFO (null) DURATA QUERY SENSO: 1
+2020-01-29 15:57:43,462 INFO (admin) UNLOCK the lexical entry related to acitoal_aoc_lemma
+2020-01-29 15:57:43,463 INFO (admin) LOCK the lexical entry related to acitoal_aoc_lemma
+2020-01-29 15:57:43,463 INFO (null) DURATA QUERY LEMMA: 1893
+2020-01-29 15:57:47,956 INFO (null) DURATA QUERY FORMA: 2
+2020-01-29 15:57:48,267 INFO (null) DURATA QUERY SENSO: 2
+2020-01-29 15:57:48,269 INFO (admin) UNLOCK the lexical entry related to adusttest_aoc_lemma
+2020-01-29 15:57:48,269 INFO (admin) LOCK the lexical entry related to adusttest_aoc_lemma
+2020-01-29 15:57:48,269 INFO (null) DURATA QUERY LEMMA: 1840
+2020-01-29 15:58:03,140 INFO (null) DURATA QUERY SENSO: 1
+2020-01-29 15:58:03,142 INFO (admin) UNLOCK the lexical entry related to agremat_aoc_lemma
+2020-01-29 15:58:03,142 INFO (admin) LOCK the lexical entry related to agremat_aoc_lemma
+2020-01-29 15:58:03,142 INFO (null) DURATA QUERY LEMMA: 1857
+2020-01-29 15:58:07,632 INFO (null) DURATA QUERY FORMA: 1
+2020-01-29 15:58:07,937 INFO (null) DURATA QUERY SENSO: 1
+2020-01-29 15:58:07,939 INFO (admin) UNLOCK the lexical entry related to adiman_aoc_lemma
+2020-01-29 15:58:07,940 INFO (admin) LOCK the lexical entry related to adiman_aoc_lemma
+2020-01-29 15:58:07,940 INFO (null) DURATA QUERY LEMMA: 1868
+2020-01-29 15:58:14,033 INFO (null) DURATA QUERY FORMA: 2
+2020-01-29 15:58:14,037 INFO (null) DURATA QUERY FORMA: 1
+2020-01-29 15:58:14,336 INFO (null) DURATA QUERY SENSO: 1
+2020-01-29 15:58:14,338 INFO (admin) UNLOCK the lexical entry related to abelha_aoc_lemma
+2020-01-29 15:58:14,338 INFO (admin) LOCK the lexical entry related to abelha_aoc_lemma
+2020-01-29 15:58:14,338 INFO (null) DURATA QUERY LEMMA: 1828
+2020-01-29 15:58:49,735 INFO (admin) UPDATE Lemma name from abelhat to abelhat
+2020-01-29 15:58:50,362 INFO (admin) UPDATE Lemma name from abelhatest to abelhatest
+2020-01-29 15:58:50,997 INFO (admin) UPDATE Lemma name from abelhatest to abelhatest
+2020-01-29 15:58:51,649 INFO (admin) UPDATE Lemma name from abelhatest to abelhatest
+2020-01-29 15:58:53,004 INFO (admin) UPDATE Lemma name from abelhatest to abelhatest
+2020-01-29 15:58:54,127 INFO (admin) SAVE updated Lemma with renaming from abelha to abelhatest
+2020-01-29 15:58:56,433 INFO (null) DURATA QUERY SENSO: 1
+2020-01-29 15:59:07,845 INFO (admin) RESET Lemma Search Filter 
+2020-01-29 15:59:12,321 INFO (null) DURATA QUERY FORMA: 1
+2020-01-29 15:59:12,324 INFO (null) DURATA QUERY FORMA: 2
+2020-01-29 15:59:12,623 INFO (null) DURATA QUERY SENSO: 1
+2020-01-29 15:59:12,625 INFO (admin) UNLOCK the lexical entry related to abelhatest_aoc_lemma
+2020-01-29 15:59:12,625 INFO (admin) LOCK the lexical entry related to abelhatest_aoc_lemma
+2020-01-29 15:59:12,625 INFO (null) DURATA QUERY LEMMA: 1809
+2020-01-29 16:22:19,427 INFO (admin) NEW Lemma Word
+2020-01-29 16:22:22,619 INFO (admin) UPDATE Lemma name from p to p
+2020-01-29 16:22:23,218 INFO (admin) UPDATE Lemma name from pipp to pipp
+2020-01-29 16:22:23,858 INFO (admin) UPDATE Lemma name from pip to pip
+2020-01-29 16:22:24,471 INFO (admin) UPDATE Lemma name from  to 
+2020-01-29 16:22:25,090 INFO (admin) UPDATE Lemma name from aa to aa
+2020-01-29 16:22:25,715 INFO (admin) UPDATE Lemma name from aaapr to aaapr
+2020-01-29 16:22:26,336 INFO (admin) UPDATE Lemma name from aaaprova to aaaprova
+2020-01-29 16:22:26,945 INFO (admin) UPDATE Lemma name from aaaprova to aaaprova
+2020-01-29 16:22:27,591 INFO (admin) UPDATE Lemma name from aaaprova to aaaprova
+2020-01-29 16:22:28,215 INFO (admin) UPDATE Lemma name from aaaprova to aaaprova
+2020-01-29 16:22:28,829 INFO (admin) UPDATE Lemma name from aaaprova to aaaprova
+2020-01-29 16:22:29,442 INFO (admin) UPDATE Lemma name from aaaprova to aaaprova
+2020-01-29 16:22:30,050 INFO (admin) UPDATE Lemma name from aaaprova to aaaprova
+2020-01-29 16:22:30,890 INFO (admin) UPDATE Lemma name from aaaprova to aaaprova
+2020-01-29 16:22:31,526 INFO (admin) UPDATE Lemma name from aaaprova to aaaprova
+2020-01-29 16:22:32,147 INFO (admin) UPDATE Lemma name from aaaprova to aaaprova
+2020-01-29 16:22:32,747 INFO (admin) UPDATE Lemma name from aaaprova to aaaprova
+2020-01-29 16:22:32,788 INFO (admin) UPDATE Lemma language of aaaprova to aoc
+2020-01-29 16:22:38,821 INFO (admin) SAVE new Lemma and its default sense aaaprova
+2020-01-29 16:22:42,464 INFO (admin) LOCK the lexical entry related to aaaprova_aoc_lemma
+2020-01-29 16:22:51,907 INFO (admin) RESET Lemma Search Filter 

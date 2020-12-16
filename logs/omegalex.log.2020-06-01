@@ -1,0 +1,28 @@
+2020-06-01 16:20:17,377 INFO OmegaLex start
+2020-06-01 16:20:27,133 INFO (admin) navigate to lexicon editor
+2020-06-01 16:20:51,369 INFO (admin) NEW Lemma Word
+2020-06-01 16:20:58,010 INFO (admin) NEW Lemma Collocation
+2020-06-01 16:21:01,601 INFO (admin) UPDATE Lemma name from a to a
+2020-06-01 16:21:02,334 INFO (admin) UPDATE Lemma name from an to an
+2020-06-01 16:21:04,067 INFO (admin) UPDATE Lemma name from a to a
+2020-06-01 16:21:04,796 INFO (admin) UPDATE Lemma name from a to a
+2020-06-01 16:21:05,499 INFO (admin) UPDATE Lemma name from abl to abl
+2020-06-01 16:21:06,211 INFO (admin) UPDATE Lemma name from ab to ab
+2020-06-01 16:21:06,957 INFO (admin) UPDATE Lemma name from abel to abel
+2020-06-01 16:21:07,674 INFO (admin) UPDATE Lemma name from abelha  to abelha 
+2020-06-01 16:21:08,385 INFO (admin) UPDATE Lemma name from abelha  to abelha 
+2020-06-01 16:21:09,095 INFO (admin) UPDATE Lemma name from abelha  to abelha 
+2020-06-01 16:21:09,798 INFO (admin) UPDATE Lemma name from abelha  to abelha 
+2020-06-01 16:21:10,535 INFO (admin) UPDATE Lemma name from abelha  to abelha 
+2020-06-01 16:21:11,290 INFO (admin) UPDATE Lemma name from abelha aoc  to abelha aoc 
+2020-06-01 16:21:12,014 INFO (admin) UPDATE Lemma name from abelha aoc f to abelha aoc f
+2020-06-01 16:21:12,737 INFO (admin) UPDATE Lemma name from abelha aoc fia to abelha aoc fia
+2020-06-01 16:21:13,440 INFO (admin) UPDATE Lemma name from abelha aoc fia to abelha aoc fia
+2020-06-01 16:21:14,169 INFO (admin) UPDATE Lemma name from abelha aoc fia2 to abelha aoc fia2
+2020-06-01 16:21:14,900 INFO (admin) UPDATE Lemma name from abelha aoc fia2 to abelha aoc fia2
+2020-06-01 16:21:15,748 INFO (admin) UPDATE Lemma name from abelha aoc fia2 to abelha aoc fia2
+2020-06-01 16:21:16,617 INFO (admin) UPDATE Lemma name from abelha aoc fia2 to abelha aoc fia2
+2020-06-01 16:21:17,330 INFO (admin) UPDATE Lemma name from abelha aoc fia2 to abelha aoc fia2
+2020-06-01 16:21:27,988 INFO (admin) UPDATE Lemma name from abelha aoc fia to abelha aoc fia
+2020-06-01 16:21:28,767 INFO (admin) UPDATE Lemma name from abelha aoc  to abelha aoc 
+2020-06-01 16:21:29,458 INFO (admin) UPDATE Lemma name from ab to ab

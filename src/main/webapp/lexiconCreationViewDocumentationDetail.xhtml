@@ -1,0 +1,75 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <h:form id="lexiconCreationDocumentationDetailForm">
+
+        <h:panelGrid id="DocPanelGrid" styleClass="docTextBlock" columns="2" columnClasses="column" cellpadding="5" 
+                     rendered="#{lexiconCreationControllerDocumentationDetail.docRendered}">
+            <h:outputLabel styleClass="titleStyle" value="Abbreviation (*):"/>
+            <h:inputText value="#{lexiconCreationControllerDocumentationDetail.doc.abbreviation}">
+                <p:ajax event="keyup" listener="#{lexiconCreationControllerDocumentationDetail.docAbbChanged}"
+                        update=":editViewTab:lexiconCreationDocumentationDetailForm:docButtons 
+                        :editViewTab:lexiconCreationDocumentationDetailForm:errorForm"/>
+            </h:inputText>
+            <h:outputLabel styleClass="titleStyle" value="Type (*):"/>
+            <h:panelGrid id="docTypePanel" columns="2" cellpadding="0">
+                <p:selectOneMenu id="docType" styleClass="menu" rendered="#{!lexiconCreationControllerDocumentationDetail.doc.type.equals('Manuscript')}"
+                                 panelStyleClass="panel" value="#{lexiconCreationControllerDocumentationDetail.doc.type}" 
+                                 appendTo="docType">
+                    <p:ajax event="valueChange" listener="#{lexiconCreationControllerDocumentationDetail.docTypeChanged}" 
+                            update="docTypePanel :editViewTab:lexiconCreationDocumentationDetailForm:docButtons"/>
+                    <f:selectItem itemLabel="No entry specified" itemValue="" />
+                    <f:selectItem itemLabel="Text" itemValue="Text"/>
+                    <f:selectItem itemLabel="Book" itemValue="Book" />
+                    <f:selectItem itemLabel="Article" itemValue="Article"/>
+                    <f:selectItem itemLabel="Map" itemValue="Map"/>
+                    <f:selectItem itemLabel="Dictionary" itemValue="Dictionary"/>
+                </p:selectOneMenu>
+                <h:inputText value="#{lexiconCreationControllerDocumentationDetail.doc.type}" readonly="true" 
+                             rendered="#{lexiconCreationControllerDocumentationDetail.doc.type.equals('Manuscript')}"/>
+            </h:panelGrid>
+
+            <h:outputLabel styleClass="titleStyle" value="Title:"/>
+            <h:inputTextarea cols="50" rows="4" value="#{lexiconCreationControllerDocumentationDetail.doc.title}" style="resize: none">
+                <p:ajax event="keyup" listener="#{lexiconCreationControllerDocumentationDetail.docTitleChanged}"
+                        update=":editViewTab:lexiconCreationDocumentationDetailForm:docButtons"/>
+            </h:inputTextarea>
+
+            <h:outputLabel styleClass="titleStyle" value="Resource type:"/>
+            <h:inputText value="#{lexiconCreationControllerDocumentationDetail.doc.sourceType}" readonly="true" rendered="#{!lexiconCreationControllerDocumentationDetail.doc.type.equals('Manuscript')}"/>
+            <h:inputText value="Internal" readonly="true" rendered="#{lexiconCreationControllerDocumentationDetail.doc.type.equals('Manuscript')}"/>
+
+
+            <h:panelGrid id="docButtons" columns="4" columnClasses="column" cellpadding="0">
+                <p:commandButton title="Save Document" icon="fa fa-save" 
+                                 update=":editViewTab:lexiconCreationDocumentationDetailForm :systemMessage
+                                 :lexiconCreationTabViewForm:tabView:docFilterLabel
+                                 :lexiconCreationTabViewForm:tabView:docTree" 
+                                 actionListener="#{lexiconCreationControllerDocumentationDetail.saveDocument()}"
+                                 disabled="#{lexiconCreationControllerDocumentationDetail.doc.saveButtonDisabled}">
+                </p:commandButton>
+                <p:commandButton title="Delete Document" icon="fa fa-trash" 
+                                 update=":editViewTab:lexiconCreationDocumentationDetailForm :systemMessage
+                                 :lexiconCreationTabViewForm:tabView:docFilterLabel
+                                 :lexiconCreationTabViewForm:tabView:docTree" 
+                                 actionListener="#{lexiconCreationControllerDocumentationDetail.removeDocument()}"
+                                 disabled="#{lexiconCreationControllerDocumentationDetail.doc.deleteButtonDisabled}">
+                    <p:confirm message="#{label['lexicon.creation.confirm.deleteDocument']}" icon="ui-icon-alert" />
+                </p:commandButton>
+            </h:panelGrid>
+
+            <h:panelGrid id="errorForm" columns="1" columnClasses="column" cellpadding="0">
+                <h:outputLabel styleClass="entryErrorMessage" value="Abbreviation already exists" 
+                               rendered="#{lexiconCreationControllerDocumentationDetail.docAlreadyExists}"/>
+            </h:panelGrid>
+
+        </h:panelGrid>
+
+
+    </h:form>
+
+</ui:composition>

@@ -1,0 +1,57 @@
+
+<!-- 
+    Created on : 19-sept-2018, 07.23.00
+    Author     : Andrea Bellandi
+    Mail       : andrea.bellandi@ilc.cnr.it
+    Affiliation: Institute for Computational Linguistics "A. Zampolli" - CNR Pisa, Italy
+-->
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <h:panelGroup id="ontoFilterPanel">
+        <h:panelGrid columns="2" rendered="#{lexiconCreationControllerTabViewList.enabledFilter}">
+
+            <h:panelGrid styleClass="ontologyFilterBox" columns="1">
+                <h:panelGrid styleClass="filterLabel" columns="1">
+                    <h:panelGroup>
+                        <h:outputText style="font-weight: bold;" value="Ontology ID: "/>
+                        <h:outputText value="#{lexiconCreationOntologyFilterController.ontologyID}" />
+                    </h:panelGroup>
+                    <h:panelGroup>
+                        <h:outputText style="font-weight: bold;" value="Ontology classes: "/>
+                        <h:outputText value="#{lexiconCreationOntologyFilterController.ontologyClassesNumber}"/>
+                    </h:panelGroup>
+                    <h:panelGroup>
+                        <h:outputText style="font-weight: bold;" value="Object properties: "/>
+                        <h:outputText value="#{lexiconCreationOntologyFilterController.ontologyObjectPropertiesNumber}"/>
+                    </h:panelGroup>
+                    <h:panelGroup>
+                        <h:outputText style="font-weight: bold;" value="Datatype properties: "/>
+                        <h:outputText value="#{lexiconCreationOntologyFilterController.ontologyDatatypePropertiesNumber}" />
+                    </h:panelGroup>
+                    <h:panelGroup>
+                        <h:outputText style="font-weight: bold;" value="Individuals: "/>
+                        <h:outputText value="#{lexiconCreationOntologyFilterController.ontologyIndividualsNumber}" />
+                    </h:panelGroup>
+                </h:panelGrid>
+            </h:panelGrid>
+            
+
+            <h:panelGrid columns="1">
+                <p:commandButton icon="fa fa-expand" actionListener="#{lexiconCreationControllerTabViewList.expandOnto}" 
+                                 title="Expand the ontology classes"
+                                 onstart="PF('loadingDialog').show()" oncomplete="PF('loadingDialog').hide()"
+                                 update=":lexiconCreationTabViewForm:tabView:ontoTree"/>
+                <p:commandButton icon="fa fa-compress" actionListener="#{lexiconCreationControllerTabViewList.collapseOnto}" 
+                                 title="Collapse the ontology classes"
+                                 onstart="PF('loadingDialog').show()" oncomplete="PF('loadingDialog').hide()"
+                                 update=":lexiconCreationTabViewForm:tabView:ontoTree"/>
+            </h:panelGrid>
+
+        </h:panelGrid>
+    </h:panelGroup>
+
+</ui:composition>

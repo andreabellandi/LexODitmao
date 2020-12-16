@@ -1,0 +1,168 @@
+2020-01-31 09:22:07,499 INFO OmegaLex start
+2020-01-31 10:15:58,550 INFO OmegaLex start
+2020-01-31 10:22:40,962 INFO (admin) navigate to lexicon editor
+2020-01-31 10:23:22,792 INFO OmegaLex start
+2020-01-31 10:37:35,279 INFO OmegaLex start
+2020-01-31 10:37:46,086 INFO OmegaLex start
+2020-01-31 10:39:34,834 INFO (admin) navigate to lexicon editor
+2020-01-31 10:41:16,318 INFO (null) DURATA QUERY FORMA: 3
+2020-01-31 10:41:16,323 INFO (null) DURATA QUERY FORMA: 3
+2020-01-31 10:41:16,632 INFO (null) DURATA QUERY SENSO: 2
+2020-01-31 10:41:16,635 INFO (admin) LOCK the lexical entry related to acorus3_aoc_lemma
+2020-01-31 10:41:16,635 INFO (null) DURATA QUERY LEMMA: 2065
+2020-01-31 10:41:22,005 INFO (null) DURATA QUERY FORMA: 2
+2020-01-31 10:41:22,351 INFO (null) DURATA QUERY SENSO: 2
+2020-01-31 10:41:22,353 INFO (admin) UNLOCK the lexical entry related to afestolir_aoc_lemma
+2020-01-31 10:41:22,353 INFO (admin) LOCK the lexical entry related to afestolir_aoc_lemma
+2020-01-31 10:41:22,353 INFO (null) DURATA QUERY LEMMA: 1971
+2020-01-31 10:41:25,288 INFO (null) DURATA QUERY FORMA: 3
+2020-01-31 10:41:25,319 INFO (null) DURATA QUERY FORMA: 3
+2020-01-31 10:41:25,323 INFO (null) DURATA QUERY FORMA: 2
+2020-01-31 10:41:25,328 INFO (null) DURATA QUERY FORMA: 3
+2020-01-31 10:41:25,697 INFO (null) DURATA QUERY SENSO: 2
+2020-01-31 10:41:25,699 INFO (admin) UNLOCK the lexical entry related to affrodillo_aoc_lemma
+2020-01-31 10:41:25,700 INFO (admin) LOCK the lexical entry related to affrodillo_aoc_lemma
+2020-01-31 10:41:25,700 INFO (null) DURATA QUERY LEMMA: 2057
+2020-01-31 10:41:38,754 INFO (null) DURATA QUERY FORMA: 1
+2020-01-31 10:41:38,759 INFO (null) DURATA QUERY FORMA: 2
+2020-01-31 10:41:38,761 INFO (null) DURATA QUERY FORMA: 1
+2020-01-31 10:41:38,765 INFO (null) DURATA QUERY FORMA: 2
+2020-01-31 10:41:38,769 INFO (null) DURATA QUERY FORMA: 2
+2020-01-31 10:41:38,773 INFO (null) DURATA QUERY FORMA: 1
+2020-01-31 10:41:39,089 INFO (null) DURATA QUERY SENSO: 1
+2020-01-31 10:41:39,091 INFO (admin) UNLOCK the lexical entry related to affumar_aoc_lemma
+2020-01-31 10:41:39,091 INFO (admin) LOCK the lexical entry related to affumar_aoc_lemma
+2020-01-31 10:41:39,091 INFO (null) DURATA QUERY LEMMA: 1981
+2020-01-31 10:41:48,408 INFO (admin) UPDATE Lemma name from affumart to affumart
+2020-01-31 10:41:49,130 INFO (admin) UPDATE Lemma name from affumartest to affumartest
+2020-01-31 10:41:49,856 INFO (admin) UPDATE Lemma name from affumartest to affumartest
+2020-01-31 10:41:50,624 INFO (admin) UPDATE Lemma name from affumartest to affumartest
+2020-01-31 10:41:51,344 INFO (admin) UPDATE Lemma name from affumartest to affumartest
+2020-01-31 10:41:58,762 INFO (admin) SAVE updated Lemma with renaming from affumar to affumartest
+2020-01-31 10:52:36,932 INFO (null) DURATA QUERY SENSO: 1
+2020-01-31 11:00:57,056 INFO OmegaLex start
+2020-01-31 11:13:06,540 INFO OmegaLex start
+2020-01-31 11:19:40,958 INFO (admin) navigate to lexicon editor
+2020-01-31 11:20:15,206 INFO (null) DURATA QUERY FORMA: 4
+2020-01-31 11:20:15,212 INFO (null) DURATA QUERY FORMA: 5
+2020-01-31 11:20:15,217 INFO (null) DURATA QUERY FORMA: 4
+2020-01-31 11:20:15,222 INFO (null) DURATA QUERY FORMA: 4
+2020-01-31 11:20:15,535 INFO (null) DURATA QUERY SENSO: 2
+2020-01-31 11:20:15,537 INFO (admin) LOCK the lexical entry related to affrodillo_aoc_lemma
+2020-01-31 11:20:15,537 INFO (null) DURATA QUERY LEMMA: 2156
+2020-01-31 11:20:25,220 INFO (null) DURATA QUERY FORMA: 4
+2020-01-31 11:20:25,228 INFO (null) DURATA QUERY FORMA: 3
+2020-01-31 11:20:25,626 INFO (null) DURATA QUERY SENSO: 1
+2020-01-31 11:20:25,629 INFO (admin) UNLOCK the lexical entry related to afolar2_aoc_lemma
+2020-01-31 11:20:25,629 INFO (admin) LOCK the lexical entry related to afolar2_aoc_lemma
+2020-01-31 11:20:25,629 INFO (null) DURATA QUERY LEMMA: 2047
+2020-01-31 11:20:30,964 INFO (null) DURATA QUERY FORMA: 2
+2020-01-31 11:20:30,968 INFO (null) DURATA QUERY FORMA: 2
+2020-01-31 11:20:30,974 INFO (null) DURATA QUERY FORMA: 3
+2020-01-31 11:20:30,978 INFO (null) DURATA QUERY FORMA: 3
+2020-01-31 11:20:30,983 INFO (null) DURATA QUERY FORMA: 2
+2020-01-31 11:20:30,986 INFO (null) DURATA QUERY FORMA: 2
+2020-01-31 11:20:30,992 INFO (null) DURATA QUERY FORMA: 2
+2020-01-31 11:20:30,998 INFO (null) DURATA QUERY FORMA: 3
+2020-01-31 11:20:31,320 INFO (null) DURATA QUERY SENSO: 1
+2020-01-31 11:20:31,322 INFO (admin) UNLOCK the lexical entry related to aganos_aoc_lemma
+2020-01-31 11:20:31,322 INFO (admin) LOCK the lexical entry related to aganos_aoc_lemma
+2020-01-31 11:20:31,323 INFO (null) DURATA QUERY LEMMA: 1985
+2020-01-31 11:21:12,292 INFO (admin) UPDATE Lemma name from aganost to aganost
+2020-01-31 11:21:13,058 INFO (admin) UPDATE Lemma name from aganostest to aganostest
+2020-01-31 11:21:13,819 INFO (admin) UPDATE Lemma name from aganostest to aganostest
+2020-01-31 11:21:14,688 INFO (admin) UPDATE Lemma name from aganostest to aganostest
+2020-01-31 11:21:24,982 INFO (admin) UPDATE Lemma name from aganostest to aganostest
+2020-01-31 11:21:25,585 INFO (admin) SAVE updated Lemma with renaming from aganos to aganostest
+2020-01-31 11:21:28,650 INFO (null) DURATA QUERY SENSO: 2
+2020-01-31 11:22:04,314 INFO (null) DURATA QUERY FORMA: 3
+2020-01-31 11:22:04,651 INFO (null) DURATA QUERY SENSO: 1
+2020-01-31 11:22:04,653 INFO (admin) UNLOCK the lexical entry related to afolarre1_aoc_lemma
+2020-01-31 11:22:04,653 INFO (admin) LOCK the lexical entry related to afolarre1_aoc_lemma
+2020-01-31 11:22:04,653 INFO (null) DURATA QUERY LEMMA: 2008
+2020-01-31 11:22:07,177 INFO (null) DURATA QUERY FORMA: 2
+2020-01-31 11:22:07,180 INFO (null) DURATA QUERY FORMA: 1
+2020-01-31 11:22:07,185 INFO (null) DURATA QUERY FORMA: 2
+2020-01-31 11:22:07,189 INFO (null) DURATA QUERY FORMA: 1
+2020-01-31 11:22:07,192 INFO (null) DURATA QUERY FORMA: 1
+2020-01-31 11:22:07,195 INFO (null) DURATA QUERY FORMA: 2
+2020-01-31 11:22:07,199 INFO (null) DURATA QUERY FORMA: 1
+2020-01-31 11:22:07,203 INFO (null) DURATA QUERY FORMA: 2
+2020-01-31 11:22:07,543 INFO (null) DURATA QUERY SENSO: 2
+2020-01-31 11:22:07,625 INFO (admin) UNLOCK the lexical entry related to aganostest_aoc_lemma
+2020-01-31 11:22:07,626 INFO (admin) LOCK the lexical entry related to aganostest_aoc_lemma
+2020-01-31 11:22:07,626 INFO (null) DURATA QUERY LEMMA: 2140
+2020-01-31 11:23:24,168 INFO (null) DURATA QUERY FORMA: 1
+2020-01-31 11:23:24,171 INFO (null) DURATA QUERY FORMA: 1
+2020-01-31 11:23:24,508 INFO (null) DURATA QUERY SENSO: 1
+2020-01-31 11:23:24,578 INFO (admin) UNLOCK the lexical entry related to abelhatest_aoc_lemma
+2020-01-31 11:23:24,579 INFO (admin) LOCK the lexical entry related to abelhatest_aoc_lemma
+2020-01-31 11:23:24,579 INFO (null) DURATA QUERY LEMMA: 2137
+2020-01-31 11:59:09,785 INFO OmegaLex start
+2020-01-31 11:59:22,273 INFO (admin) navigate to lexicon editor
+2020-01-31 11:59:42,549 INFO (null) DURATA QUERY SENSO: 2
+2020-01-31 11:59:42,551 INFO (admin) LOCK the lexical entry related to acassia3_aoc_lemma
+2020-01-31 11:59:42,551 INFO (null) DURATA QUERY LEMMA: 2338
+2020-01-31 12:02:00,445 INFO OmegaLex start
+2020-01-31 12:02:06,692 INFO (admin) navigate to lexicon editor
+2020-01-31 12:02:25,970 INFO (null) DURATA QUERY SENSO: 2
+2020-01-31 12:02:25,973 INFO (admin) LOCK the lexical entry related to acassia3_aoc_lemma
+2020-01-31 12:02:25,973 INFO (null) DURATA QUERY LEMMA: 2414
+2020-01-31 12:02:40,441 INFO (null) DURATA QUERY FORMA: 5
+2020-01-31 12:02:40,450 INFO (null) DURATA QUERY FORMA: 5
+2020-01-31 12:02:40,458 INFO (null) DURATA QUERY FORMA: 4
+2020-01-31 12:02:40,465 INFO (null) DURATA QUERY FORMA: 3
+2020-01-31 12:02:40,470 INFO (null) DURATA QUERY FORMA: 2
+2020-01-31 12:02:40,812 INFO (null) DURATA QUERY SENSO: 1
+2020-01-31 12:02:40,815 INFO (admin) UNLOCK the lexical entry related to acitoal_aoc_lemma
+2020-01-31 12:02:40,815 INFO (admin) LOCK the lexical entry related to acitoal_aoc_lemma
+2020-01-31 12:02:40,815 INFO (null) DURATA QUERY LEMMA: 2175
+2020-01-31 12:02:44,814 INFO (null) DURATA QUERY SENSO: 1
+2020-01-31 12:02:44,816 INFO (admin) UNLOCK the lexical entry related to acassia2_aoc_lemma
+2020-01-31 12:02:44,816 INFO (admin) LOCK the lexical entry related to acassia2_aoc_lemma
+2020-01-31 12:02:44,816 INFO (null) DURATA QUERY LEMMA: 2156
+2020-01-31 12:02:57,084 INFO (null) DURATA QUERY FORMA: 2
+2020-01-31 12:02:57,090 INFO (null) DURATA QUERY FORMA: 2
+2020-01-31 12:02:57,411 INFO (null) DURATA QUERY SENSO: 1
+2020-01-31 12:02:57,413 INFO (admin) UNLOCK the lexical entry related to afolar2_aoc_lemma
+2020-01-31 12:02:57,413 INFO (admin) LOCK the lexical entry related to afolar2_aoc_lemma
+2020-01-31 12:02:57,413 INFO (null) DURATA QUERY LEMMA: 2003
+2020-01-31 12:03:02,097 INFO (null) DURATA QUERY FORMA: 1
+2020-01-31 12:03:02,410 INFO (null) DURATA QUERY SENSO: 1
+2020-01-31 12:03:02,411 INFO (admin) UNLOCK the lexical entry related to afolarre1_aoc_lemma
+2020-01-31 12:03:02,411 INFO (admin) LOCK the lexical entry related to afolarre1_aoc_lemma
+2020-01-31 12:03:02,412 INFO (null) DURATA QUERY LEMMA: 2001
+2020-01-31 12:03:19,123 INFO (null) DURATA QUERY FORMA: 2
+2020-01-31 12:03:19,129 INFO (null) DURATA QUERY FORMA: 2
+2020-01-31 12:03:19,132 INFO (null) DURATA QUERY FORMA: 1
+2020-01-31 12:03:19,139 INFO (null) DURATA QUERY FORMA: 2
+2020-01-31 12:03:19,288 INFO (null) DURATA QUERY FORMA: 2
+2020-01-31 12:03:19,292 INFO (null) DURATA QUERY FORMA: 1
+2020-01-31 12:03:19,624 INFO (null) DURATA QUERY SENSO: 1
+2020-01-31 12:03:19,626 INFO (admin) UNLOCK the lexical entry related to aglan_aoc_lemma
+2020-01-31 12:03:19,626 INFO (admin) LOCK the lexical entry related to aglan_aoc_lemma
+2020-01-31 12:03:19,626 INFO (null) DURATA QUERY LEMMA: 2154
+2020-01-31 12:05:13,706 INFO OmegaLex start
+2020-01-31 12:05:18,658 INFO (admin) navigate to lexicon editor
+2020-01-31 12:05:43,031 INFO (null) DURATA QUERY FORMA: 4
+2020-01-31 12:05:43,342 INFO (null) DURATA QUERY SENSO: 2
+2020-01-31 12:05:43,344 INFO (admin) LOCK the lexical entry related to afolarre1_aoc_lemma
+2020-01-31 12:05:43,344 INFO (null) DURATA QUERY LEMMA: 2779
+2020-01-31 12:05:56,620 INFO (admin) NEW Lemma Word
+2020-01-31 12:05:59,880 INFO (admin) UPDATE Lemma name from p to p
+2020-01-31 12:06:00,845 INFO (admin) UPDATE Lemma name from puppa to puppa
+2020-01-31 12:06:01,809 INFO (admin) UPDATE Lemma name from puppa to puppa
+2020-01-31 12:06:02,764 INFO (admin) UPDATE Lemma name from puppa to puppa
+2020-01-31 12:06:03,660 INFO (admin) UPDATE Lemma name from puppa to puppa
+2020-01-31 12:06:04,568 INFO (admin) UPDATE Lemma name from puppa to puppa
+2020-01-31 12:06:04,800 INFO (admin) UPDATE Lemma language of puppa to aoc
+2020-01-31 12:06:18,031 INFO (admin) UPDATE Lemma used in languages of puppa to lat
+2020-01-31 12:06:22,915 INFO (admin) SAVE new Lemma and its default sense puppa
+2020-01-31 12:06:27,636 INFO (admin) LOCK the lexical entry related to puppa_aoc_lemma
+2020-01-31 12:06:35,746 INFO (admin) RESET Lemma Search Filter 
+2020-01-31 12:06:43,764 INFO (null) DURATA QUERY SENSO: 1
+2020-01-31 12:06:44,014 INFO (admin) UNLOCK the lexical entry related to puppa_aoc_lemma
+2020-01-31 12:06:44,014 INFO (admin) LOCK the lexical entry related to puppa_aoc_lemma
+2020-01-31 12:06:44,014 INFO (null) DURATA QUERY LEMMA: 2285
+2020-01-31 13:38:28,918 INFO OmegaLex start
+2020-01-31 15:04:58,254 INFO OmegaLex start

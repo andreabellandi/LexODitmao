@@ -1,0 +1,67 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:form id="lexiconCreationToolbarForm">
+        <p:toolbar styleClass="lexiconToolbar" >
+            <f:facet name="left">
+                <p:commandButton id="newButton" icon="ui-icon-triangle-1-s" value="New" type="button" styleClass="lexiconToolbarButton" />
+                <p:tieredMenu overlay="true" styleClass="lexiconTabView" trigger="newButton" my="left top" at="left top" style="width:120px">
+                    <p:menuitem value="Project" styleClass="lexiconTabView" disabled="true"/>
+                    <p:menuitem value="Lexicon" styleClass="lexiconTabView" disabled="true"/>
+                    <p:submenu styleClass="lexiconTabView" label="Lemma">
+                        <p:menuitem value="Word" styleClass="lexiconTabView" icon="fa fa-plus" action="#{lexiconCreationControllerToolbar.newLemma('Word')}"
+                                    update=":editViewTab:lexiconCreationFormDetailForm :editViewTab:lexiconCreationSenseDetailForm :editViewTab:lexiconCreationRelationDetailForm
+                                    :editViewTab:lexiconExplorationViewDictionaryForm"/>
+                        <p:menuitem value="Multiword" icon="fa fa-plus" styleClass="lexiconTabView" action="#{lexiconCreationControllerToolbar.newLemma('Collocation')}"
+                                    update=":editViewTab:lexiconCreationFormDetailForm :editViewTab:lexiconCreationSenseDetailForm :editViewTab:lexiconCreationRelationDetailForm
+                                    :editViewTab:lexiconExplorationViewDictionaryForm"/>
+                    </p:submenu>     
+                    <p:submenu styleClass="lexiconTabView" label="Documentation">
+                        <p:menuitem value="Manuscript" styleClass="lexiconTabView" icon="fa fa-plus" action="#{lexiconCreationControllerToolbar.newDocument('Manuscript')}"
+                                    update=":editViewTab:lexiconCreationFormDetailForm :editViewTab:lexiconCreationSenseDetailForm :editViewTab:lexiconCreationRelationDetailForm
+                                    :editViewTab:lexiconExplorationViewDictionaryForm :editViewTab:lexiconCreationDocumentationDetailForm"/>
+                        <p:menuitem value="Internal" styleClass="lexiconTabView" icon="fa fa-plus" action="#{lexiconCreationControllerToolbar.newDocument('Internal')}"
+                                    update=":editViewTab:lexiconCreationFormDetailForm :editViewTab:lexiconCreationSenseDetailForm :editViewTab:lexiconCreationRelationDetailForm
+                                    :editViewTab:lexiconExplorationViewDictionaryForm :editViewTab:lexiconCreationDocumentationDetailForm"/>
+                        <p:menuitem value="External" icon="fa fa-plus" styleClass="lexiconTabView" action="#{lexiconCreationControllerToolbar.newDocument('External')}"
+                                    update=":editViewTab:lexiconCreationFormDetailForm :editViewTab:lexiconCreationSenseDetailForm :editViewTab:lexiconCreationRelationDetailForm
+                                    :editViewTab:lexiconExplorationViewDictionaryForm :editViewTab:lexiconCreationDocumentationDetailForm"/>
+                    </p:submenu>     
+                </p:tieredMenu>
+
+                <p:fileUpload fileUploadListener="#{lexiconCreationControllerToolbar.openLexicon}" mode="advanced" dragDropSupport="false" auto="true" disabled="true"
+                              sizeLimit="100000000" fileLimit="1" allowTypes="/(\.|\/)(owl)$/" label="Import Project" rendered="false"
+                              onstart="PF('loadingDialog').show()" oncomplete="PF('loadingDialog').hide()" 
+                              update="lexiconCreationTabViewForm"/>    
+                <p:fileUpload fileUploadListener="#{lexiconCreationControllerToolbar.openLexicon}" mode="advanced" dragDropSupport="false" auto="true"
+                              sizeLimit="100000000" fileLimit="1" allowTypes="/(\.|\/)(owl)$/" label="Import Ontology" disabled="true" rendered="false"/>    
+            </f:facet>
+            <f:facet name="right">
+                <p:menuButton value="Export" styleClass="lexiconToolbarButton" disabled="false">
+                    <p:menuitem styleClass="lexiconTabView" value="Lexicon only (.rdf)" ajax="false"
+                                onclick="PrimeFaces.monitorDownload(start, stop);">
+                        <p:fileDownload value="#{lexiconCreationControllerToolbar.exportLexicon()}"/>
+                    </p:menuitem>
+                    <p:menuitem styleClass="lexiconTabView" value="Lexicon with Attestations (.rdf)" ajax="false"
+                                onclick="PrimeFaces.monitorDownload(start, stop);">
+                        <p:fileDownload value="#{lexiconCreationControllerToolbar.exportLexiconWithAttestations()}" />
+                    </p:menuitem>
+                </p:menuButton>    
+            </f:facet>
+        </p:toolbar>
+    </h:form> 
+
+    <script type="text/javascript">
+        function start() {
+            PF('loadingDialog').show();
+        }
+
+        function stop() {
+            PF('loadingDialog').hide();
+        }
+    </script>
+
+</ui:composition>

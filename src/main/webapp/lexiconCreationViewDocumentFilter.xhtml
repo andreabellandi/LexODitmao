@@ -1,0 +1,63 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:panelGrid id="docFilterPanel" styleClass="filterBox" columns="4" rendered="#{lexiconCreationControllerTabViewList.enabledFilter}">
+        <p:outputLabel styleClass="filterLabel" value="Starts with"/>
+        <h:selectBooleanCheckbox value="#{lexiconCreationDocumentFilterController.startWith}">
+            <p:ajax listener="#{lexiconCreationDocumentFilterController.startsWithChanged}" 
+                    update="lexiconCreationTabViewForm:tabView:docTree lexiconCreationTabViewForm:tabView:docFilterLabel docFilterPanel"/>
+        </h:selectBooleanCheckbox>
+        <p:outputLabel styleClass="filterLabel" value="Contains"/>
+        <h:selectBooleanCheckbox value="#{lexiconCreationDocumentFilterController.contains}">
+            <p:ajax listener="#{lexiconCreationDocumentFilterController.containsChanged}" 
+                    update="lexiconCreationTabViewForm:tabView:docTree lexiconCreationTabViewForm:tabView:docFilterLabel docFilterPanel"/>
+        </h:selectBooleanCheckbox>
+    </h:panelGrid>
+
+    <p:spacer height="10"/>
+
+    <h:panelGrid id="docFilterPanel2" styleClass="filterBox" columns="2" rendered="#{lexiconCreationControllerTabViewList.enabledFilter}">
+
+        <h:panelGrid id="docFilterPanel21" columns="2" rendered="#{lexiconCreationControllerTabViewList.enabledFilter}">
+            <p:selectOneMenu id="docType2" styleClass="menuBiblio"
+                             panelStyleClass="panelBiblio" value="#{lexiconCreationDocumentFilterController.docType}" 
+                             appendTo="docType2">
+                <p:ajax event="valueChange" listener="#{lexiconCreationDocumentFilterController.docTypeChanged}"
+                        update="lexiconCreationTabViewForm:tabView:docTree lexiconCreationTabViewForm:tabView:docFilterLabel docFilterPanel22"/>
+                <f:selectItem itemLabel="All" itemValue="All" />
+                <f:selectItem itemLabel="Text" itemValue="Text" />
+                <f:selectItem itemLabel="Book" itemValue="Book" />
+                <f:selectItem itemLabel="Article" itemValue="Article"/>
+                <f:selectItem itemLabel="Map" itemValue="Map"/>
+                <f:selectItem itemLabel="Dictionary" itemValue="Dictionary"/>
+                <f:selectItem itemLabel="Manuscript" itemValue="Manuscript"/>
+            </p:selectOneMenu>
+        </h:panelGrid>
+
+        <h:panelGrid id="docFilterPanel22" styleClass="filterDocBox" columns="2" rendered="#{lexiconCreationControllerTabViewList.enabledFilter}">
+            <p:outputLabel styleClass="filterLabel" value="Internal"/>
+            <h:selectBooleanCheckbox value="#{lexiconCreationDocumentFilterController.internal}">
+                <p:ajax listener="#{lexiconCreationDocumentFilterController.internalChanged}" 
+                        update="lexiconCreationTabViewForm:tabView:docTree lexiconCreationTabViewForm:tabView:docFilterLabel docFilterPanel22"/>
+            </h:selectBooleanCheckbox>
+            <p:outputLabel styleClass="filterLabel" value="External"/>
+            <h:selectBooleanCheckbox value="#{lexiconCreationDocumentFilterController.external}">
+                <p:ajax listener="#{lexiconCreationDocumentFilterController.externalChanged}" 
+                        update="lexiconCreationTabViewForm:tabView:docTree lexiconCreationTabViewForm:tabView:docFilterLabel docFilterPanel22"/>
+            </h:selectBooleanCheckbox>
+            <p:outputLabel styleClass="filterLabel" value="All"/>
+            <h:selectBooleanCheckbox value="#{lexiconCreationDocumentFilterController.all}">
+                <p:ajax listener="#{lexiconCreationDocumentFilterController.allChanged}" 
+                        update="lexiconCreationTabViewForm:tabView:docTree lexiconCreationTabViewForm:tabView:docFilterLabel docFilterPanel22"/>
+            </h:selectBooleanCheckbox>
+        </h:panelGrid>
+
+
+
+    </h:panelGrid>
+    <p:spacer height="10"/>
+
+</ui:composition>

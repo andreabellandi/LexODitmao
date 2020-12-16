@@ -1,0 +1,35 @@
+2020-03-05 15:14:31,490 INFO OmegaLex start
+2020-03-05 15:15:05,892 INFO (admin) navigate to lexicon editor
+2020-03-05 15:16:26,103 INFO OmegaLex start
+2020-03-05 15:16:31,434 INFO (admin) navigate to lexicon editor
+2020-03-05 15:17:59,139 INFO (admin) navigate to lexicon editor
+2020-03-05 15:19:12,090 INFO OmegaLex start
+2020-03-05 15:19:16,381 INFO OmegaLex start
+2020-03-05 15:19:21,210 INFO (admin) navigate to lexicon editor
+2020-03-05 15:21:18,843 INFO (admin) navigate to lexicon editor
+2020-03-05 15:23:54,984 INFO (admin) navigate to lexicon editor
+2020-03-05 15:24:29,697 INFO OmegaLex start
+2020-03-05 15:24:39,094 INFO OmegaLex start
+2020-03-05 15:24:55,618 INFO (admin) navigate to lexicon editor
+2020-03-05 17:23:34,945 INFO OmegaLex start
+2020-03-05 17:27:04,515 INFO (admin) navigate to lexicon editor
+2020-03-05 17:28:58,839 INFO OmegaLex start
+2020-03-05 17:29:04,587 INFO (admin) navigate to lexicon editor
+2020-03-05 17:29:28,630 INFO (admin) SELECT Ontology class: CretanBryony
+2020-03-05 17:29:29,617 INFO (admin) SELECT Ontology class: GardenCucumber
+2020-03-05 17:29:30,862 INFO (admin) SELECT Ontology class: DutchmansPipe
+2020-03-05 17:29:31,399 INFO (admin) SELECT Ontology class: RoundBirthwort
+2020-03-05 17:29:32,307 INFO (admin) SELECT Ontology class: LongAristolochia
+2020-03-05 17:30:09,767 INFO (admin) SELECT Ontology class: OliveOil
+2020-03-05 17:30:12,168 INFO (admin) SELECT Ontology class: LaurelOil
+2020-03-05 17:30:12,879 INFO (admin) SELECT Ontology class: RoseOil
+2020-03-05 17:35:58,204 INFO (null) DURATA QUERY FORMA: 4
+2020-03-05 17:35:58,210 INFO (null) DURATA QUERY FORMA: 4
+2020-03-05 17:35:58,217 INFO (null) DURATA QUERY FORMA: 4
+2020-03-05 17:35:58,224 INFO (null) DURATA QUERY FORMA: 3
+2020-03-05 17:35:58,227 INFO (null) DURATA QUERY FORMA: 2
+2020-03-05 17:35:58,232 INFO (null) DURATA QUERY FORMA: 2
+2020-03-05 17:35:58,549 INFO (null) DURATA QUERY SENSO: 1
+2020-03-05 17:35:58,552 INFO (admin) LOCK the lexical entry related to bolet_aoc_lemma
+2020-03-05 17:35:58,552 INFO (null) DURATA QUERY LEMMA: 2088
+2020-03-05 17:36:01,672 INFO (admin) ADD empty ontological reference to bolet_aoc_sense1

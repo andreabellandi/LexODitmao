@@ -1,0 +1,237 @@
+2020-03-16 15:49:41,659 INFO OmegaLex start
+2020-03-16 15:50:03,535 INFO (admin) navigate to lexicon editor
+2020-03-16 15:50:40,869 INFO (null) DURATA QUERY FORMA: 4
+2020-03-16 15:50:40,875 INFO (null) DURATA QUERY FORMA: 3
+2020-03-16 15:50:40,882 INFO (null) DURATA QUERY FORMA: 3
+2020-03-16 15:50:40,886 INFO (null) DURATA QUERY FORMA: 3
+2020-03-16 15:50:40,891 INFO (null) DURATA QUERY FORMA: 3
+2020-03-16 15:50:40,895 INFO (null) DURATA QUERY FORMA: 3
+2020-03-16 15:50:40,901 INFO (null) DURATA QUERY FORMA: 3
+2020-03-16 15:50:40,912 INFO (null) DURATA QUERY FORMA: 4
+2020-03-16 15:50:41,287 INFO (null) DURATA QUERY SENSO: 2
+2020-03-16 15:50:41,289 INFO (admin) LOCK the lexical entry related to acassia1_aoc_lemma
+2020-03-16 15:50:41,289 INFO (null) DURATA QUERY LEMMA: 2595
+2020-03-16 15:51:17,914 INFO (admin) VIEW Deatils of the suc_d’armiges_aoc_sense1 synonym of acassia1_aoc_sense1
+2020-03-16 15:51:50,708 INFO (admin) LOCK the lexical entry related to suc_d’armiges_aoc_lemma
+2020-03-16 15:59:47,997 INFO OmegaLex start
+2020-03-16 15:59:56,874 INFO OmegaLex start
+2020-03-16 16:00:05,881 INFO (admin) navigate to lexicon editor
+2020-03-16 16:00:34,321 INFO (null) DURATA QUERY FORMA: 5
+2020-03-16 16:00:34,327 INFO (null) DURATA QUERY FORMA: 4
+2020-03-16 16:00:34,335 INFO (null) DURATA QUERY FORMA: 5
+2020-03-16 16:00:34,342 INFO (null) DURATA QUERY FORMA: 5
+2020-03-16 16:00:34,347 INFO (null) DURATA QUERY FORMA: 3
+2020-03-16 16:00:34,353 INFO (null) DURATA QUERY FORMA: 4
+2020-03-16 16:00:34,362 INFO (null) DURATA QUERY FORMA: 3
+2020-03-16 16:00:34,376 INFO (null) DURATA QUERY FORMA: 3
+2020-03-16 16:03:39,807 INFO (null) DURATA QUERY SENSO: 109676
+2020-03-16 16:04:17,282 INFO (admin) LOCK the lexical entry related to acassia1_aoc_lemma
+2020-03-16 16:05:30,286 INFO (null) DURATA QUERY LEMMA: 225424
+2020-03-16 16:06:51,271 INFO (admin) VIEW Deatils of the suc_d’armiges_aoc_sense1 synonym of acassia1_aoc_sense1
+2020-03-16 16:07:05,633 INFO (admin) LOCK the lexical entry related to suc_d’armiges_aoc_lemma
+2020-03-16 16:07:16,488 INFO (admin) ADD empty synonym relation to acassia1_aoc_sense1
+2020-03-16 16:07:28,197 INFO (admin) ADD Sense suc_d’aranhons_aoc_sense1@aoc as synonym of the sense acassia1_aoc_sense1
+2020-03-16 16:07:31,608 INFO (admin) SAVE Sense acassia1_aoc_sense1
+2020-03-16 16:07:40,641 INFO (admin) VIEW Deatils of the suc_d’aranhons_aoc_sense1 synonym of acassia1_aoc_sense1
+2020-03-16 16:07:44,153 INFO (admin) LOCK the lexical entry related to suc_d’aranhons_aoc_lemma
+2020-03-16 16:08:11,174 INFO (admin) VIEW Deatils of the suc_d’aranhons_aoc_sense1 synonym of acassia1_aoc_sense1
+2020-03-16 16:08:25,073 INFO (admin) ACCESS TO THE LOCKED lexical entry related to suc_d’aranhons_aoc_lemma
+2020-03-16 16:08:51,278 INFO (null) DURATA QUERY FORMA: 2
+2020-03-16 16:08:51,282 INFO (null) DURATA QUERY FORMA: 1
+2020-03-16 16:08:54,362 INFO (null) DURATA QUERY SENSO: 2714
+2020-03-16 16:08:54,364 INFO (admin) UNLOCK the lexical entry related to antora_aoc_lemma
+2020-03-16 16:08:54,364 INFO (admin) UNLOCK the lexical entry related to antora_aoc_lemma
+2020-03-16 16:08:54,365 INFO (admin) LOCK the lexical entry related to antora_aoc_lemma
+2020-03-16 16:08:54,365 INFO (null) DURATA QUERY LEMMA: 4943
+2020-03-16 16:09:03,503 INFO (null) DURATA QUERY FORMA: 2
+2020-03-16 16:09:03,506 INFO (null) DURATA QUERY FORMA: 2
+2020-03-16 16:09:03,511 INFO (null) DURATA QUERY FORMA: 2
+2020-03-16 16:09:03,514 INFO (null) DURATA QUERY FORMA: 1
+2020-03-16 16:09:03,517 INFO (null) DURATA QUERY FORMA: 2
+2020-03-16 16:09:03,522 INFO (null) DURATA QUERY FORMA: 3
+2020-03-16 16:09:03,529 INFO (null) DURATA QUERY FORMA: 3
+2020-03-16 16:09:03,574 INFO (null) DURATA QUERY FORMA: 3
+2020-03-16 16:09:06,729 INFO (null) DURATA QUERY SENSO: 2779
+2020-03-16 16:09:06,733 INFO (admin) UNLOCK the lexical entry related to acassia1_aoc_lemma
+2020-03-16 16:09:06,733 INFO (admin) UNLOCK the lexical entry related to acassia1_aoc_lemma
+2020-03-16 16:09:06,733 INFO (admin) LOCK the lexical entry related to acassia1_aoc_lemma
+2020-03-16 16:09:06,733 INFO (null) DURATA QUERY LEMMA: 5104
+2020-03-16 16:09:16,743 INFO (admin) VIEW Deatils of the suc_d’aranhons_aoc_sense1 synonym of acassia1_aoc_sense1
+2020-03-16 16:09:17,705 INFO (admin) LOCK the lexical entry related to suc_d’aranhons_aoc_lemma
+2020-03-16 16:09:59,817 INFO (admin) VIEW Deatils of the suc_d’aranhons_aoc_sense1 synonym of acassia1_aoc_sense1
+2020-03-16 16:10:49,397 INFO (admin) ACCESS TO THE LOCKED lexical entry related to suc_d’aranhons_aoc_lemma
+2020-03-16 16:13:56,130 INFO OmegaLex start
+2020-03-16 16:14:03,894 INFO (admin) navigate to lexicon editor
+2020-03-16 16:14:25,452 INFO (null) DURATA QUERY FORMA: 3
+2020-03-16 16:14:25,457 INFO (null) DURATA QUERY FORMA: 4
+2020-03-16 16:14:25,463 INFO (null) DURATA QUERY FORMA: 3
+2020-03-16 16:14:25,468 INFO (null) DURATA QUERY FORMA: 3
+2020-03-16 16:14:25,472 INFO (null) DURATA QUERY FORMA: 2
+2020-03-16 16:14:25,478 INFO (null) DURATA QUERY FORMA: 3
+2020-03-16 16:14:25,483 INFO (null) DURATA QUERY FORMA: 2
+2020-03-16 16:14:25,492 INFO (null) DURATA QUERY FORMA: 2
+2020-03-16 16:14:25,929 INFO (null) DURATA QUERY SENSO: 1
+2020-03-16 16:14:25,931 INFO (admin) LOCK the lexical entry related to acassia1_aoc_lemma
+2020-03-16 16:14:25,931 INFO (null) DURATA QUERY LEMMA: 2537
+2020-03-16 16:14:54,218 INFO (admin) VIEW Deatils of the suc_d’armiges_aoc_sense1 synonym of acassia1_aoc_sense1
+2020-03-16 16:14:56,165 INFO (null) DURATA QUERY SENSO: 2
+2020-03-16 16:14:56,166 INFO (admin) LOCK the lexical entry related to suc_d’armiges_aoc_lemma
+2020-03-16 16:15:07,135 INFO (admin) VIEW Deatils of the suc_d’aranhons_aoc_sense1 synonym of acassia1_aoc_sense1
+2020-03-16 16:15:08,683 INFO (null) DURATA QUERY FORMA: 2
+2020-03-16 16:15:08,686 INFO (null) DURATA QUERY FORMA: 2
+2020-03-16 16:15:09,072 INFO (null) DURATA QUERY SENSO: 1
+2020-03-16 16:15:09,072 INFO (admin) LOCK the lexical entry related to suc_d’aranhons_aoc_lemma
+2020-03-16 16:15:14,575 INFO (admin) VIEW Deatils of the aranhons_aoc_sense1 synonym of acassia1_aoc_sense1
+2020-03-16 16:15:15,118 INFO (admin) LOCK the lexical entry related to aranhons_aoc_lemma
+2020-03-16 16:16:51,743 INFO (admin) REMOVE suc_d’armiges_aoc_sense1 (synonym of acassia1_aoc_sense1)
+2020-03-16 16:16:53,953 INFO (admin) SAVE Sense acassia1_aoc_sense1
+2020-03-16 16:17:00,365 INFO (null) DURATA QUERY FORMA: 1
+2020-03-16 16:17:00,369 INFO (null) DURATA QUERY FORMA: 2
+2020-03-16 16:17:00,374 INFO (null) DURATA QUERY FORMA: 2
+2020-03-16 16:17:00,377 INFO (null) DURATA QUERY FORMA: 2
+2020-03-16 16:17:00,384 INFO (null) DURATA QUERY FORMA: 6
+2020-03-16 16:17:00,387 INFO (null) DURATA QUERY FORMA: 2
+2020-03-16 16:17:00,392 INFO (null) DURATA QUERY FORMA: 1
+2020-03-16 16:17:00,452 INFO (null) DURATA QUERY FORMA: 2
+2020-03-16 16:17:00,832 INFO (null) DURATA QUERY SENSO: 1
+2020-03-16 16:17:00,834 INFO (admin) UNLOCK the lexical entry related to acassia1_aoc_lemma
+2020-03-16 16:17:00,834 INFO (admin) UNLOCK the lexical entry related to acassia1_aoc_lemma
+2020-03-16 16:17:00,835 INFO (admin) ACCESS TO THE LOCKED lexical entry related to acassia1_aoc_lemma
+2020-03-16 16:17:00,835 INFO (null) DURATA QUERY LEMMA: 2406
+2020-03-16 16:17:49,310 INFO (null) DURATA QUERY FORMA: 2
+2020-03-16 16:17:49,313 INFO (null) DURATA QUERY FORMA: 1
+2020-03-16 16:17:49,368 INFO (null) DURATA QUERY FORMA: 3
+2020-03-16 16:17:49,372 INFO (null) DURATA QUERY FORMA: 2
+2020-03-16 16:17:49,375 INFO (null) DURATA QUERY FORMA: 2
+2020-03-16 16:17:49,379 INFO (null) DURATA QUERY FORMA: 3
+2020-03-16 16:17:49,384 INFO (null) DURATA QUERY FORMA: 2
+2020-03-16 16:17:49,393 INFO (null) DURATA QUERY FORMA: 1
+2020-03-16 16:17:49,795 INFO (null) DURATA QUERY SENSO: 1
+2020-03-16 16:17:49,797 INFO (admin) UNLOCK the lexical entry related to acassia1_aoc_lemma
+2020-03-16 16:17:49,797 INFO (admin) UNLOCK the lexical entry related to acassia1_aoc_lemma
+2020-03-16 16:17:49,798 INFO (admin) LOCK the lexical entry related to acassia1_aoc_lemma
+2020-03-16 16:17:49,798 INFO (null) DURATA QUERY LEMMA: 2422
+2020-03-16 16:17:57,263 INFO (null) DURATA QUERY FORMA: 1
+2020-03-16 16:17:57,268 INFO (null) DURATA QUERY FORMA: 1
+2020-03-16 16:17:57,656 INFO (null) DURATA QUERY SENSO: 1
+2020-03-16 16:17:57,714 INFO (admin) UNLOCK the lexical entry related to abelha_aoc_lemma
+2020-03-16 16:17:57,714 INFO (admin) LOCK the lexical entry related to abelha_aoc_lemma
+2020-03-16 16:17:57,715 INFO (null) DURATA QUERY LEMMA: 2354
+2020-03-16 16:18:03,353 INFO (null) DURATA QUERY FORMA: 1
+2020-03-16 16:18:03,356 INFO (null) DURATA QUERY FORMA: 1
+2020-03-16 16:18:03,743 INFO (null) DURATA QUERY SENSO: 0
+2020-03-16 16:18:03,745 INFO (admin) UNLOCK the lexical entry related to afolar1_aoc_lemma
+2020-03-16 16:18:03,745 INFO (admin) LOCK the lexical entry related to afolar1_aoc_lemma
+2020-03-16 16:18:03,746 INFO (null) DURATA QUERY LEMMA: 2323
+2020-03-16 16:18:10,111 INFO (null) DURATA QUERY FORMA: 1
+2020-03-16 16:18:10,487 INFO (null) DURATA QUERY SENSO: 1
+2020-03-16 16:18:10,489 INFO (admin) UNLOCK the lexical entry related to adiman_aoc_lemma
+2020-03-16 16:18:10,489 INFO (admin) LOCK the lexical entry related to adiman_aoc_lemma
+2020-03-16 16:18:10,489 INFO (null) DURATA QUERY LEMMA: 2301
+2020-03-16 16:18:16,805 INFO (null) DURATA QUERY FORMA: 2
+2020-03-16 16:18:17,186 INFO (null) DURATA QUERY SENSO: 1
+2020-03-16 16:18:17,187 INFO (admin) UNLOCK the lexical entry related to adust_aoc_lemma
+2020-03-16 16:18:17,188 INFO (admin) LOCK the lexical entry related to adust_aoc_lemma
+2020-03-16 16:18:17,188 INFO (null) DURATA QUERY LEMMA: 2295
+2020-03-16 16:18:22,131 INFO (null) DURATA QUERY FORMA: 1
+2020-03-16 16:18:22,501 INFO (null) DURATA QUERY SENSO: 1
+2020-03-16 16:18:22,503 INFO (admin) UNLOCK the lexical entry related to affrodil_aoc_lemma
+2020-03-16 16:18:22,503 INFO (admin) LOCK the lexical entry related to affrodil_aoc_lemma
+2020-03-16 16:18:22,503 INFO (null) DURATA QUERY LEMMA: 2278
+2020-03-16 16:18:28,189 INFO (admin) REMOVE albre_aoc_sense1 (synonym of affrodil_aoc_sense1)
+2020-03-16 16:18:30,137 INFO (admin) SAVE Sense affrodil_aoc_sense1
+2020-03-16 16:18:36,217 INFO (null) DURATA QUERY FORMA: 1
+2020-03-16 16:18:36,613 INFO (null) DURATA QUERY SENSO: 1
+2020-03-16 16:18:36,614 INFO (admin) UNLOCK the lexical entry related to affrodil_aoc_lemma
+2020-03-16 16:18:36,615 INFO (admin) LOCK the lexical entry related to affrodil_aoc_lemma
+2020-03-16 16:18:36,615 INFO (null) DURATA QUERY LEMMA: 2383
+2020-03-16 16:18:43,492 INFO (null) DURATA QUERY FORMA: 1
+2020-03-16 16:18:43,494 INFO (null) DURATA QUERY FORMA: 1
+2020-03-16 16:18:43,497 INFO (null) DURATA QUERY FORMA: 1
+2020-03-16 16:18:43,499 INFO (null) DURATA QUERY FORMA: 1
+2020-03-16 16:18:43,501 INFO (null) DURATA QUERY FORMA: 1
+2020-03-16 16:18:43,504 INFO (null) DURATA QUERY FORMA: 0
+2020-03-16 16:18:43,507 INFO (null) DURATA QUERY FORMA: 1
+2020-03-16 16:18:43,514 INFO (null) DURATA QUERY FORMA: 1
+2020-03-16 16:18:43,892 INFO (null) DURATA QUERY SENSO: 0
+2020-03-16 16:18:43,894 INFO (admin) UNLOCK the lexical entry related to acassia1_aoc_lemma
+2020-03-16 16:18:43,894 INFO (admin) LOCK the lexical entry related to acassia1_aoc_lemma
+2020-03-16 16:18:43,894 INFO (null) DURATA QUERY LEMMA: 2361
+2020-03-16 16:18:51,465 INFO (admin) REMOVE suc_d’armiges_aoc_sense1 (synonym of acassia1_aoc_sense1)
+2020-03-16 16:18:53,950 INFO (admin) SAVE Sense acassia1_aoc_sense1
+2020-03-16 16:18:59,953 INFO (null) DURATA QUERY FORMA: 2
+2020-03-16 16:18:59,955 INFO (null) DURATA QUERY FORMA: 1
+2020-03-16 16:18:59,959 INFO (null) DURATA QUERY FORMA: 1
+2020-03-16 16:18:59,961 INFO (null) DURATA QUERY FORMA: 1
+2020-03-16 16:18:59,963 INFO (null) DURATA QUERY FORMA: 1
+2020-03-16 16:18:59,965 INFO (null) DURATA QUERY FORMA: 1
+2020-03-16 16:18:59,971 INFO (null) DURATA QUERY FORMA: 2
+2020-03-16 16:18:59,980 INFO (null) DURATA QUERY FORMA: 1
+2020-03-16 16:19:00,407 INFO (null) DURATA QUERY SENSO: 1
+2020-03-16 16:19:00,408 INFO (admin) UNLOCK the lexical entry related to acassia1_aoc_lemma
+2020-03-16 16:19:00,408 INFO (admin) LOCK the lexical entry related to acassia1_aoc_lemma
+2020-03-16 16:19:00,409 INFO (null) DURATA QUERY LEMMA: 2443
+2020-03-16 16:20:33,112 INFO OmegaLex start
+2020-03-16 16:20:42,375 INFO (admin) navigate to lexicon editor
+2020-03-16 16:22:10,273 INFO (null) DURATA QUERY FORMA: 4
+2020-03-16 16:22:10,279 INFO (null) DURATA QUERY FORMA: 4
+2020-03-16 16:22:10,285 INFO (null) DURATA QUERY FORMA: 3
+2020-03-16 16:22:10,289 INFO (null) DURATA QUERY FORMA: 3
+2020-03-16 16:22:10,293 INFO (null) DURATA QUERY FORMA: 2
+2020-03-16 16:22:10,296 INFO (null) DURATA QUERY FORMA: 2
+2020-03-16 16:22:10,301 INFO (null) DURATA QUERY FORMA: 2
+2020-03-16 16:22:10,311 INFO (null) DURATA QUERY FORMA: 3
+2020-03-16 16:22:15,102 INFO (null) DURATA QUERY SENSO: 4433
+2020-03-16 16:22:15,107 INFO (admin) LOCK the lexical entry related to acassia1_aoc_lemma
+2020-03-16 16:22:15,108 INFO (null) DURATA QUERY LEMMA: 6728
+2020-03-16 16:22:24,811 INFO (admin) VIEW Deatils of the suc_d’armiges_aoc_sense1 synonym of acassia1_aoc_sense1
+2020-03-16 16:22:31,878 INFO (null) DURATA QUERY SENSO: 5197
+2020-03-16 16:22:32,122 INFO (admin) LOCK the lexical entry related to suc_d’armiges_aoc_lemma
+2020-03-16 16:22:42,542 INFO (admin) REMOVE suc_d’armiges_aoc_sense1 (synonym of acassia1_aoc_sense1)
+2020-03-16 16:22:49,618 INFO (admin) REMOVE aranhons_aoc_sense1 (synonym of acassia1_aoc_sense1)
+2020-03-16 16:24:47,017 INFO (admin) SAVE Sense acassia1_aoc_sense1
+2020-03-16 16:29:16,387 INFO OmegaLex start
+2020-03-16 16:29:25,369 INFO OmegaLex start
+2020-03-16 16:29:33,216 INFO (admin) navigate to lexicon editor
+2020-03-16 16:30:21,347 INFO OmegaLex start
+2020-03-16 16:30:30,376 INFO (admin) navigate to lexicon editor
+2020-03-16 16:30:54,552 INFO (null) DURATA QUERY FORMA: 4
+2020-03-16 16:30:54,559 INFO (null) DURATA QUERY FORMA: 4
+2020-03-16 16:30:54,566 INFO (null) DURATA QUERY FORMA: 4
+2020-03-16 16:30:54,571 INFO (null) DURATA QUERY FORMA: 4
+2020-03-16 16:30:54,576 INFO (null) DURATA QUERY FORMA: 4
+2020-03-16 16:30:54,579 INFO (null) DURATA QUERY FORMA: 2
+2020-03-16 16:30:54,584 INFO (null) DURATA QUERY FORMA: 2
+2020-03-16 16:30:54,595 INFO (null) DURATA QUERY FORMA: 3
+2020-03-16 16:30:57,914 INFO (null) DURATA QUERY SENSO: 2948
+2020-03-16 16:30:57,917 INFO (admin) LOCK the lexical entry related to acassia1_aoc_lemma
+2020-03-16 16:30:57,917 INFO (null) DURATA QUERY LEMMA: 5518
+2020-03-16 16:31:05,450 INFO (admin) REMOVE suc_d’armiges_aoc_sense1 (synonym of acassia1_aoc_sense1)
+2020-03-16 16:31:09,407 INFO (admin) SAVE Sense acassia1_aoc_sense1
+2020-03-16 16:35:42,866 INFO OmegaLex start
+2020-03-16 16:36:06,673 INFO (admin) navigate to lexicon editor
+2020-03-16 16:36:27,698 INFO (null) DURATA QUERY FORMA: 4
+2020-03-16 16:36:27,704 INFO (null) DURATA QUERY FORMA: 4
+2020-03-16 16:36:27,712 INFO (null) DURATA QUERY FORMA: 3
+2020-03-16 16:36:27,718 INFO (null) DURATA QUERY FORMA: 4
+2020-03-16 16:36:27,722 INFO (null) DURATA QUERY FORMA: 2
+2020-03-16 16:36:27,726 INFO (null) DURATA QUERY FORMA: 3
+2020-03-16 16:36:27,733 INFO (null) DURATA QUERY FORMA: 3
+2020-03-16 16:36:27,744 INFO (null) DURATA QUERY FORMA: 3
+2020-03-16 16:36:28,182 INFO (null) DURATA QUERY SENSO: 2
+2020-03-16 16:36:28,184 INFO (admin) LOCK the lexical entry related to acassia1_aoc_lemma
+2020-03-16 16:36:28,184 INFO (null) DURATA QUERY LEMMA: 2477
+2020-03-16 16:36:32,365 INFO (admin) REMOVE suc_d’armiges_aoc_sense1 (synonym of acassia1_aoc_sense1)
+2020-03-16 16:36:34,507 INFO (admin) SAVE Sense acassia1_aoc_sense1
+2020-03-16 16:36:42,348 INFO (null) DURATA QUERY FORMA: 2
+2020-03-16 16:36:42,353 INFO (null) DURATA QUERY FORMA: 3
+2020-03-16 16:36:42,360 INFO (null) DURATA QUERY FORMA: 4
+2020-03-16 16:36:42,365 INFO (null) DURATA QUERY FORMA: 3
+2020-03-16 16:36:42,369 INFO (null) DURATA QUERY FORMA: 3
+2020-03-16 16:36:42,374 INFO (null) DURATA QUERY FORMA: 3
+2020-03-16 16:36:42,379 INFO (null) DURATA QUERY FORMA: 2
+2020-03-16 16:36:42,469 INFO (null) DURATA QUERY FORMA: 1
+2020-03-16 16:36:42,830 INFO (null) DURATA QUERY SENSO: 1
+2020-03-16 16:36:42,832 INFO (admin) UNLOCK the lexical entry related to acassia1_aoc_lemma
+2020-03-16 16:36:42,832 INFO (admin) LOCK the lexical entry related to acassia1_aoc_lemma
+2020-03-16 16:36:42,832 INFO (null) DURATA QUERY LEMMA: 2320

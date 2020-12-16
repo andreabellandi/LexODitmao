@@ -1,0 +1,64 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <p:dialog id="internalAttestationCreationDialog" widgetVar="intAttestationDialog" styleClass="attTextDialog" modal="true" 
+              closable="true" resizable="false" width="400" height="450" 
+              header="#{internalAttestationCreationDialogController.dialogHeader}">
+        <h:form id="internalAttestationCreationDialogForm">
+
+            <h:panelGrid id="intAttDialog" columns="2" columnClasses="column" cellpadding="5" style="padding-top: 10px; margin: 0 auto;">
+
+                <h:outputLabel styleClass="titleStyle" value="Abbreviation:"/>
+                <p:selectOneMenu id="attDocType" styleClass="menu"
+                                 panelStyleClass="panel" value="#{internalAttestationCreationDialogController.internalAttestationData.docAbbreviation}"
+                                 appendTo="attDocType">
+                    <f:selectItems value="#{internalAttestationCreationDialogController.docList}" var="abbreviation" itemLabel="#{abbreviation}" itemValue="#{abbreviation}" />
+                </p:selectOneMenu>
+
+                <h:outputLabel styleClass="titleStyle" value="Sigla of manuscripts:"/>                
+                <p:selectOneMenu id="attManSigla" styleClass="menu"
+                                 panelStyleClass="panel" value="#{internalAttestationCreationDialogController.internalAttestationData.manSigla}"
+                                 appendTo="attManSigla">
+                    <f:selectItem itemLabel="#{''}" itemValue="#{''}" />
+                    <f:selectItems value="#{internalAttestationCreationDialogController.manSiglaList}" var="sigla" itemLabel="#{sigla}" itemValue="#{sigla}" />
+                </p:selectOneMenu>
+
+                <h:outputLabel styleClass="titleStyle" value="List entry:"/>
+                <p:inputText styleClass="inputTextStyle" value="#{internalAttestationCreationDialogController.internalAttestationData.listEntry}"/>
+
+                <h:outputLabel styleClass="titleStyle" value="Section number:"/>
+                <p:inputText styleClass="inputTextStyle" value="#{internalAttestationCreationDialogController.internalAttestationData.sectionNumber}"/>
+
+                <h:outputLabel styleClass="titleStyle" value="Chapter number:"/>
+                <p:inputText styleClass="inputTextStyle" value="#{internalAttestationCreationDialogController.internalAttestationData.chapterNumber}"/>
+
+                <h:outputLabel styleClass="titleStyle" value="Paragraph number:"/>
+                <p:inputText styleClass="inputTextStyle" value="#{internalAttestationCreationDialogController.internalAttestationData.paragraphNumber}"/>
+
+                <h:outputLabel styleClass="titleStyle" value="Page number:"/>
+                <p:inputText styleClass="inputTextStyle" value="#{internalAttestationCreationDialogController.internalAttestationData.pageNumber}"/>
+
+                <h:outputLabel styleClass="titleStyle" value="Line number:"/>
+                <p:inputText styleClass="inputTextStyle" value="#{internalAttestationCreationDialogController.internalAttestationData.lineNumber}"/>
+
+                <h:panelGrid id="attButtons" columns="3" style="padding-top: 10px;">
+                    <p:commandButton icon="fa fa-save" 
+                                     actionListener="#{internalAttestationCreationDialogController.save()}"
+                                     onstart="PF('loadingDialog').show();"
+                                     oncomplete="PF('intAttestationDialog').hide(); PF('loadingDialog').hide();"
+                                     update=":editViewTab:lexiconCreationFormDetailForm:LemmaPanelGrid :systemMessage
+                                     :editViewTab:lexiconCreationRelationDetailForm:RFormDataList 
+                                     :editViewTab:lexiconCreationFormDetailForm:FormDataList 
+                                     :editViewTab:lexiconExplorationViewDictionaryForm
+                                     :lexiconCreationTabViewForm:tabView:attTree :lexiconCreationTabViewForm:tabView:attFilterLabel"/>
+                    <!--disabled="{!internalAttestationCreationDialogController.internalAttestationData.saveButtonEnabled}"-->
+                </h:panelGrid>
+
+            </h:panelGrid>
+        </h:form>
+    </p:dialog>
+
+</ui:composition>

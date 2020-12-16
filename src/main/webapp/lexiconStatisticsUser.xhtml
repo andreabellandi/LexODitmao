@@ -1,0 +1,38 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <h:form id="lexiconStatisticsUserForm">
+
+        <p:dataTable id="statisticsUserTable" widgetVar="lexiconTable" style="width: 80%; margin: auto; padding-top: 20px;"
+                     rowsPerPageTemplate="15,20,25,50" rows="15" paginator="true"
+                     var="user" value="#{lexiconStatisticsController.users}">
+
+            <p:column headerText="User" filterMatchMode="contains">
+                <h:outputText value="#{user.username}" />
+            </p:column>
+
+            <p:column headerText="Role" filterMatchMode="contains">
+                <h:outputText value="#{user.role}" />
+            </p:column>
+
+            <p:column headerText="Edited entries" filterMatchMode="contains">
+                <h:outputText value="#{user.editedEntries}" />
+            </p:column>
+
+            <p:column headerText="Validated entries" filterMatchMode="contains">
+                <h:outputText value="#{user.validatedEntries}" />
+            </p:column>
+
+            <p:column headerText="Percentage" filterMatchMode="contains">
+                <h:outputText value="#{user.percent}" />
+            </p:column>
+
+        </p:dataTable>     
+
+    </h:form>
+
+</ui:composition>

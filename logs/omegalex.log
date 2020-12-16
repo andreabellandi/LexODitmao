@@ -1,0 +1,26 @@
+2020-11-11 08:56:15,336 INFO OmegaLex start
+2020-11-11 08:56:20,760 INFO OmegaLex start
+2020-11-11 08:56:39,293 INFO (admin) navigate to lexicon editor
+2020-11-11 08:57:40,064 INFO (admin) NEW Lemma Word
+2020-11-11 08:57:43,539 INFO (admin) UPDATE Lemma name from e to e
+2020-11-11 08:57:44,476 INFO (admin) UPDATE Lemma name from er to er
+2020-11-11 08:57:45,184 INFO (admin) UPDATE Lemma name from er? to er?
+2020-11-11 08:57:45,870 INFO (admin) UPDATE Lemma name from er?ò to er?ò
+2020-11-11 08:57:46,564 INFO (admin) UPDATE Lemma name from er?ò to er?ò
+2020-11-11 08:57:47,315 INFO (admin) UPDATE Lemma name from er? to er?
+2020-11-11 08:57:47,978 INFO (admin) UPDATE Lemma name from er to er
+2020-11-11 08:57:50,351 INFO (admin) UPDATE Lemma name from er- to er-
+2020-11-11 08:57:58,145 INFO (admin) UPDATE Lemma name from er to er
+2020-11-11 08:58:06,942 INFO (admin) UPDATE Lemma name from e to e
+2020-11-11 08:58:07,605 INFO (admin) UPDATE Lemma name from  to 
+2020-11-11 08:58:53,718 INFO (null) DURATA QUERY FORMA: 3
+2020-11-11 08:58:53,722 INFO (null) DURATA QUERY FORMA: 3
+2020-11-11 08:58:53,729 INFO (null) DURATA QUERY FORMA: 3
+2020-11-11 08:58:53,732 INFO (null) DURATA QUERY FORMA: 2
+2020-11-11 08:58:53,736 INFO (null) DURATA QUERY FORMA: 2
+2020-11-11 08:58:53,739 INFO (null) DURATA QUERY FORMA: 2
+2020-11-11 08:58:53,745 INFO (null) DURATA QUERY FORMA: 2
+2020-11-11 08:58:53,753 INFO (null) DURATA QUERY FORMA: 2
+2020-11-11 08:58:54,085 INFO (null) DURATA QUERY SENSO: 1
+2020-11-11 08:58:54,087 INFO (admin) LOCK the lexical entry related to acassia1_aoc_lemma
+2020-11-11 08:58:54,088 INFO (null) DURATA QUERY LEMMA: 2136

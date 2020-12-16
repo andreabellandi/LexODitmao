@@ -1,0 +1,155 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <h:form id="lexiconCreationIntExtAttDetailForm">
+
+        <h:panelGrid id="intExtAttForm" styleClass="attTextBlock" columns="2" columnClasses="column" cellpadding="5"
+                     rendered="#{lexiconCreationControllerIntExtAttestationDetail.attRendered}">
+
+            <h:outputLabel styleClass="attTitleStyle" value="#{lexiconCreationControllerIntExtAttestationDetail.formTypeLabel}"/>
+            <p:inputText styleClass="inputTextStyle" 
+                         value="#{lexiconCreationControllerIntExtAttestationDetail.attType.equals('Internal') ? lexiconCreationControllerIntExtAttestationDetail.iad.attestationUriLemma : lexiconCreationControllerIntExtAttestationDetail.ead.attestationUriLemma}" readonly="true"/>
+
+
+            <h:outputLabel styleClass="titleStyle" value="Abbreviation:"/>
+            <p:selectOneMenu id="attintDocType" styleClass="menu" rendered="#{lexiconCreationControllerIntExtAttestationDetail.attType.equals('Internal')}"
+                             panelStyleClass="panel" value="#{lexiconCreationControllerIntExtAttestationDetail.iad.docAbbreviation}"
+                             appendTo="attintDocType">
+                <f:selectItems value="#{internalAttestationCreationDialogController.docList}" var="abbreviation" itemLabel="#{abbreviation}" itemValue="#{abbreviation}" />
+            </p:selectOneMenu>
+            <p:selectOneMenu id="attextDocType" styleClass="menu" rendered="#{!lexiconCreationControllerIntExtAttestationDetail.attType.equals('Internal')}"
+                             panelStyleClass="panel" value="#{lexiconCreationControllerIntExtAttestationDetail.ead.abbreviationId}"
+                             appendTo="attextDocType">
+                <f:selectItems value="#{externalAttestationCreationDialogController.docList}" var="abbreviation" itemLabel="#{abbreviation}" itemValue="#{abbreviation}" />
+            </p:selectOneMenu>
+
+
+            <h:outputLabel styleClass="attTitleStyle" value="Sigla of manuscript:" 
+                           rendered="#{lexiconCreationControllerIntExtAttestationDetail.attType.equals('Internal')}"/>                
+            <p:selectOneMenu id="attManSigla" styleClass="menu"
+                             panelStyleClass="panel" 
+                             rendered="#{lexiconCreationControllerIntExtAttestationDetail.attType.equals('Internal')}"
+                             value="#{lexiconCreationControllerIntExtAttestationDetail.iad.manSigla}"
+                             appendTo="attManSigla">
+                <f:selectItems value="#{internalAttestationCreationDialogController.manSiglaList}" var="sigla" itemLabel="#{sigla}" itemValue="#{sigla}" />
+            </p:selectOneMenu>
+
+            <h:outputLabel styleClass="attTitleStyle" value="List entry:"
+                           rendered="#{lexiconCreationControllerIntExtAttestationDetail.attType.equals('Internal')}"/>
+            <p:inputText styleClass="inputTextStyle" value="#{lexiconCreationControllerIntExtAttestationDetail.iad.listEntry}"
+                         rendered="#{lexiconCreationControllerIntExtAttestationDetail.attType.equals('Internal')}"/>
+
+            <h:outputLabel styleClass="attTitleStyle" value="Section number:"
+                           rendered="#{lexiconCreationControllerIntExtAttestationDetail.attType.equals('Internal')}"/>
+            <p:inputText styleClass="inputTextStyle" value="#{lexiconCreationControllerIntExtAttestationDetail.iad.sectionNumber}"
+                         rendered="#{lexiconCreationControllerIntExtAttestationDetail.attType.equals('Internal')}"/>
+
+            <h:outputLabel styleClass="attTitleStyle" value="Chapter number:"
+                           rendered="#{lexiconCreationControllerIntExtAttestationDetail.attType.equals('Internal')}"/>
+            <p:inputText styleClass="inputTextStyle" value="#{lexiconCreationControllerIntExtAttestationDetail.iad.chapterNumber}"
+                         rendered="#{lexiconCreationControllerIntExtAttestationDetail.attType.equals('Internal')}"/>
+
+            <h:outputLabel styleClass="attTitleStyle" value="Paragraph number:"
+                           rendered="#{lexiconCreationControllerIntExtAttestationDetail.attType.equals('Internal')}"/>
+            <p:inputText styleClass="inputTextStyle" value="#{lexiconCreationControllerIntExtAttestationDetail.iad.paragraphNumber}"
+                         rendered="#{lexiconCreationControllerIntExtAttestationDetail.attType.equals('Internal')}"/>
+
+            <h:outputLabel styleClass="attTitleStyle" value="Page number:"
+                           rendered="#{lexiconCreationControllerIntExtAttestationDetail.attType.equals('Internal')}"/>
+            <p:inputText styleClass="inputTextStyle" value="#{lexiconCreationControllerIntExtAttestationDetail.iad.pageNumber}"
+                         rendered="#{lexiconCreationControllerIntExtAttestationDetail.attType.equals('Internal')}"/>
+
+            <h:outputLabel styleClass="attTitleStyle" value="Line number:"
+                           rendered="#{lexiconCreationControllerIntExtAttestationDetail.attType.equals('Internal')}"/>
+            <p:inputText styleClass="inputTextStyle" value="#{lexiconCreationControllerIntExtAttestationDetail.iad.lineNumber}"
+                         rendered="#{lexiconCreationControllerIntExtAttestationDetail.attType.equals('Internal')}"/>
+
+            <h:outputLabel styleClass="titleStyle" value="URL:" rendered="#{!lexiconCreationControllerIntExtAttestationDetail.attType.equals('Internal')}"/>
+            <p:inputText styleClass="inputTextStyle" value="#{lexiconCreationControllerIntExtAttestationDetail.ead.url}" size="40" rendered="#{!lexiconCreationControllerIntExtAttestationDetail.attType.equals('Internal')}"/>
+
+            <h:outputLabel styleClass="titleStyle" value="Form:" rendered="#{!lexiconCreationControllerIntExtAttestationDetail.attType.equals('Internal')}"/>
+            <p:inputText styleClass="inputTextStyle" value="#{lexiconCreationControllerIntExtAttestationDetail.ead.form}" rendered="#{!lexiconCreationControllerIntExtAttestationDetail.attType.equals('Internal')}"/>
+
+            <h:outputLabel styleClass="titleStyle" value="Volume:" rendered="#{!lexiconCreationControllerIntExtAttestationDetail.attType.equals('Internal')}"/>
+            <p:inputText styleClass="inputTextStyle" value="#{lexiconCreationControllerIntExtAttestationDetail.ead.volume}" rendered="#{!lexiconCreationControllerIntExtAttestationDetail.attType.equals('Internal')}"/>
+
+            <h:outputLabel styleClass="titleStyle" value="Subvolume:" rendered="#{!lexiconCreationControllerIntExtAttestationDetail.attType.equals('Internal')}"/>
+            <p:inputText styleClass="inputTextStyle" value="#{lexiconCreationControllerIntExtAttestationDetail.ead.subvolume}" rendered="#{!lexiconCreationControllerIntExtAttestationDetail.attType.equals('Internal')}"/>
+
+            <h:outputLabel styleClass="titleStyle" value="Page number:" rendered="#{!lexiconCreationControllerIntExtAttestationDetail.attType.equals('Internal')}"/>
+            <p:inputText styleClass="inputTextStyle" value="#{lexiconCreationControllerIntExtAttestationDetail.ead.pageNumber}" rendered="#{!lexiconCreationControllerIntExtAttestationDetail.attType.equals('Internal')}"/>
+
+            <h:outputLabel styleClass="titleStyle" value="Column number:" rendered="#{!lexiconCreationControllerIntExtAttestationDetail.attType.equals('Internal')}"/>
+            <p:inputText styleClass="inputTextStyle" value="#{lexiconCreationControllerIntExtAttestationDetail.ead.columnNumber}" rendered="#{!lexiconCreationControllerIntExtAttestationDetail.attType.equals('Internal')}"/>
+
+            <h:outputLabel styleClass="titleStyle" value="Article number:" rendered="#{!lexiconCreationControllerIntExtAttestationDetail.attType.equals('Internal')}"/>
+            <p:inputText styleClass="inputTextStyle" value="#{lexiconCreationControllerIntExtAttestationDetail.ead.articleNumber}" rendered="#{!lexiconCreationControllerIntExtAttestationDetail.attType.equals('Internal')}"/>
+
+            <h:outputLabel styleClass="titleStyle" value="Line number:" rendered="#{!lexiconCreationControllerIntExtAttestationDetail.attType.equals('Internal')}"/>
+            <p:inputText styleClass="inputTextStyle" value="#{lexiconCreationControllerIntExtAttestationDetail.ead.lineNumber}" rendered="#{!lexiconCreationControllerIntExtAttestationDetail.attType.equals('Internal')}"/>
+
+            <h:outputLabel styleClass="titleStyle" value="Glossary number:" rendered="#{!lexiconCreationControllerIntExtAttestationDetail.attType.equals('Internal')}"/>
+            <p:inputText styleClass="inputTextStyle" value="#{lexiconCreationControllerIntExtAttestationDetail.ead.glossaryNumber}" rendered="#{!lexiconCreationControllerIntExtAttestationDetail.attType.equals('Internal')}"/>
+
+            <h:outputLabel styleClass="titleStyle" value="Number of map:" rendered="#{!lexiconCreationControllerIntExtAttestationDetail.attType.equals('Internal')}"/>
+            <p:inputText styleClass="inputTextStyle" value="#{lexiconCreationControllerIntExtAttestationDetail.ead.numberOfMap}" rendered="#{!lexiconCreationControllerIntExtAttestationDetail.attType.equals('Internal')}"/>
+
+            <h:outputLabel styleClass="titleStyle" value="Footnote number:" rendered="#{!lexiconCreationControllerIntExtAttestationDetail.attType.equals('Internal')}"/>
+            <p:inputText styleClass="inputTextStyle" value="#{lexiconCreationControllerIntExtAttestationDetail.ead.footnoteNumber}" rendered="#{!lexiconCreationControllerIntExtAttestationDetail.attType.equals('Internal')}"/>
+
+            <h:outputLabel styleClass="titleStyle" value="Folio number:" rendered="#{!lexiconCreationControllerIntExtAttestationDetail.attType.equals('Internal')}"/>
+            <p:inputText styleClass="inputTextStyle" value="#{lexiconCreationControllerIntExtAttestationDetail.ead.folioNumber}" rendered="#{!lexiconCreationControllerIntExtAttestationDetail.attType.equals('Internal')}"/>
+
+            <h:outputLabel styleClass="titleStyle" value="Number of geographic point:" rendered="#{!lexiconCreationControllerIntExtAttestationDetail.attType.equals('Internal')}"/>
+            <p:inputText styleClass="inputTextStyle" value="#{lexiconCreationControllerIntExtAttestationDetail.ead.numberOfGeographicPoint}" rendered="#{!lexiconCreationControllerIntExtAttestationDetail.attType.equals('Internal')}"/>
+
+            <h:outputLabel styleClass="titleStyle" value="Entry number:" rendered="#{!lexiconCreationControllerIntExtAttestationDetail.attType.equals('Internal')}"/>
+            <p:inputText styleClass="inputTextStyle" value="#{lexiconCreationControllerIntExtAttestationDetail.ead.entryNumber}" rendered="#{!lexiconCreationControllerIntExtAttestationDetail.attType.equals('Internal')}"/>
+
+            <h:outputLabel styleClass="titleStyle" value="Chapter number (roman):" rendered="#{!lexiconCreationControllerIntExtAttestationDetail.attType.equals('Internal')}"/>
+            <p:inputText styleClass="inputTextStyle" value="#{lexiconCreationControllerIntExtAttestationDetail.ead.chapterNumberRoman}" rendered="#{!lexiconCreationControllerIntExtAttestationDetail.attType.equals('Internal')}"/>
+
+            <h:outputLabel styleClass="titleStyle" value="Fascicle:" rendered="#{!lexiconCreationControllerIntExtAttestationDetail.attType.equals('Internal')}"/>
+            <p:inputText styleClass="inputTextStyle" value="#{lexiconCreationControllerIntExtAttestationDetail.ead.fascicle}" rendered="#{!lexiconCreationControllerIntExtAttestationDetail.attType.equals('Internal')}"/>
+
+            <h:outputLabel styleClass="titleStyle" value="s.v.(sub voce):" rendered="#{!lexiconCreationControllerIntExtAttestationDetail.attType.equals('Internal')}"/>
+            <p:inputText styleClass="inputTextStyle" value="#{lexiconCreationControllerIntExtAttestationDetail.ead.svSublemma}" rendered="#{!lexiconCreationControllerIntExtAttestationDetail.attType.equals('Internal')}"/>
+
+            <h:outputLabel styleClass="titleStyle" value="Part:" rendered="#{!lexiconCreationControllerIntExtAttestationDetail.attType.equals('Internal')}"/>
+            <p:inputText styleClass="inputTextStyle" value="#{lexiconCreationControllerIntExtAttestationDetail.ead.part}" rendered="#{!lexiconCreationControllerIntExtAttestationDetail.attType.equals('Internal')}"/>
+
+            <h:outputLabel styleClass="titleStyle" value="Paragraph number:" rendered="#{!lexiconCreationControllerIntExtAttestationDetail.attType.equals('Internal')}"/>
+            <p:inputText styleClass="inputTextStyle" value="#{lexiconCreationControllerIntExtAttestationDetail.ead.paragraphNumber}" rendered="#{!lexiconCreationControllerIntExtAttestationDetail.attType.equals('Internal')}"/>
+
+            <h:outputLabel styleClass="titleStyle" value="Book:" rendered="#{!lexiconCreationControllerIntExtAttestationDetail.attType.equals('Internal')}"/>
+            <p:inputText styleClass="inputTextStyle" value="#{lexiconCreationControllerIntExtAttestationDetail.ead.book}" rendered="#{!lexiconCreationControllerIntExtAttestationDetail.attType.equals('Internal')}"/>
+
+            <h:outputLabel styleClass="titleStyle" value="Section:" rendered="#{!lexiconCreationControllerIntExtAttestationDetail.attType.equals('Internal')}"/>
+            <p:inputText styleClass="inputTextStyle" value="#{lexiconCreationControllerIntExtAttestationDetail.ead.sec}" rendered="#{!lexiconCreationControllerIntExtAttestationDetail.attType.equals('Internal')}"/>
+            
+            <h:outputLabel styleClass="titleStyle" value="Other:" rendered="#{!lexiconCreationControllerIntExtAttestationDetail.attType.equals('Internal')}"/>
+            <p:inputText styleClass="inputTextStyle" value="#{lexiconCreationControllerIntExtAttestationDetail.ead.other}" rendered="#{!lexiconCreationControllerIntExtAttestationDetail.attType.equals('Internal')}"/>
+
+            <h:panelGrid id="attButtons" columns="3" style="padding-top: 10px;">
+                <p:commandButton icon="fa fa-save"
+                                 actionListener="#{lexiconCreationControllerIntExtAttestationDetail.saveAttestation()}"
+                                 onstart="PF('loadingDialog').show();"
+                                 oncomplete="PF('loadingDialog').hide();"
+                                 update=":editViewTab:lexiconCreationFormDetailForm:LemmaPanelGrid :systemMessage lexiconCreationIntExtAttDetailForm
+                                 :lexiconCreationTabViewForm:tabView:attTree :lexiconCreationTabViewForm:tabView:attFilterLabel"/>
+                <p:commandButton icon="fa fa-trash"
+                                 actionListener="#{lexiconCreationControllerIntExtAttestationDetail.removeAttestation()}"
+                                 onstart="PF('loadingDialog').show();"
+                                 oncomplete="PF('loadingDialog').hide();"
+                                 update=":editViewTab:lexiconCreationFormDetailForm:LemmaPanelGrid :systemMessage lexiconCreationIntExtAttDetailForm
+                                 :lexiconCreationTabViewForm:tabView:attTree :lexiconCreationTabViewForm:tabView:attFilterLabel"/>
+            </h:panelGrid>
+
+        </h:panelGrid>
+    </h:form>
+
+</ui:composition>

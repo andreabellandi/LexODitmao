@@ -1,0 +1,13 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui">
+
+    <p:panelGrid id="lexiconCreationDetailTable" columns="2" >
+        <ui:include id="inclFormDetail" src="/lexiconCreationViewFormDetail.xhtml"/>
+        <ui:include id="inclSenseDetail" src="/lexiconCreationViewSenseDetail.xhtml"/>
+        <ui:include id="inclDocDetail" src="/lexiconCreationViewDocumentationDetail.xhtml"/>
+        <ui:include id="inclIntExtDetail" src="/lexiconCreationViewIntExtAttestationFormDetail.xhtml"/>
+        <ui:include id="inclOntoDetail" src="/lexiconCreationOntologyDetailView.xhtml"/>
+    </p:panelGrid>
+
+</ui:composition>

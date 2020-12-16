@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="content">
+
+            <ui:include src="/internalAttestationCreationDialogView.xhtml"/>
+
+            <ui:include src="/externalAttestationCreationDialogView.xhtml"/>
+
+            <p:layout id="lexiconCreationViewLayout" styleClass="layout" style="overflow: auto;">
+                <p:layoutUnit styleClass="layoutUnit" size="30%"  minSize="470" position="west" resizable="true">
+
+                    <p:layout style="overflow: hidden; position: relative; "   >
+
+                        <p:layoutUnit id="lexiconCreationViewCenter" styleClass="layoutUnit"  position="center"  style="overflow-y: hidden" >
+                            <ui:include src="/lexiconCreationViewTabViewList.xhtml"/>
+                        </p:layoutUnit>    
+
+                        <p:layoutUnit id="lexiconCreationViewSouth" styleClass="layoutUnit" position="south" style="overflow-y: hidden" >
+                            <ui:include src="/lexiconCreationViewTabViewToolbar.xhtml"/>
+                        </p:layoutUnit>    
+
+                    </p:layout>
+
+                </p:layoutUnit>
+
+                <p:layoutUnit id="LU_A" styleClass="layoutUnit" position="center" style="overflow-y: hidden;">
+
+                    <p:layout id="LU_LA">
+
+                        <p:layoutUnit id="LU_LAA" styleClass="layoutUnit" position="center"  style="overflow-y: hidden;">
+                            <ui:include src="/lexiconCreationViewSearchFilter.xhtml"/>
+
+                            <p:tabView id="editViewTab" activeIndex="#{lexiconCreationControllerRelationDetail.activeTab}" styleClass="lexiconTabView" cache="false" >
+                                <p:ajax event="tabClose" listener="#{lexiconCreationControllerRelationDetail.unlockRelationalEntry}"/>
+                                <p:tab id="editTab" title="Edit">
+                                    <p:scrollPanel id="editTabScroll" mode="native" style="overflow-x: auto; overflow-y: auto;">
+                                        <ui:include src="/lexiconCreationViewLemmaDetail.xhtml"/>
+                                    </p:scrollPanel>
+                                </p:tab>
+                                <p:tab id="graphicTab" title="Relational View" rendered="false">
+
+                                </p:tab>
+                                <p:tab id="viewTab" title="Dictionary View">
+                                    <p:scrollPanel id="dictViewTabScroll" mode="native" style="overflow-x: auto; overflow-y: auto;">
+                                        <ui:include src="/lexiconExplorationViewDictionary.xhtml"/>
+                                    </p:scrollPanel>
+                                </p:tab>
+                                <p:tab  id="detailViewTab" title="#{'Detail view of '.concat(lexiconCreationControllerRelationDetail.lemma.formWrittenRepr)}" 
+                                        rendered="#{lexiconCreationControllerRelationDetail.relationLemmaRendered}" closable="true">
+                                    <p:scrollPanel  id="scrollPaneldetailViewTab" mode="native"  style="overflow-y: auto">
+
+                                        <ui:include src="/lexiconCreationViewRelationDetail.xhtml"/>
+                                    </p:scrollPanel>
+                                </p:tab>
+                            </p:tabView>
+
+                        </p:layoutUnit>
+
+                        <p:layoutUnit id="LU_LBA" styleClass="layoutUnit" position="south" style="overflow-y: hidden;">
+                            <ui:include src="/lexiconCreationViewToolbar.xhtml"/>
+                        </p:layoutUnit>
+
+                    </p:layout>
+
+                </p:layoutUnit>
+
+            </p:layout>
+        </ui:define>
+    </ui:composition>
+
+</html>

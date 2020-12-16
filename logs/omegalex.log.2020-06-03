@@ -1,0 +1,97 @@
+2020-06-03 11:11:30,876 INFO OmegaLex start
+2020-06-03 11:11:43,032 INFO (admin) navigate to lexicon editor
+2020-06-03 11:12:28,201 INFO (admin) NEW Lemma Collocation
+2020-06-03 11:12:48,078 INFO (admin) UPDATE Lemma name from s to s
+2020-06-03 11:12:48,811 INFO (admin) UPDATE Lemma name from salsa to salsa
+2020-06-03 11:12:49,542 INFO (admin) UPDATE Lemma name from salsa  to salsa 
+2020-06-03 11:12:50,265 INFO (admin) UPDATE Lemma name from salsa  to salsa 
+2020-06-03 11:12:50,978 INFO (admin) UPDATE Lemma name from salsa  to salsa 
+2020-06-03 11:12:51,700 INFO (admin) UPDATE Lemma name from salsa  to salsa 
+2020-06-03 11:12:52,430 INFO (admin) UPDATE Lemma name from salsa fle to salsa fle
+2020-06-03 11:12:53,144 INFO (admin) UPDATE Lemma name from salsa fleuma to salsa fleuma
+2020-06-03 11:12:53,876 INFO (admin) UPDATE Lemma name from salsa fleuma to salsa fleuma
+2020-06-03 11:12:54,584 INFO (admin) UPDATE Lemma name from salsa fleuma to salsa fleuma
+2020-06-03 11:12:55,286 INFO (admin) UPDATE Lemma name from salsa fleuma to salsa fleuma
+2020-06-03 11:12:55,985 INFO (admin) UPDATE Lemma name from salsa fleuma1 to salsa fleuma1
+2020-06-03 11:12:56,700 INFO (admin) UPDATE Lemma name from salsa fleuma1 to salsa fleuma1
+2020-06-03 11:12:57,995 INFO (admin) UPDATE Lemma name from salsa fleuma to salsa fleuma
+2020-06-03 11:12:58,708 INFO (admin) UPDATE Lemma name from salsa fleuma2 to salsa fleuma2
+2020-06-03 11:13:15,749 INFO (admin) UPDATE Lemma name from salsa fleuma2 to salsa fleuma2
+2020-06-03 13:57:12,275 INFO OmegaLex start
+2020-06-03 13:58:37,005 INFO (admin) navigate to lexicon editor
+2020-06-03 13:59:24,390 INFO (admin) NEW Lemma Collocation
+2020-06-03 13:59:44,915 INFO (admin) UPDATE Lemma name from s to s
+2020-06-03 13:59:45,670 INFO (admin) UPDATE Lemma name from salsa  to salsa 
+2020-06-03 13:59:46,431 INFO (admin) UPDATE Lemma name from salsa fl to salsa fl
+2020-06-03 13:59:47,181 INFO (admin) UPDATE Lemma name from salsa fleuma to salsa fleuma
+2020-06-03 13:59:47,901 INFO (admin) UPDATE Lemma name from salsa fleuma1 to salsa fleuma1
+2020-06-03 13:59:48,621 INFO (admin) UPDATE Lemma name from salsa fleuma1 to salsa fleuma1
+2020-06-03 13:59:49,329 INFO (admin) UPDATE Lemma name from salsa fleuma1 to salsa fleuma1
+2020-06-03 13:59:50,067 INFO (admin) UPDATE Lemma name from salsa fleuma1 to salsa fleuma1
+2020-06-03 13:59:50,775 INFO (admin) UPDATE Lemma name from salsa fleuma1 to salsa fleuma1
+2020-06-03 13:59:51,550 INFO (admin) UPDATE Lemma name from salsa fleuma1 to salsa fleuma1
+2020-06-03 13:59:52,341 INFO (admin) UPDATE Lemma name from salsa fleuma1 to salsa fleuma1
+2020-06-03 13:59:53,053 INFO (admin) UPDATE Lemma name from salsa fleuma1 to salsa fleuma1
+2020-06-03 13:59:53,755 INFO (admin) UPDATE Lemma name from salsa fleuma1 to salsa fleuma1
+2020-06-03 13:59:58,142 INFO (admin) UPDATE Lemma name from salsa fleuma1 to salsa fleuma1
+2020-06-03 13:59:59,141 INFO (admin) UPDATE Lemma language of salsa fleuma1 to aoc
+2020-06-03 14:00:02,795 INFO (admin) UPDATE Lemma alphabet of salsa fleuma1 to Latn
+2020-06-03 14:00:09,738 INFO (admin) SAVE new Multiword and its default sense salsa fleuma1
+2020-06-03 14:00:15,038 INFO (admin) LOCK the lexical entry related to salsa_fleuma1_aoc_lemma
+2020-06-03 14:00:29,378 INFO (null) DURATA QUERY FORMA: 3
+2020-06-03 14:00:29,384 INFO (null) DURATA QUERY FORMA: 3
+2020-06-03 14:00:29,391 INFO (null) DURATA QUERY FORMA: 4
+2020-06-03 14:00:29,740 INFO (null) DURATA QUERY SENSO: 2
+2020-06-03 14:00:29,741 INFO (admin) UNLOCK the lexical entry related to salsa_fleuma_aoc_lemma
+2020-06-03 14:00:29,742 INFO (admin) LOCK the lexical entry related to salsa_fleuma_aoc_lemma
+2020-06-03 14:00:29,742 INFO (null) DURATA QUERY LEMMA: 1495
+2020-06-03 14:00:42,689 INFO (null) DURATA QUERY SENSO: 1
+2020-06-03 14:00:42,691 INFO (admin) UNLOCK the lexical entry related to salsa_fleuma1_aoc_lemma
+2020-06-03 14:00:42,691 INFO (admin) LOCK the lexical entry related to salsa_fleuma1_aoc_lemma
+2020-06-03 14:00:42,691 INFO (null) DURATA QUERY LEMMA: 1415
+2020-06-03 14:00:47,071 INFO (admin) DELETE Lemma salsa fleuma1
+2020-06-03 14:00:47,071 INFO (admin) DELETE Sense salsa_fleuma1_aoc_sense1 of lemma salsa fleuma1
+2020-06-03 14:00:58,544 INFO (admin) NEW Lemma Collocation
+2020-06-03 14:01:01,659 INFO (admin) UPDATE Lemma name from s to s
+2020-06-03 14:01:02,393 INFO (admin) UPDATE Lemma name from salsa to salsa
+2020-06-03 14:01:03,157 INFO (admin) UPDATE Lemma name from salsa f to salsa f
+2020-06-03 14:01:03,876 INFO (admin) UPDATE Lemma name from salsa fleuma to salsa fleuma
+2020-06-03 14:01:04,586 INFO (admin) UPDATE Lemma name from salsa fleuma to salsa fleuma
+2020-06-03 14:01:05,315 INFO (admin) UPDATE Lemma name from salsa fleuma to salsa fleuma
+2020-06-03 14:01:06,063 INFO (admin) UPDATE Lemma name from salsa fleuma to salsa fleuma
+2020-06-03 14:01:06,775 INFO (admin) UPDATE Lemma name from salsa fleuma to salsa fleuma
+2020-06-03 14:01:07,505 INFO (admin) UPDATE Lemma name from salsa fleuma to salsa fleuma
+2020-06-03 14:01:08,270 INFO (admin) UPDATE Lemma name from salsa fleuma to salsa fleuma
+2020-06-03 14:01:08,989 INFO (admin) UPDATE Lemma name from salsa fleuma to salsa fleuma
+2020-06-03 14:01:09,707 INFO (admin) UPDATE Lemma name from salsa fleuma2 to salsa fleuma2
+2020-06-03 14:01:10,411 INFO (admin) UPDATE Lemma name from salsa fleuma2 to salsa fleuma2
+2020-06-03 14:01:11,712 INFO (admin) UPDATE Lemma name from salsa fleuma2 to salsa fleuma2
+2020-06-03 14:01:18,251 INFO (admin) UPDATE Lemma language of salsa fleuma2 to aoc
+2020-06-03 14:01:20,924 INFO (admin) UPDATE Lemma alphabet of salsa fleuma2 to Latn
+2020-06-03 14:01:25,521 INFO (admin) SAVE new Multiword and its default sense salsa fleuma2
+2020-06-03 14:01:29,720 INFO (admin) LOCK the lexical entry related to salsa_fleuma2_aoc_lemma
+2020-06-03 14:01:39,213 INFO (null) DURATA QUERY SENSO: 1
+2020-06-03 14:01:39,215 INFO (admin) UNLOCK the lexical entry related to salsa_fleuma2_aoc_lemma
+2020-06-03 14:01:39,215 INFO (admin) LOCK the lexical entry related to salsa_fleuma2_aoc_lemma
+2020-06-03 14:01:39,215 INFO (null) DURATA QUERY LEMMA: 1475
+2020-06-03 14:01:44,813 INFO (null) DURATA QUERY FORMA: 2
+2020-06-03 14:01:44,818 INFO (null) DURATA QUERY FORMA: 2
+2020-06-03 14:01:44,821 INFO (null) DURATA QUERY FORMA: 1
+2020-06-03 14:01:45,187 INFO (null) DURATA QUERY SENSO: 1
+2020-06-03 14:01:45,188 INFO (admin) UNLOCK the lexical entry related to salsa_fleuma_aoc_lemma
+2020-06-03 14:01:45,189 INFO (admin) LOCK the lexical entry related to salsa_fleuma_aoc_lemma
+2020-06-03 14:01:45,189 INFO (null) DURATA QUERY LEMMA: 1483
+2020-06-03 14:02:00,999 INFO (admin) ADD empty reference (seeAlso) to lemma salsa fleuma
+2020-06-03 14:02:13,794 INFO (admin) ADD Reference (seeAlso) salsa fleuma2@aoc to the Lemma salsa fleuma
+2020-06-03 14:02:20,028 INFO (admin) UPDATE Multiword Lemma salsa fleuma
+2020-06-03 14:02:29,011 INFO (null) DURATA QUERY SENSO: 1
+2020-06-03 14:02:29,012 INFO (admin) UNLOCK the lexical entry related to salsa_fleuma2_aoc_lemma
+2020-06-03 14:02:29,012 INFO (admin) LOCK the lexical entry related to salsa_fleuma2_aoc_lemma
+2020-06-03 14:02:29,012 INFO (null) DURATA QUERY LEMMA: 1462
+2020-06-03 14:02:31,104 INFO (null) DURATA QUERY FORMA: 2
+2020-06-03 14:02:31,109 INFO (null) DURATA QUERY FORMA: 2
+2020-06-03 14:02:31,113 INFO (null) DURATA QUERY FORMA: 2
+2020-06-03 14:02:31,480 INFO (null) DURATA QUERY SENSO: 1
+2020-06-03 14:02:31,481 INFO (admin) UNLOCK the lexical entry related to salsa_fleuma_aoc_lemma
+2020-06-03 14:02:31,482 INFO (admin) LOCK the lexical entry related to salsa_fleuma_aoc_lemma
+2020-06-03 14:02:31,482 INFO (null) DURATA QUERY LEMMA: 1517

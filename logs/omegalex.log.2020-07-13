@@ -1,0 +1,111 @@
+2020-07-13 10:40:25,343 INFO OmegaLex start
+2020-07-13 10:40:31,120 INFO OmegaLex start
+2020-07-13 10:40:43,888 INFO (admin) navigate to lexicon editor
+2020-07-13 10:41:09,356 INFO (admin) SELECT Ontology class: Vine
+2020-07-13 10:41:40,708 INFO (null) DURATA QUERY FORMA: 4
+2020-07-13 10:41:41,061 INFO (null) DURATA QUERY SENSO: 2
+2020-07-13 10:41:41,063 INFO (admin) LOCK the lexical entry related to acression_aoc_lemma
+2020-07-13 10:41:41,063 INFO (null) DURATA QUERY LEMMA: 2238
+2020-07-13 10:41:44,934 INFO (admin) ADD empty ontological reference to acression_aoc_sense1
+2020-07-13 10:42:11,591 INFO (null) DURATA QUERY SENSO: 1
+2020-07-13 10:42:11,593 INFO (admin) UNLOCK the lexical entry related to agremonia_aoc_lemma
+2020-07-13 10:42:11,594 INFO (admin) LOCK the lexical entry related to agremonia_aoc_lemma
+2020-07-13 10:42:11,594 INFO (null) DURATA QUERY LEMMA: 2100
+2020-07-13 10:42:46,866 INFO (admin) ADD empty synonym relation to agremonia_aoc_sense1
+2020-07-13 10:42:55,226 INFO (admin) ADD empty ontological reference to agremonia_aoc_sense1
+2020-07-13 10:43:35,531 INFO (null) DURATA QUERY FORMA: 2
+2020-07-13 10:43:35,534 INFO (null) DURATA QUERY FORMA: 2
+2020-07-13 10:43:35,539 INFO (null) DURATA QUERY FORMA: 2
+2020-07-13 10:43:35,542 INFO (null) DURATA QUERY FORMA: 2
+2020-07-13 10:43:35,545 INFO (null) DURATA QUERY FORMA: 2
+2020-07-13 10:43:35,550 INFO (null) DURATA QUERY FORMA: 1
+2020-07-13 10:43:35,555 INFO (null) DURATA QUERY FORMA: 2
+2020-07-13 10:43:35,901 INFO (null) DURATA QUERY SENSO: 1
+2020-07-13 10:43:35,902 INFO (admin) UNLOCK the lexical entry related to agarich_aoc_lemma
+2020-07-13 10:43:35,902 INFO (admin) LOCK the lexical entry related to agarich_aoc_lemma
+2020-07-13 10:43:35,902 INFO (null) DURATA QUERY LEMMA: 2085
+2020-07-13 10:43:40,358 INFO (admin) ADD empty ontological reference to agarich_aoc_sense1
+2020-07-13 10:43:45,606 INFO (admin) ADD ontological reference Agaric to the sense agarich_aoc_sense1
+2020-07-13 10:43:47,035 INFO (admin) SAVE Sense agarich_aoc_sense1
+2020-07-13 10:43:55,910 INFO (admin) RESET Lemma Search Filter 
+2020-07-13 10:44:04,603 INFO (admin) SELECT Ontology class: Agaric
+2020-07-13 10:44:08,645 INFO (admin) SELECT Ontology class: Agaric
+2020-07-13 10:44:26,378 INFO (null) DURATA QUERY FORMA: 2
+2020-07-13 10:44:26,381 INFO (null) DURATA QUERY FORMA: 2
+2020-07-13 10:44:26,387 INFO (null) DURATA QUERY FORMA: 2
+2020-07-13 10:44:26,390 INFO (null) DURATA QUERY FORMA: 2
+2020-07-13 10:44:26,395 INFO (null) DURATA QUERY FORMA: 3
+2020-07-13 10:44:26,401 INFO (null) DURATA QUERY FORMA: 3
+2020-07-13 10:44:26,407 INFO (null) DURATA QUERY FORMA: 2
+2020-07-13 10:44:26,760 INFO (null) DURATA QUERY SENSO: 1
+2020-07-13 10:44:26,761 INFO (admin) UNLOCK the lexical entry related to agarich_aoc_lemma
+2020-07-13 10:44:26,762 INFO (admin) LOCK the lexical entry related to agarich_aoc_lemma
+2020-07-13 10:44:26,762 INFO (null) DURATA QUERY LEMMA: 2146
+2020-07-13 10:44:43,320 INFO (admin) EXPORT lexicon only
+2020-07-13 10:49:02,155 INFO OmegaLex start
+2020-07-13 10:49:10,429 INFO (admin) navigate to lexicon editor
+2020-07-13 10:49:31,899 INFO (admin) SELECT Ontology class: Agaric
+2020-07-13 10:49:48,135 INFO (null) DURATA QUERY FORMA: 4
+2020-07-13 10:49:48,139 INFO (null) DURATA QUERY FORMA: 3
+2020-07-13 10:49:48,145 INFO (null) DURATA QUERY FORMA: 3
+2020-07-13 10:49:48,149 INFO (null) DURATA QUERY FORMA: 3
+2020-07-13 10:49:48,153 INFO (null) DURATA QUERY FORMA: 2
+2020-07-13 10:49:48,158 INFO (null) DURATA QUERY FORMA: 2
+2020-07-13 10:49:48,164 INFO (null) DURATA QUERY FORMA: 2
+2020-07-13 10:49:48,518 INFO (null) DURATA QUERY SENSO: 2
+2020-07-13 10:49:48,520 INFO (admin) LOCK the lexical entry related to agarich_aoc_lemma
+2020-07-13 10:49:48,521 INFO (null) DURATA QUERY LEMMA: 2204
+2020-07-13 11:09:49,115 INFO OmegaLex start
+2020-07-13 11:09:58,155 INFO (admin) navigate to lexicon editor
+2020-07-13 11:10:28,085 INFO (admin) SELECT Ontology class: Agaric
+2020-07-13 11:15:10,830 INFO (admin) SELECT Ontology class: Agaric
+2020-07-13 11:18:13,890 INFO OmegaLex start
+2020-07-13 11:18:23,045 INFO (admin) navigate to lexicon editor
+2020-07-13 11:18:46,175 INFO (admin) SELECT Ontology class: Agaric
+2020-07-13 11:21:26,945 INFO OmegaLex start
+2020-07-13 11:21:34,043 INFO (admin) navigate to lexicon editor
+2020-07-13 11:22:10,226 INFO (null) DURATA QUERY FORMA: 4
+2020-07-13 11:22:10,231 INFO (null) DURATA QUERY FORMA: 4
+2020-07-13 11:22:10,237 INFO (null) DURATA QUERY FORMA: 4
+2020-07-13 11:22:10,242 INFO (null) DURATA QUERY FORMA: 4
+2020-07-13 11:22:10,246 INFO (null) DURATA QUERY FORMA: 2
+2020-07-13 11:22:10,252 INFO (null) DURATA QUERY FORMA: 3
+2020-07-13 11:22:10,258 INFO (null) DURATA QUERY FORMA: 2
+2020-07-13 11:22:10,635 INFO (null) DURATA QUERY SENSO: 1
+2020-07-13 11:22:10,637 INFO (admin) LOCK the lexical entry related to agarich_aoc_lemma
+2020-07-13 11:22:10,637 INFO (null) DURATA QUERY LEMMA: 2437
+2020-07-13 11:22:15,596 INFO (admin) SELECT Ontology class: Agaric
+2020-07-13 11:22:24,238 INFO (admin) SELECT Ontology class: Agaric
+2020-07-13 11:23:06,016 INFO OmegaLex start
+2020-07-13 11:26:15,110 INFO (admin) navigate to lexicon editor
+2020-07-13 11:26:39,545 INFO (admin) SELECT Ontology class: Agaric
+2020-07-13 11:28:02,040 INFO OmegaLex start
+2020-07-13 11:28:27,575 INFO (admin) navigate to lexicon editor
+2020-07-13 11:28:49,535 INFO (admin) SELECT Ontology class: Agaric
+2020-07-13 11:30:00,288 INFO (admin) SELECT Ontology class: Mushroom
+2020-07-13 11:30:04,035 INFO (admin) SELECT Ontology class: Lichen
+2020-07-13 11:30:06,396 INFO (admin) SELECT Ontology class: Bolete
+2020-07-13 11:30:08,951 INFO (admin) SELECT Ontology class: Mushroom
+2020-07-13 11:31:43,772 INFO (admin) SELECT Ontology class: Agaric
+2020-07-13 11:31:47,653 INFO (admin) SELECT Ontology class: Mushroom
+2020-07-13 11:32:04,356 INFO (admin) SELECT Ontology class: Fungus
+2020-07-13 11:32:09,424 INFO (admin) SELECT Ontology class: PhysicalEntity
+2020-07-13 11:32:19,615 INFO (admin) SELECT Ontology class: Fungus
+2020-07-13 11:36:13,725 INFO (admin) SELECT Ontology class: Fungus
+2020-07-13 11:36:19,473 INFO (admin) SELECT Ontology class: Agaric
+2020-07-13 11:36:39,877 INFO (null) DURATA QUERY FORMA: 2
+2020-07-13 11:36:40,230 INFO (null) DURATA QUERY SENSO: 1
+2020-07-13 11:36:40,233 INFO (admin) LOCK the lexical entry related to musquet_aoc_lemma
+2020-07-13 11:36:40,233 INFO (null) DURATA QUERY LEMMA: 2412
+2020-07-13 11:36:45,748 INFO (null) DURATA QUERY SENSO: 1
+2020-07-13 11:36:45,749 INFO (admin) UNLOCK the lexical entry related to muol_aoc_lemma
+2020-07-13 11:36:45,749 INFO (admin) LOCK the lexical entry related to muol_aoc_lemma
+2020-07-13 11:36:45,750 INFO (null) DURATA QUERY LEMMA: 2165
+2020-07-13 11:36:51,234 INFO (admin) ADD empty ontological reference to muol_aoc_sense1
+2020-07-13 11:36:55,981 INFO (admin) ADD ontological reference Mushroom to the sense muol_aoc_sense1
+2020-07-13 11:36:57,111 INFO (admin) SAVE Sense muol_aoc_sense1
+2020-07-13 11:37:04,126 INFO (admin) SELECT Ontology class: Mushroom
+2020-07-13 11:37:12,761 INFO (admin) SELECT Ontology class: Fungus
+2020-07-13 11:37:22,451 INFO (admin) SELECT Ontology class: Agaric
+2020-07-13 11:37:25,300 INFO (admin) SELECT Ontology class: Mushroom
+2020-07-13 11:37:28,623 INFO (admin) SELECT Ontology class: Fungus

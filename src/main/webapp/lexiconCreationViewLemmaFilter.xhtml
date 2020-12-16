@@ -1,0 +1,44 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <h:panelGrid id="lemmaFilterPanel" styleClass="filterBox" columns="4" rendered="#{lexiconCreationControllerTabViewList.enabledFilter}">
+        <p:outputLabel styleClass="filterLabel" value="Starts with"/>
+        <h:selectBooleanCheckbox value="#{lexiconCreationLemmaFilterController.startWith}">
+            <p:ajax listener="#{lexiconCreationLemmaFilterController.startsWithChanged}" 
+                    update="lexiconCreationTabViewForm:tabView:lemmaTree lexiconCreationTabViewForm:tabView:lemmaFilterLabel lemmaFilterPanel"/>
+        </h:selectBooleanCheckbox>
+        <p:outputLabel styleClass="filterLabel" value="Contains"/>
+        <h:selectBooleanCheckbox value="#{lexiconCreationLemmaFilterController.contains}">
+            <p:ajax listener="#{lexiconCreationLemmaFilterController.containsChanged}" 
+                    update="lexiconCreationTabViewForm:tabView:lemmaTree lexiconCreationTabViewForm:tabView:lemmaFilterLabel lemmaFilterPanel"/>
+        </h:selectBooleanCheckbox>
+    </h:panelGrid>
+
+    <p:spacer height="10"/>
+
+    <h:panelGrid id="lemmaFilterPanel2" styleClass="filterBox" columns="2" rendered="#{lexiconCreationControllerTabViewList.enabledFilter}">
+
+        <h:panelGrid id="lemmaFilterPanel21" styleClass="filterLemmaBox" columns="8" rendered="#{lexiconCreationControllerTabViewList.enabledFilter}">
+            <p:outputLabel styleClass="filterLabel" value="Ext"/>
+            <h:selectBooleanCheckbox value="#{lexiconCreationLemmaFilterController.ext}" disabled="#{lexiconCreationControllerTabViewList.lexiconLanguage.equals('corr')}">
+                <p:ajax listener="#{lexiconCreationLemmaFilterController.extChanged}" 
+                        update="lexiconCreationTabViewForm:tabView:lemmaTree lexiconCreationTabViewForm:tabView:lemmaFilterLabel lemmaFilterPanel21"/>
+            </h:selectBooleanCheckbox>
+            <p:outputLabel styleClass="filterLabel" value="Rec"/>
+            <h:selectBooleanCheckbox value="#{lexiconCreationLemmaFilterController.rec}" disabled="#{lexiconCreationControllerTabViewList.lexiconLanguage.equals('corr')}">
+                <p:ajax listener="#{lexiconCreationLemmaFilterController.recChanged}" 
+                        update="lexiconCreationTabViewForm:tabView:lemmaTree lexiconCreationTabViewForm:tabView:lemmaFilterLabel lemmaFilterPanel21"/>
+            </h:selectBooleanCheckbox>
+            <p:outputLabel styleClass="filterLabel" value="All"/>
+            <h:selectBooleanCheckbox value="#{lexiconCreationLemmaFilterController.all}" disabled="#{lexiconCreationControllerTabViewList.lexiconLanguage.equals('corr')}">
+                <p:ajax listener="#{lexiconCreationLemmaFilterController.allChanged}" 
+                        update="lexiconCreationTabViewForm:tabView:lemmaTree lexiconCreationTabViewForm:tabView:lemmaFilterLabel lemmaFilterPanel21"/>
+            </h:selectBooleanCheckbox>
+        </h:panelGrid>
+
+    </h:panelGrid>
+    <p:spacer height="10"/>
+
+</ui:composition>

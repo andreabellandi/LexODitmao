@@ -1,0 +1,131 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <p:dialog id="externalAttestationCreationDialog" widgetVar="extAttestationDialog" styleClass="attTextDialog" modal="true" 
+              closable="true" resizable="true" width="600" height="450" 
+              header="#{externalAttestationCreationDialogController.dialogHeader}">
+        <h:form id="externalAttestationCreationDialogForm">
+
+            <h:panelGrid id="extAttDialog" columns="3" columnClasses="column" cellpadding="5" style="padding-top: 10px;">
+
+                <h:outputLabel styleClass="titleStyle" value="Abbreviation:"/>
+                <p:selectOneMenu id="attDocType" styleClass="menu"
+                                 panelStyleClass="panel" value="#{externalAttestationCreationDialogController.externalAttestationData.abbreviationId}"
+                                 appendTo="attDocType">
+                    <f:selectItems value="#{externalAttestationCreationDialogController.docList}" var="abbreviation" itemLabel="#{abbreviation}" itemValue="#{abbreviation}" />
+                </p:selectOneMenu>
+                <p:message for="attDocType"/>
+
+                <h:outputLabel styleClass="titleStyle" value="URL:"/>
+                <p:inputText styleClass="inputTextStyle"  id='extResourceURL'
+                             value="#{externalAttestationCreationDialogController.externalAttestationData.url}" size="40"
+                             validatorMessage="Invalid URL!">
+                    <f:validateRegex pattern="^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&amp;//=]*)$" />
+                    <p:clientValidator event="keyup"/>
+                </p:inputText>
+                <p:message for="extResourceURL" id="extResourceURLMessage" display="both"/>
+
+                <h:outputLabel  styleClass="titleStyle" value="Form:"/>
+                <p:inputText id="extResourceForm" styleClass="inputTextStyle" value="#{externalAttestationCreationDialogController.externalAttestationData.form}"/>
+                <p:message for="extResourceForm"/>
+
+                <h:outputLabel styleClass="titleStyle" value="Volume:"/>
+                <p:inputText id="extResVol" styleClass="inputTextStyle" value="#{externalAttestationCreationDialogController.externalAttestationData.volume}"/>
+                <p:message for="extResVol"/>
+
+                <h:outputLabel styleClass="titleStyle" value="Subvolume:"/>
+                <p:inputText id="extResSub" styleClass="inputTextStyle" value="#{externalAttestationCreationDialogController.externalAttestationData.subvolume}"/>
+                <p:message for="extResSub"/>
+
+                <h:outputLabel styleClass="titleStyle" value="Page number:"/>
+                <p:inputText id="extResPageNum" styleClass="inputTextStyle" value="#{externalAttestationCreationDialogController.externalAttestationData.pageNumber}"/>
+                <p:message for="extResPageNum"/>
+
+                <h:outputLabel styleClass="titleStyle" value="Column number:"/>
+                <p:inputText id="extResColNum" styleClass="inputTextStyle" value="#{externalAttestationCreationDialogController.externalAttestationData.columnNumber}"/>
+                <p:message for="extResColNum"/>
+
+                <h:outputLabel styleClass="titleStyle" value="Article number:"/>
+                <p:inputText id="extResArtNum" styleClass="inputTextStyle" value="#{externalAttestationCreationDialogController.externalAttestationData.articleNumber}"/>
+                <p:message for="extResArtNum"/>
+
+                <h:outputLabel styleClass="titleStyle" value="Line number:"/>
+                <p:inputText id="extResLineNum" styleClass="inputTextStyle" value="#{externalAttestationCreationDialogController.externalAttestationData.lineNumber}"/>
+                <p:message for="extResLineNum"/>
+
+                <h:outputLabel styleClass="titleStyle" value="Glossary number:"/>
+                <p:inputText id="extResGlossNum" styleClass="inputTextStyle" value="#{externalAttestationCreationDialogController.externalAttestationData.glossaryNumber}"/>
+                <p:message for="extResGlossNum"/>
+
+                <h:outputLabel styleClass="titleStyle" value="Number of map:"/>
+                <p:inputText id="extResNumMap" styleClass="inputTextStyle" value="#{externalAttestationCreationDialogController.externalAttestationData.numberOfMap}"/>
+                <p:message for="extResNumMap"/>
+
+                <h:outputLabel styleClass="titleStyle" value="Footnote number:"/>
+                <p:inputText id="extResFootNum" styleClass="inputTextStyle" value="#{externalAttestationCreationDialogController.externalAttestationData.footnoteNumber}"/>
+                <p:message for="extResFootNum"/>
+
+                <h:outputLabel styleClass="titleStyle" value="Folio number:"/>
+                <p:inputText id="extResFolioNum" styleClass="inputTextStyle" value="#{externalAttestationCreationDialogController.externalAttestationData.folioNumber}"/>
+                <p:message for="extResFolioNum"/>
+
+                <h:outputLabel styleClass="titleStyle" value="Number of geographic point:"/>
+                <p:inputText id="extResGeoNum" styleClass="inputTextStyle" value="#{externalAttestationCreationDialogController.externalAttestationData.numberOfGeographicPoint}"/>
+                <p:message for="extResGeoNum"/>
+
+                <h:outputLabel styleClass="titleStyle" value="Entry number:"/>
+                <p:inputText id="extResEntryNum" styleClass="inputTextStyle" value="#{externalAttestationCreationDialogController.externalAttestationData.entryNumber}"/>
+                <p:message for="extResEntryNum"/>
+
+                <h:outputLabel styleClass="titleStyle" value="Chapter number (roman):"/>
+                <p:inputText id="extResChapNum" styleClass="inputTextStyle" value="#{externalAttestationCreationDialogController.externalAttestationData.chapterNumberRoman}"/>
+                <p:message for="extResChapNum"/>
+
+                <h:outputLabel styleClass="titleStyle" value="Fascicle:"/>
+                <p:inputText id="extResFasc" styleClass="inputTextStyle" value="#{externalAttestationCreationDialogController.externalAttestationData.fascicle}"/>
+                <p:message for="extResFasc"/>
+
+                <h:outputLabel styleClass="titleStyle" value="s.v.(sub voce):"/>
+                <p:inputText id="extResSubVoc" styleClass="inputTextStyle" value="#{externalAttestationCreationDialogController.externalAttestationData.svSublemma}"/>
+                <p:message for="extResSubVoc"/>
+
+                <h:outputLabel styleClass="titleStyle" value="Part:"/>
+                <p:inputText id="extResPart" styleClass="inputTextStyle" value="#{externalAttestationCreationDialogController.externalAttestationData.part}"/>
+                <p:message for="extResPart"/>
+
+                <h:outputLabel styleClass="titleStyle" value="Paragraph number:"/>
+                <p:inputText id="extResParNum" styleClass="inputTextStyle" value="#{externalAttestationCreationDialogController.externalAttestationData.paragraphNumber}"/>
+                <p:message for="extResParNum"/>
+
+                <h:outputLabel styleClass="titleStyle" value="Book:"/>
+                <p:inputText id="extResBook" styleClass="inputTextStyle" value="#{externalAttestationCreationDialogController.externalAttestationData.book}"/>
+                <p:message for="extResBook"/>
+
+                <h:outputLabel styleClass="titleStyle" value="Section:"/>
+                <p:inputText id="extResSec" styleClass="inputTextStyle" value="#{externalAttestationCreationDialogController.externalAttestationData.sec}"/>
+                <p:message for="extResSec"/>
+
+
+                <h:outputLabel styleClass="titleStyle" value="Other:"/>
+                <p:inputText id="extResOther" styleClass="inputTextStyle" value="#{externalAttestationCreationDialogController.externalAttestationData.other}"/>
+                <p:message for="extResOther"/>
+
+
+                <h:panelGrid id="extAttButtons" columns="3" style="padding-top: 10px;">
+                    <p:commandButton icon="fa fa-save" disabled="#{!externalAttestationCreationDialogController.externalAttestationData.saveButtonEnabled}"
+                                     actionListener="#{externalAttestationCreationDialogController.save()}"
+                                     onstart="PF('loadingDialog').show();" validateClient="true"
+                                     oncomplete="PF('extAttestationDialog').hide(); PF('loadingDialog').hide();"
+                                     update=":editViewTab:lexiconCreationFormDetailForm:LemmaPanelGrid :systemMessage
+                                     :editViewTab:lexiconExplorationViewDictionaryForm 
+                                     :lexiconCreationTabViewForm:tabView:attTree :lexiconCreationTabViewForm:tabView:attFilterLabel"/>
+                </h:panelGrid>
+
+            </h:panelGrid>
+        </h:form>
+    </p:dialog>
+
+</ui:composition>
