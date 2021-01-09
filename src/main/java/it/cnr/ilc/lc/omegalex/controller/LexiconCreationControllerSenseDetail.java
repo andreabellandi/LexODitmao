@@ -70,7 +70,7 @@ public class LexiconCreationControllerSenseDetail extends BaseController impleme
     public void setVerified(boolean verified) {
         this.verified = verified;
     }
-    
+
     private boolean senseRendered = false;
     private boolean locked = false;
 
@@ -398,30 +398,10 @@ public class LexiconCreationControllerSenseDetail extends BaseController impleme
         sd.setSaveButtonDisabled(false);
         sdo.setDeleteButtonDisabled(false);
         sdo.setViewButtonDisabled(false);
-        //AGGIUNTO//
-//        if (relType.equals("synonym")) {
-//            sd.getSynonym().add(sdo);
-//        }
-//        if (relType.equals("translation")) {
-//            sd.getTranslation().add(sdo);
-//        }
+
     }
 
-    private ArrayList<String> vecchia_getFilteredList(ArrayList<String> list, String keyFilter, String currentSense, String relType) {
-        ArrayList<String> filteredList = new ArrayList();
-        Collections.sort(list);
-        for (String l : list) {
-            if ((l.startsWith(keyFilter)) && (!l.isEmpty())) {
-                if (relType.equals("translation")) {
-                    filteredList.add(l + "@fr");
-                } else {
-                    filteredList.add(l);
-                }
-            }
-        }
-        filteredList.remove(currentSense);
-        return filteredList;
-    }
+
 
     private List<String> getFilteredList(List<Map<String, String>> list, String keyFilter, String currentSense, String relType) {
         List<String> filteredList = new ArrayList();
@@ -429,7 +409,11 @@ public class LexiconCreationControllerSenseDetail extends BaseController impleme
         for (Map<String, String> m : list) {
             String wr = m.get("writtenRep");
             if (!relType.equals("ontoRef")) {
-                if ((wr.startsWith(keyFilter)) && (!wr.isEmpty())) {
+                String _keyFilter = keyFilter;
+                if (wr.contains("en") || wr.contains("fr")) {
+                    _keyFilter = sanitize(keyFilter);
+                };
+                if ((wr.startsWith(_keyFilter)) && (!wr.isEmpty())) {
                     if (relType.equals("translation")) {
                         if (!wr.equals(currentSense)) {
                             filteredList.add(wr + "@fr");
@@ -685,7 +669,7 @@ public class LexiconCreationControllerSenseDetail extends BaseController impleme
         log(Level.INFO, loginController.getAccount(), "VIEW Deatils of the " + sdo.getName() + " " + relType + " of " + sd.getName());
 //        setSenseRelationButtons(false);
         String relationValue = getInstance(sdo.getName());
-        relationValue = relationValue.replaceAll("\\’", "_APOS_").replaceAll("\\'", "_APOS_");
+        relationValue = sanitize(relationValue);
         senseOpenedInRelation = relationValue;
 //        sdo.setDeleteButtonDisabled(false);
 //        sdo.setViewButtonDisabled(true);
@@ -699,6 +683,19 @@ public class LexiconCreationControllerSenseDetail extends BaseController impleme
         lexiconCreationControllerRelationDetail.setCurrentLexicalEntry(sdo.getName());
         lexiconCreationControllerFormDetail.setLexicalRelationButtons(false);
         lexiconCreationControllerRelationDetail.setActiveTab(2);
+    }
+
+    private String sanitize(String s) {
+        s = s.replaceAll("\\'", "_APOS_");
+        s = s.replaceAll("\\’", "_APOS_");
+        s = s.replaceAll("\\(", "OB_");
+        s = s.replaceAll("\\)", "_CB");
+        s = s.replaceAll("\\’", "_APOS_");
+        s = s.replaceAll("\\‘", "_APOS_");
+        s = s.replaceAll("\\?", "_QUEST");
+        s = s.replaceAll("\\,", "COMA_");
+        s = s.replaceAll("-", "_HYPEN_");
+        return s;
     }
 
     private String getIndividual(String sense) {

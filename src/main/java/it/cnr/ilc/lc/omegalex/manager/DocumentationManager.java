@@ -315,11 +315,12 @@ public class DocumentationManager implements Serializable {
 //        instance = instance.replaceAll("\\)", "");
 //        instance = instance.replaceAll("\\[", "");
 //        instance = instance.replaceAll("\\]", "");
+        instance = instance.replaceAll("\\?", "_QUEST");
+        instance = instance.replaceAll("\\,", "COMA_");
+        instance = instance.replaceAll("-", "_HYPEN_");
         instance = instance.replaceAll("\\{", "");
         instance = instance.replaceAll("\\}", "");
-        instance = instance.replaceAll("\\?", "");
         instance = instance.replaceAll("\\.", "");
-        instance = instance.replaceAll("\\,", "");
         instance = instance.replaceAll("\\:", "");
         instance = instance.replaceAll("\\;", "");
         instance = instance.replaceAll("\\!", "");

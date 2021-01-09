@@ -993,18 +993,18 @@ public class LexiconModel extends BaseController {
             if ((!contains(newR, o)) && (!o.getName().isEmpty())) {
                 String name = getNormalizedName(o.getName());
                 o.setName(name);
-                removeSenseRelation(ns, sbj, relType, name.replaceAll("\\’", "_APOS_").replaceAll("\\'", "_APOS_"));
+                removeSenseRelation(ns, sbj, relType, sanitize(name));
                 if (!relType.equals("correspondence")) {
                     if (relType.equals("equivalent")) {
                         // HACK: it adds the symmetric property instead of using the reasoner !!!
-                        removeSenseRelation(ns, getIndividual(name.replaceAll("\\’", "_APOS_").replaceAll("\\'", "_APOS_")), relType, sbj.getIRI().getShortForm());
+                        removeSenseRelation(ns, getIndividual(sanitize(name)), relType, sbj.getIRI().getShortForm());
                     } else {
                         // HACK: it adds the inverse property instead of using the reasoner !!!
-                        removeSenseRelation(ns, getIndividual(name.replaceAll("\\’", "_APOS_").replaceAll("\\'", "_APOS_")), relType + "Of", sbj.getIRI().getShortForm());
+                        removeSenseRelation(ns, getIndividual(sanitize(name)), relType + "Of", sbj.getIRI().getShortForm());
                     }
                 } else {
                     // HACK: it adds the symmetric property instead of using the reasoner !!!
-                    removeSenseRelation(ns, getIndividual(name.replaceAll("\\’", "_APOS_").replaceAll("\\'", "_APOS_")), relType, sbj.getIRI().getShortForm());
+                    removeSenseRelation(ns, getIndividual(sanitize(name)), relType, sbj.getIRI().getShortForm());
                 }
             }
         }
@@ -1012,21 +1012,21 @@ public class LexiconModel extends BaseController {
         for (Openable o : newR) {
             if ((!contains(oldR, o)) && (!o.getName().isEmpty())) {
                 String name = getNormalizedName(o.getName());
-                addSenseRelation(ns, sbj, relType, name.replaceAll("\\’", "_APOS_").replaceAll("\\'", "_APOS_"));
+                addSenseRelation(ns, sbj, relType, sanitize(name));
                 o.setName(name);
                 o.setDeleteButtonDisabled(false);
                 o.setViewButtonDisabled(false);
                 if (!relType.equals("correspondence")) {
                     if (relType.equals("equivalent")) {
                         // HACK: it adds the symmetric property instead of using the reasoner !!!
-                        addSenseRelation(ns, getIndividual(name.replaceAll("\\’", "_APOS_").replaceAll("\\'", "_APOS_")), relType, sbj.getIRI().getShortForm());
+                        addSenseRelation(ns, getIndividual(sanitize(name)), relType, sbj.getIRI().getShortForm());
                     } else {
                         // HACK: it adds the inverse property instead of using the reasoner !!!
-                        addSenseRelation(ns, getIndividual(name.replaceAll("\\’", "_APOS_").replaceAll("\\'", "_APOS_")), relType + "Of", sbj.getIRI().getShortForm());
+                        addSenseRelation(ns, getIndividual(sanitize(name)), relType + "Of", sbj.getIRI().getShortForm());
                     }
                 } else {
                     // HACK: it adds the symmetric property instead of using the reasoner !!!
-                    addSenseRelation(ns, getIndividual(name.replaceAll("\\’", "_APOS_").replaceAll("\\'", "_APOS_")), relType, sbj.getIRI().getShortForm());
+                    addSenseRelation(ns, getIndividual(sanitize(name)), relType, sbj.getIRI().getShortForm());
                 }
             }
         }
@@ -1231,7 +1231,6 @@ public class LexiconModel extends BaseController {
 
     private String sanitize(String wr) {
         String instance = wr.trim();
-//        instance = instance.replaceAll("#", "_SHARP_");
 //        instance = instance.replaceAll("\\*", "_STAR_");
         instance = instance.replaceAll("\\(", "OB_");
         instance = instance.replaceAll("\\)", "_CB");
@@ -1248,9 +1247,10 @@ public class LexiconModel extends BaseController {
 //        instance = instance.replaceAll("\\]", "");
         instance = instance.replaceAll("\\{", "");
         instance = instance.replaceAll("\\}", "");
-        instance = instance.replaceAll("\\?", "");
+        instance = instance.replaceAll("\\?", "_QUEST");
+        instance = instance.replaceAll("\\,", "COMA_");
+        instance = instance.replaceAll("-", "_HYPEN_");
         instance = instance.replaceAll("\\.", "");
-        instance = instance.replaceAll("\\,", "");
         instance = instance.replaceAll("\\:", "");
         instance = instance.replaceAll("\\;", "");
         instance = instance.replaceAll("\\!", "");

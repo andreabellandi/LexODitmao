@@ -180,12 +180,14 @@ public class SenseData implements Serializable {
         }
 
         public String getName() {
-            name = name.replaceAll("_APOS_", "’");
             name = name.replaceAll("_APOS_", "'");
             name = name.replaceAll("OB_", "(");
             name = name.replaceAll("_CB", ")");
             name = name.replaceAll("OSB_", "[");
             name = name.replaceAll("_CSB", "]");
+            name = name.replaceAll("_QUEST", "?");
+            name = name.replaceAll("COMA_", ",");
+            name = name.replaceAll("_HYPEN_", "-");
             return name;
         }
 

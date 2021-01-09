@@ -694,17 +694,23 @@ public class LexiconCreationControllerFormDetail extends BaseController implemen
     }
 
     private boolean isAdmissibleWord(String w) {
-        if (w.matches(ADMISSIBLE_WORD_REGEXP) || w.isEmpty()) {
-            return true;
+        if (!lemma.getLanguage().equals("fr") && !lemma.getLanguage().equals("en")) {
+            if (w.matches(ADMISSIBLE_WORD_REGEXP) || w.isEmpty()) {
+                return true;
+            } else {
+                return false;
+            }
         } else {
-            return false;
+            return true;
         }
     }
 
     private boolean isAdmissibleMultiwordWord(String mw) {
-        for (String comp : mw.split(" ")) {
-            if (!(comp.matches(ADMISSIBLE_MULTIWORD_REGEXP) || mw.isEmpty())) {
-                return false;
+        if (!lemma.getLanguage().equals("fr") && !lemma.getLanguage().equals("en")) {
+            for (String comp : mw.split(" ")) {
+                if (!(comp.matches(ADMISSIBLE_MULTIWORD_REGEXP) || mw.isEmpty())) {
+                    return false;
+                }
             }
         }
         return true;
@@ -1252,17 +1258,22 @@ public class LexiconCreationControllerFormDetail extends BaseController implemen
     }
 
     private boolean isSavableLemma() {
-        if ((lemma.getFormWrittenRepr() == null) || (lemma.getLanguage() == null)) {
-            return true;
-        } else {
-            if ((lemma.getFormWrittenRepr().replaceAll("\\s", "").length() > 0) && (!lemmAlreadyExists)
-                    /**/ && (isAdmissibleLemma)
-                    && (lemma.getLanguage().length() > 0)) {
-                return false;
-            } else {
+        if (!lemma.getLanguage().equals("fr") && !lemma.getLanguage().equals("en")) {
+            if ((lemma.getFormWrittenRepr() == null) || (lemma.getLanguage() == null)) {
                 return true;
+            } else {
+                if ((lemma.getFormWrittenRepr().replaceAll("\\s", "").length() > 0) && (!lemmAlreadyExists)
+                        /**/ && (isAdmissibleLemma)
+                        && (lemma.getLanguage().length() > 0)) {
+                    return false;
+                } else {
+                    return true;
+                }
             }
+        } else {
+            return false;
         }
+
     }
 
     private boolean isSavableForm(FormData fd) {
@@ -1906,11 +1917,12 @@ public class LexiconCreationControllerFormDetail extends BaseController implemen
 //        instance = instance.replaceAll("\\)", "");
 //        instance = instance.replaceAll("\\[", "");
 //        instance = instance.replaceAll("\\]", "");
+        instance = instance.replaceAll("\\?", "_QUEST");
+        instance = instance.replaceAll("\\,", "COMA_");
+        instance = instance.replaceAll("-", "_HYPEN_");
         instance = instance.replaceAll("\\{", "");
         instance = instance.replaceAll("\\}", "");
-        instance = instance.replaceAll("\\?", "");
         instance = instance.replaceAll("\\.", "");
-        instance = instance.replaceAll("\\,", "");
         instance = instance.replaceAll("\\:", "");
         instance = instance.replaceAll("\\;", "");
         instance = instance.replaceAll("\\!", "");

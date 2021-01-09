@@ -442,7 +442,7 @@ public class LexiconExplorationControllerDictionary extends BaseController imple
                 sb = new StringBuilder();
                 for (Iterator<SenseData.Openable> it = sd.getEnglishTranslation().iterator(); it.hasNext();) {
                     SenseData.Openable next = it.next();
-                    english = next.getName();
+                    english = formReconstruction(next.getName());
                     Matcher engMatcher = patternSense.matcher(english);
                     if (engMatcher.find()) {
                         String grp = engMatcher.group(1);
@@ -465,7 +465,7 @@ public class LexiconExplorationControllerDictionary extends BaseController imple
                 sb = new StringBuilder();
                 for (Iterator<SenseData.Openable> it = sd.getTranslation().iterator(); it.hasNext();) {
                     SenseData.Openable next = it.next();
-                    french = next.getName();
+                    french = formReconstruction(next.getName());
                     Matcher m = patternSense.matcher(french);
                     if (m.find()) {
                         String grp = m.group(1);
@@ -488,16 +488,16 @@ public class LexiconExplorationControllerDictionary extends BaseController imple
                 sb = new StringBuilder();
                 for (Iterator<SenseData.Openable> it = sd.getSynonym().iterator(); it.hasNext();) {
                     SenseData.Openable next = it.next();
-                    str = next.getName();
-                    str = str.replaceAll("_SHARP_", "");
-                    str = str.replaceAll("_STAR_", "");
-                    str = str.replaceAll("OB_", "");
-                    str = str.replaceAll("_CB", "");
-                    str = str.replaceAll("OSB_", "");
-                    str = str.replaceAll("_CSB", "");
-                    str = str.replaceAll("OSB_", "");
-                    str = str.replaceAll("_CSB", "");
-                    str = str.replaceAll("_QUEST_", "");
+                    str = formReconstruction(next.getName());
+//                    str = str.replaceAll("_SHARP_", "");
+//                    str = str.replaceAll("_STAR_", "");
+//                    str = str.replaceAll("OB_", "");
+//                    str = str.replaceAll("_CB", "");
+//                    str = str.replaceAll("OSB_", "");
+//                    str = str.replaceAll("_CSB", "");
+//                    str = str.replaceAll("OSB_", "");
+//                    str = str.replaceAll("_CSB", "");
+//                    str = str.replaceAll("_QUEST_", "");
                     Matcher m = patternSense.matcher(str);
                     if (m.find()) {
                         str = m.group(1).replaceAll("_", " ");
@@ -722,4 +722,17 @@ public class LexiconExplorationControllerDictionary extends BaseController imple
         return sb;
     }
 
+    private String formReconstruction(String str) {
+        str = str.replaceAll("_SHARP_", "");
+                    str = str.replaceAll("_STAR_", "");
+                    str = str.replaceAll("OB_", "(");
+                    str = str.replaceAll("_CB", ")");
+                    str = str.replaceAll("OSB_", "");
+                    str = str.replaceAll("_CSB", "");
+                    str = str.replaceAll("_QUEST", "?");
+                    str = str.replaceAll("COMA_", ",");
+                    str = str.replaceAll("_HYPEN_", "-");
+                    str = str.replaceAll("_APOS_", "'");
+                    return str;
+    }
 }

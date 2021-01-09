@@ -56,11 +56,19 @@
             </h:panelGrid>
 
             <h:panelGrid id="ComponentGroup_1" columns="1" cellpadding="0" 
-                         rendered="#{(lexiconCreationControllerFormDetail.newAction and !lexiconCreationControllerFormDetail.lemma.type.equals('Word')) or lexiconCreationControllerFormDetail.lemma.multiword.size() > 0}">
+                         rendered="#{(lexiconCreationControllerFormDetail.newAction and 
+                                     !lexiconCreationControllerFormDetail.lemma.type.equals('Word')) 
+                                     or lexiconCreationControllerFormDetail.lemma.multiword.size() > 0 
+                                     and !lexiconCreationControllerFormDetail.lemma.language.equals('en')
+                                     and !lexiconCreationControllerFormDetail.lemma.language.equals('fr')}">
                 <h:outputLabel id="componentLabel_1" styleClass="multiwordTitleStyle" value="Words:"/>
             </h:panelGrid>
             <h:panelGrid id="ComponentGroup_2" 
-                         rendered="#{(lexiconCreationControllerFormDetail.newAction and !lexiconCreationControllerFormDetail.lemma.type.equals('Word')) or lexiconCreationControllerFormDetail.lemma.multiword.size() > 0}"
+                         rendered="#{(lexiconCreationControllerFormDetail.newAction and 
+                                     !lexiconCreationControllerFormDetail.lemma.type.equals('Word')) 
+                                     or lexiconCreationControllerFormDetail.lemma.multiword.size() > 0
+                                     and !lexiconCreationControllerFormDetail.lemma.language.equals('en')
+                                     and !lexiconCreationControllerFormDetail.lemma.language.equals('fr')}" 
                          styleClass="#{lexiconCreationControllerFormDetail.lemma.multiword.size() > 0 ? 'typeLemmaTextBlock' : 'multiwordTitleStyle'}" columns="2">
                 <ui:repeat value="#{lexiconCreationControllerFormDetail.lemma.multiword}" var="comp">
                     <h:panelGrid columns="4">
