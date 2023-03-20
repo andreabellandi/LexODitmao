@@ -75,6 +75,21 @@
                                     :lexiconCreationTabViewForm:tabView:formTree
                                     :lexiconCreationTabViewForm:tabView:LemmaCorrTabTitle
                                     lexiconCreationTabViewToolbarForm" ajax="true"/>
+                        
+                        <p:menuitem value="Anc. Occitan/Anc. French" styleClass="lexiconTabViewLanguage"
+                                    icon="#{lexiconCreationControllerTabViewList.lexiconLanguage.equals('aocafr') ? 'fa fa-check' : 'fa fa-at'}"
+                                    actionListener="#{lexiconCreationControllerTabViewList.loadLexicon('aocafr')}" 
+                                    onstart="PF('loadingDialog').show()" 
+                                    oncomplete="PF('loadingDialog').hide()" 
+                                    update=":editViewTab 
+                                    :lexiconCreationTabViewForm:tabView:lemmaFilterPanel2
+                                    :lexiconCreationTabViewForm:tabView:lemmaGrid
+                                    :lexiconCreationTabViewForm:tabView:lemmaTree
+                                    :lexiconCreationTabViewForm:tabView:formGrid
+                                    :lexiconCreationTabViewForm:tabView:formTree
+                                    :lexiconCreationTabViewForm:tabView:LemmaCorrTabTitle
+                                    lexiconCreationTabViewToolbarForm" ajax="true"/>
+                        
                         <p:menuitem value="Anc. Occitan/Arabic" styleClass="lexiconTabViewLanguage"
                                     icon="#{lexiconCreationControllerTabViewList.lexiconLanguage.equals('aocarab') ? 'fa fa-check' : 'fa fa-at'}"
                                     actionListener="#{lexiconCreationControllerTabViewList.loadLexicon('aocarab')}" 
@@ -88,6 +103,7 @@
                                     :lexiconCreationTabViewForm:tabView:formTree
                                     :lexiconCreationTabViewForm:tabView:LemmaCorrTabTitle
                                     lexiconCreationTabViewToolbarForm" ajax="true"/>
+                        
                         <p:menuitem value="Anc. Occitan/Hebrew" styleClass="lexiconTabViewLanguage"
                                     icon="#{lexiconCreationControllerTabViewList.lexiconLanguage.equals('aocheb') ? 'fa fa-check' : 'fa fa-at'}"
                                     actionListener="#{lexiconCreationControllerTabViewList.loadLexicon('aocheb')}" 
@@ -252,6 +268,35 @@
                                     :lexiconCreationTabViewForm:tabView:LemmaCorrTabTitle
                                     lexiconCreationTabViewToolbarForm" ajax="true"/>
 
+                        <p:menuitem value="ait" styleClass="lexiconTabViewLanguage" 
+                                    icon="#{(lexiconCreationControllerTabViewList.lexiconLanguage.equals('corr') and lexiconCreationControllerTabViewList.corrLanguage.equals('ait')) ? 'fa fa-check' : 'fa fa-exchange'}"
+                                    actionListener="#{lexiconCreationControllerTabViewList.correspondenceLexicon('ait')}" 
+                                    onstart="PF('loadingDialog').show()" 
+                                    oncomplete="PF('loadingDialog').hide()" 
+                                    update=":editViewTab 
+                                    :lexiconCreationTabViewForm:tabView:lemmaFilterPanel2
+                                    :lexiconCreationTabViewForm:tabView:lemmaGrid
+                                    :lexiconCreationTabViewForm:tabView:lemmaTree
+                                    :lexiconCreationTabViewForm:tabView:formGrid
+                                    :lexiconCreationTabViewForm:tabView:formTree
+                                    :lexiconCreationTabViewForm:tabView:formFilterLabel
+                                    :lexiconCreationTabViewForm:tabView:LemmaCorrTabTitle
+                                    lexiconCreationTabViewToolbarForm" ajax="true"/>
+                        
+                        <p:menuitem value="aitheb" styleClass="lexiconTabViewLanguage" 
+                                    icon="#{(lexiconCreationControllerTabViewList.lexiconLanguage.equals('corr') and lexiconCreationControllerTabViewList.corrLanguage.equals('aitheb')) ? 'fa fa-check' : 'fa fa-exchange'}"
+                                    actionListener="#{lexiconCreationControllerTabViewList.correspondenceLexicon('aitheb')}" 
+                                    onstart="PF('loadingDialog').show()" 
+                                    oncomplete="PF('loadingDialog').hide()" 
+                                    update=":editViewTab 
+                                    :lexiconCreationTabViewForm:tabView:lemmaFilterPanel2
+                                    :lexiconCreationTabViewForm:tabView:lemmaGrid
+                                    :lexiconCreationTabViewForm:tabView:lemmaTree
+                                    :lexiconCreationTabViewForm:tabView:formGrid
+                                    :lexiconCreationTabViewForm:tabView:formTree
+                                    :lexiconCreationTabViewForm:tabView:formFilterLabel
+                                    :lexiconCreationTabViewForm:tabView:LemmaCorrTabTitle
+                                    lexiconCreationTabViewToolbarForm" ajax="true"/>
 
                         <p:menuitem value="arab" styleClass="lexiconTabViewLanguage" 
                                     icon="#{(lexiconCreationControllerTabViewList.lexiconLanguage.equals('corr') and lexiconCreationControllerTabViewList.corrLanguage.equals('arab')) ? 'fa fa-check' : 'fa fa-exchange'}"
@@ -360,8 +405,21 @@
                                     :lexiconCreationTabViewForm:tabView:LemmaCorrTabTitle
                                     lexiconCreationTabViewToolbarForm" ajax="true"/>
 
-
-
+                        <p:menuitem value="latait" styleClass="lexiconTabViewLanguage" 
+                                    icon="#{(lexiconCreationControllerTabViewList.lexiconLanguage.equals('corr') and lexiconCreationControllerTabViewList.corrLanguage.equals('latait')) ? 'fa fa-check' : 'fa fa-exchange'}"
+                                    actionListener="#{lexiconCreationControllerTabViewList.correspondenceLexicon('latait')}" 
+                                    onstart="PF('loadingDialog').show()" 
+                                    oncomplete="PF('loadingDialog').hide()" 
+                                    update=":editViewTab 
+                                    :lexiconCreationTabViewForm:tabView:lemmaFilterPanel2
+                                    :lexiconCreationTabViewForm:tabView:lemmaGrid
+                                    :lexiconCreationTabViewForm:tabView:lemmaTree
+                                    :lexiconCreationTabViewForm:tabView:formGrid
+                                    :lexiconCreationTabViewForm:tabView:formTree
+                                    :lexiconCreationTabViewForm:tabView:formFilterLabel
+                                    :lexiconCreationTabViewForm:tabView:LemmaCorrTabTitle
+                                    lexiconCreationTabViewToolbarForm" ajax="true"/>
+                        
                         <p:menuitem value="latm" styleClass="lexiconTabViewLanguage" 
                                     icon="#{(lexiconCreationControllerTabViewList.lexiconLanguage.equals('corr') and lexiconCreationControllerTabViewList.corrLanguage.equals('latm')) ? 'fa fa-check' : 'fa fa-exchange'}"
                                     actionListener="#{lexiconCreationControllerTabViewList.correspondenceLexicon('latm')}" 
