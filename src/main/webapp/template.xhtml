@@ -48,7 +48,7 @@
                         </p:commandLink>
 
                         <p:commandLink title="#{label['template.lexiconView']}" action="#{templateController.lexiconViewAction()}"
-                                       rendered="#{false and templateController.enableLexiconView}" onstart="PF('loadingDialog').show()">
+                                       rendered="#{true and templateController.enableLexiconView}" onstart="PF('loadingDialog').show()">
                             <p:graphicImage styleClass="topToolbarButton" value="/resources/image/iconfinder_lexiconViewer.png" width="20" height="20"/>
                         </p:commandLink>
                     </f:facet>

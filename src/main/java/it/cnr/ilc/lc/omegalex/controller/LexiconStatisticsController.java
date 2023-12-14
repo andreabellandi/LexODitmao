@@ -63,6 +63,8 @@ public class LexiconStatisticsController extends BaseController implements Seria
     private LexiconManager lexiconManager;
     @Inject
     private LoginController loginController;
+    @Inject
+    private LexiconCreationControllerFormDetail lexiconCreationControllerFormDetail;
 
     private PieChartModel pieModel1;
 
@@ -72,6 +74,8 @@ public class LexiconStatisticsController extends BaseController implements Seria
     }
 
     private void createPieModel1() {
+        
+        
         pieModel1 = new PieChartModel();
         pieModel1.set("Ancient Occitan", 1833);
         pieModel1.set("Ancient Catalan", 18);
