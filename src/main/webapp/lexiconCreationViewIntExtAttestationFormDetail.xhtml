@@ -139,11 +139,13 @@
                                  actionListener="#{lexiconCreationControllerIntExtAttestationDetail.saveAttestation()}"
                                  onstart="PF('loadingDialog').show();"
                                  oncomplete="PF('loadingDialog').hide();"
+                                 disabled="#{lexiconCreationControllerFormDetail.viewerEnable}"
                                  update=":editViewTab:lexiconCreationFormDetailForm:LemmaPanelGrid :systemMessage lexiconCreationIntExtAttDetailForm
                                  :lexiconCreationTabViewForm:tabView:attTree :lexiconCreationTabViewForm:tabView:attFilterLabel"/>
                 <p:commandButton icon="fa fa-trash"
                                  actionListener="#{lexiconCreationControllerIntExtAttestationDetail.removeAttestation()}"
                                  onstart="PF('loadingDialog').show();"
+                                 disabled="#{lexiconCreationControllerFormDetail.viewerEnable}"
                                  oncomplete="PF('loadingDialog').hide();"
                                  update=":editViewTab:lexiconCreationFormDetailForm:LemmaPanelGrid :systemMessage lexiconCreationIntExtAttDetailForm
                                  :lexiconCreationTabViewForm:tabView:attTree :lexiconCreationTabViewForm:tabView:attFilterLabel"/>

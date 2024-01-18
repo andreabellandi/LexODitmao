@@ -50,14 +50,14 @@
                                  :lexiconCreationTabViewForm:tabView:docFilterLabel
                                  :lexiconCreationTabViewForm:tabView:docTree" 
                                  actionListener="#{lexiconCreationControllerDocumentationDetail.saveDocument()}"
-                                 disabled="#{lexiconCreationControllerDocumentationDetail.doc.saveButtonDisabled}">
+                                 disabled="#{lexiconCreationControllerDocumentationDetail.doc.saveButtonDisabled or lexiconCreationControllerFormDetail.viewerEnable}">
                 </p:commandButton>
                 <p:commandButton title="Delete Document" icon="fa fa-trash" 
                                  update=":editViewTab:lexiconCreationDocumentationDetailForm :systemMessage
                                  :lexiconCreationTabViewForm:tabView:docFilterLabel
                                  :lexiconCreationTabViewForm:tabView:docTree" 
                                  actionListener="#{lexiconCreationControllerDocumentationDetail.removeDocument()}"
-                                 disabled="#{lexiconCreationControllerDocumentationDetail.doc.deleteButtonDisabled}">
+                                 disabled="#{lexiconCreationControllerDocumentationDetail.doc.deleteButtonDisabled or lexiconCreationControllerFormDetail.viewerEnable}">
                     <p:confirm message="#{label['lexicon.creation.confirm.deleteDocument']}" icon="ui-icon-alert" />
                 </p:commandButton>
             </h:panelGrid>
