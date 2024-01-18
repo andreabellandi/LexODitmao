@@ -281,13 +281,13 @@
                                          size="#{lexiconCreationControllerFormDetail.internalAttestationSize()}"/>
                             <p:commandButton title="Edit item" icon="fa fa-edit" styleClass="lexiconTabView"  
                                              actionListener="#{lexiconCreationControllerFormDetail.updateInternalAttestation(intAtt)}"
-                                             onstart="PF('loadingDialog').show();"
+                                             onstart="PF('loadingDialog').show();" disabled="#{lexiconCreationControllerFormDetail.viewerEnable}"
                                              oncomplete="PF('intAttestationDialog').show();PF('loadingDialog').hide();"
                                              update=":internalAttestationCreationDialog 
                                              :lexiconCreationTabViewForm:tabView:attTree :lexiconCreationTabViewForm:tabView:attFilterLabel"/>
                             <p:commandButton title="Delete item" icon="fa fa-trash-o" styleClass="lexiconTabView" 
                                              actionListener="#{lexiconCreationControllerFormDetail.deleteInternalAttestation(intAtt)}"
-                                             onstart="PF('loadingDialog').show()" oncomplete="PF('loadingDialog').hide()"                                         
+                                             onstart="PF('loadingDialog').show()" oncomplete="PF('loadingDialog').hide()" disabled="#{lexiconCreationControllerFormDetail.viewerEnable}"                                         
                                              update=":editViewTab:lexiconCreationFormDetailForm:LemmaPanelGrid :lexiconCreationTabViewForm:tabView:attTree :lexiconCreationTabViewForm:tabView:attFilterLabel"/>
                         </h:panelGrid>
                     </ui:repeat>
@@ -304,10 +304,10 @@
                                          readonly="true" size="#{lexiconCreationControllerFormDetail.externalAttestationSize()}"/>
                             <p:commandButton title="Edit item" icon="fa fa-edit" styleClass="lexiconTabView"  
                                              actionListener="#{lexiconCreationControllerFormDetail.updateExternalAttestation(extAtt)}"
-                                             onstart="PF('loadingDialog').show();"
+                                             onstart="PF('loadingDialog').show();" disabled="#{lexiconCreationControllerFormDetail.viewerEnable}"
                                              oncomplete="PF('extAttestationDialog').show();PF('loadingDialog').hide();"
                                              update=":externalAttestationCreationDialog :lexiconCreationTabViewForm:tabView:attTree :lexiconCreationTabViewForm:tabView:attFilterLabel"/>
-                            <p:commandButton title="Delete item" icon="fa fa-trash-o" styleClass="lexiconTabView" 
+                            <p:commandButton title="Delete item" icon="fa fa-trash-o" styleClass="lexiconTabView" disabled="#{lexiconCreationControllerFormDetail.viewerEnable}" 
                                              actionListener="#{lexiconCreationControllerFormDetail.deleteExternalAttestation(extAtt)}"
                                              onstart="PF('loadingDialog').show()" oncomplete="PF('loadingDialog').hide()"                                         
                                              update=":editViewTab:lexiconCreationFormDetailForm:LemmaPanelGrid :lexiconCreationTabViewForm:tabView:attTree :lexiconCreationTabViewForm:tabView:attFilterLabel"/>
@@ -335,7 +335,7 @@
                                      disabled="#{reference.viewButtonDisabled}"/> 
                     <p:commandButton title="Delete reference" icon="fa fa-trash-o" rendered="#{!lexiconCreationControllerFormDetail.locked}"
                                      actionListener="#{lexiconCreationControllerFormDetail.removeReference(reference)}" 
-                                     disabled="#{reference.deleteButtonDisabled}" 
+                                     disabled="#{reference.deleteButtonDisabled or lexiconCreationControllerFormDetail.viewerEnable}" 
                                      update=":editViewTab:lexiconCreationFormDetailForm:LemmaPanelGrid :editViewTab:lexiconCreationRelationDetailForm"/> 
                 </h:panelGrid>
             </ui:repeat>
@@ -358,7 +358,7 @@
                     <!--update=":editViewTab:lexiconCreationRelationDetailForm :editViewTab:lexiconCreationSenseDetailForm:SenseDataList :editViewTab:lexiconCreationFormDetailForm:LemmaPanelGrid"-->
                     <p:commandButton title="Delete bilingual" icon="fa fa-trash-o" rendered="#{!lexiconCreationControllerFormDetail.locked}"
                                      actionListener="#{lexiconCreationControllerFormDetail.removeBilingual(bilingual)}" 
-                                     disabled="#{bilingual.deleteButtonDisabled}" 
+                                     disabled="#{bilingual.deleteButtonDisabled or lexiconCreationControllerFormDetail.viewerEnable}" 
                                      update=":editViewTab:lexiconCreationFormDetailForm:LemmaPanelGrid :editViewTab:lexiconCreationRelationDetailForm"/> 
                 </h:panelGrid>
             </ui:repeat>
@@ -381,7 +381,7 @@
 
                     <p:commandButton title="Delete sublemma" icon="fa fa-trash-o" rendered="#{!lexiconCreationControllerFormDetail.locked}"
                                      actionListener="#{lexiconCreationControllerFormDetail.removeSublemma(sublemma)}" 
-                                     disabled="#{sublemma.deleteButtonDisabled}" 
+                                     disabled="#{sublemma.deleteButtonDisabled or lexiconCreationControllerFormDetail.viewerEnable}" 
                                      update=":editViewTab:lexiconCreationFormDetailForm:LemmaPanelGrid :editViewTab:lexiconCreationRelationDetailForm"/> 
                 </h:panelGrid>
             </ui:repeat>
@@ -404,7 +404,7 @@
 
                     <p:commandButton title="Delete collocation" icon="fa fa-trash-o" rendered="#{!lexiconCreationControllerFormDetail.locked}"
                                      actionListener="#{lexiconCreationControllerFormDetail.removeCollocation(collocation)}" 
-                                     disabled="#{collocation.deleteButtonDisabled}" 
+                                     disabled="#{collocation.deleteButtonDisabled or lexiconCreationControllerFormDetail.viewerEnable}" 
                                      update=":editViewTab:lexiconCreationFormDetailForm:LemmaPanelGrid :editViewTab:lexiconCreationRelationDetailForm"/> 
                 </h:panelGrid>
             </ui:repeat>
@@ -418,7 +418,8 @@
             <h:panelGrid id="lemmaButtons" columns="4" columnClasses="column" cellpadding="0" 
                          rendered="#{!lexiconCreationControllerFormDetail.locked and (!lexiconCreationControllerFormDetail.verified 
                                      or (lexiconCreationControllerFormDetail.verified and lexiconCreationControllerFormDetail.userEnable))}">
-                <p:commandButton id="menuButton" type="button" icon="fa fa-plus" title="Add lexical entities and relations"/>
+                <p:commandButton id="menuButton" type="button" icon="fa fa-plus" title="Add lexical entities and relations"
+                                disabled="#{lexiconCreationControllerFormDetail.viewerEnable}"/>
                 <p:menu overlay="true" trigger="menuButton" my="left top" at="left bottom">
                     <p:menuitem styleClass="lexiconTabView" value="Add new Variant" icon="fa fa-plus" 
                                 disabled="#{lexiconCreationControllerFormDetail.newAction or lexiconCreationControllerFormDetail.lemma.correspondence.equals('true')}" 
@@ -469,7 +470,7 @@
                                  FormDataList :editViewTab:lexiconExplorationViewDictionaryForm" 
                                  action="#{lexiconCreationControllerFormDetail.saveLemma()}"
                                  onstart="PF('loadingDialog').show()" oncomplete="setHeight();PF('loadingDialog').hide()"
-                                 disabled="#{lexiconCreationControllerFormDetail.lemma.saveButtonDisabled}">
+                                 disabled="#{lexiconCreationControllerFormDetail.lemma.saveButtonDisabled or lexiconCreationControllerFormDetail.viewerEnable}">
                     <p:confirm message="If you save this entry as a lemma, it will no longer be possible neither to move it to correspondence nor change its language. Do you want proceed?" icon="ui-icon-alert"/>
                 </p:commandButton>
                 <p:commandButton title="Delete Lemma and all its entries" icon="fa fa-trash" 
@@ -481,7 +482,7 @@
                                  :editViewTab:lexiconCreationRelationDetailForm :systemMessage"  
                                  action="#{lexiconCreationControllerFormDetail.removeLemma()}"
                                  onstart="PF('loadingDialog').show()" oncomplete="setHeight();PF('loadingDialog').hide()"
-                                 disabled="#{lexiconCreationControllerFormDetail.lemma.deleteButtonDisabled}">
+                                 disabled="#{lexiconCreationControllerFormDetail.lemma.deleteButtonDisabled or lexiconCreationControllerFormDetail.viewerEnable}">
                     <p:confirm message="#{label['lexicon.creation.confirm.deleteLemma']}" icon="ui-icon-alert" />
                 </p:commandButton>
             </h:panelGrid>
@@ -505,9 +506,10 @@
                     <p:inputTextarea readonly="#{lexiconCreationControllerFormDetail.locked}" styleClass="managementNoteArea" value="#{lexiconCreationControllerFormDetail.lemma.note}" converter="simpleTextConverter"/>
                 </f:facet>
                 <p:ajax event="save" listener="#{lexiconCreationControllerFormDetail.saveNote()}" onstart="PF('loadingDialog').show()" 
-                        oncomplete="setHeight();PF('loadingDialog').hide()"
+                        oncomplete="setHeight();PF('loadingDialog').hide()" disabled="#{lexiconCreationControllerFormDetail.viewerEnable}"
                         update=":editViewTab:lexiconCreationFormDetailForm:lemmaNote :editViewTab:lexiconExplorationViewDictionaryForm :systemMessage"/>
-                <p:ajax event="cancel" listener="#{lexiconCreationControllerFormDetail.closeNote()}"/>
+                <p:ajax event="cancel" disabled="#{lexiconCreationControllerFormDetail.viewerEnable}"
+                        listener="#{lexiconCreationControllerFormDetail.closeNote()}"/>
             </p:inplace>
         </p:overlayPanel>
 
@@ -653,6 +655,7 @@
                                                  :lexiconCreationTabViewForm:tabView:attTree :lexiconCreationTabViewForm:tabView:attFilterLabel"/>
                                 <p:commandButton title="Delete item" icon="fa fa-trash-o" styleClass="lexiconTabView" 
                                                  actionListener="#{lexiconCreationControllerFormDetail.deleteInternalAttestationForm(intAtt, form)}"
+                                                 disabled="#{lexiconCreationControllerFormDetail.viewerEnable}"
                                                  onstart="PF('loadingDialog').show()" oncomplete="PF('loadingDialog').hide()"                                         
                                                  update=":lexiconCreationTabViewForm:tabView:attTree :lexiconCreationTabViewForm:tabView:attFilterLabel 
                                                  :editViewTab:lexiconCreationFormDetailForm:FormDataList"/>
@@ -664,7 +667,8 @@
                 <h:panelGrid id="formButtons" columns="4" cellpadding="0"
                              rendered="#{!lexiconCreationControllerFormDetail.locked and (!lexiconCreationControllerFormDetail.verified 
                                          or (lexiconCreationControllerFormDetail.verified and lexiconCreationControllerFormDetail.userEnable))}">
-                    <p:commandButton id="menuButton" type="button" icon="fa fa-plus" title="Add relations"/>
+                    <p:commandButton id="menuButton" type="button" icon="fa fa-plus" title="Add relations"
+                                     disabled="#{lexiconCreationControllerFormDetail.viewerEnable}"/>
                     <p:menu overlay="true" trigger="menuButton" my="left top" at="left bottom">
                         <p:menuitem styleClass="lexiconTabView" value="Internal documentation" icon="fa fa-plus" 
                                     actionListener="#{lexiconCreationControllerFormDetail.addFormDocIn(form)}"
@@ -678,7 +682,7 @@
                                      :lexiconCreationTabViewForm:tabView:formFilterLabel :editViewTab:lexiconExplorationViewDictionaryForm" 
                                      onstart="PF('loadingDialog').show()" oncomplete="PF('loadingDialog').hide()"
                                      action="#{lexiconCreationControllerFormDetail.saveForm(form)}"
-                                     disabled="#{form.saveButtonDisabled}">
+                                     disabled="#{form.saveButtonDisabled  or lexiconCreationControllerFormDetail.viewerEnable}">
                     </p:commandButton>
                     <p:commandButton title="Delete form" icon="fa fa-trash"
                                      update="FormDataList :lexiconCreationTabViewForm:tabView:formTree :systemMessage 
@@ -686,7 +690,7 @@
                                      :lexiconCreationTabViewForm:tabView:formFilterLabel" 
                                      onstart="PF('loadingDialog').show()" oncomplete="PF('loadingDialog').hide()"
                                      action="#{lexiconCreationControllerFormDetail.removeForm(form)}"
-                                     disabled="#{form.deleteButtonDisabled}">
+                                     disabled="#{form.deleteButtonDisabled or lexiconCreationControllerFormDetail.viewerEnable}">
                         <p:confirm message="#{label['lexicon.creation.confirm.deleteForm']}" icon="ui-icon-alert" />
                     </p:commandButton>
                 </h:panelGrid>
@@ -708,9 +712,9 @@
                                          value="#{form.note}" converter="simpleTextConverter"/>
                     </f:facet>
                     <p:ajax event="save" listener="#{lexiconCreationControllerFormDetail.saveNote(form)}" onstart="PF('loadingDialog').show()" 
-                            oncomplete="PF('loadingDialog').hide()"
+                            oncomplete="PF('loadingDialog').hide()" disabled="#{lexiconCreationControllerFormDetail.viewerEnable}"
                             update="formNote :editViewTab:lexiconExplorationViewDictionaryForm :systemMessage"/>
-                    <p:ajax event="cancel" listener="#{lexiconCreationControllerFormDetail.closeNote(form.formWrittenRepr)}"/>
+                    <p:ajax event="cancel" disabled="#{lexiconCreationControllerFormDetail.viewerEnable}" listener="#{lexiconCreationControllerFormDetail.closeNote(form.formWrittenRepr)}"/>
                 </p:inplace>
             </p:overlayPanel>
 

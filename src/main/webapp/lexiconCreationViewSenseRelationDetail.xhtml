@@ -33,6 +33,7 @@
                         </p:inputText>
                         <p:commandButton title="Delete scientific name" icon="fa fa-trash-o" rendered="#{!lexiconCreationControllerRelationDetail.locked}"
                                          actionListener="#{lexiconCreationControllerRelationDetail.removeScientificName(sense, sn)}" 
+                                         disabled="#{lexiconCreationControllerFormDetail.viewerEnable}"
                                          update=":editViewTab:lexiconCreationRelationDetailForm:RelationSenseDataList"/> 
                     </h:panelGrid>
                 </ui:repeat>
@@ -49,7 +50,7 @@
                             <f:attribute name="currentSense" value="#{sense.name}"/>
                         </p:autoComplete>
                         <p:watermark class="filterLabel" for="RSynonym" value="Type a sense"/>
-                        <p:commandButton title="Delete synonym relation" icon="fa fa-trash-o" disabled="#{syn.deleteButtonDisabled}" 
+                        <p:commandButton title="Delete synonym relation" icon="fa fa-trash-o" disabled="#{syn.deleteButtonDisabled or lexiconCreationControllerFormDetail.viewerEnable}" 
                                          rendered="#{!lexiconCreationControllerRelationDetail.locked}"
                                          actionListener="#{lexiconCreationControllerRelationDetail.removeSenseRelation(sense, syn, 'synonym')}" 
                                          update=":editViewTab:lexiconCreationRelationDetailForm:RelationSenseDataList"/> 
@@ -70,7 +71,7 @@
                             <f:attribute name="currentSense" value="#{sense.name}"/>
                         </p:autoComplete>
                         <p:watermark class="filterLabel" for="RTranslation" value="Type a sense"/>
-                        <p:commandButton title="Delete translation relation" icon="fa fa-trash-o" disabled="#{trans.deleteButtonDisabled}" rendered="#{!lexiconCreationControllerRelationDetail.locked}"
+                        <p:commandButton title="Delete translation relation" icon="fa fa-trash-o" disabled="#{trans.deleteButtonDisabled or lexiconCreationControllerFormDetail.viewerEnable}" rendered="#{!lexiconCreationControllerRelationDetail.locked}"
                                          actionListener="#{lexiconCreationControllerRelationDetail.removeSenseRelation(sense, trans, 'translation')}" 
                                          update=":editViewTab:lexiconCreationRelationDetailForm:RelationSenseDataList"/> 
                     </h:panelGrid>
@@ -103,7 +104,7 @@
                             <f:attribute name="currentSense" value="#{sense.name}"/>
                         </p:autoComplete>
                         <p:watermark class="filterLabel" for="RenglishTranslation" value="Type a sense"/>
-                        <p:commandButton title="Delete translation relation" icon="fa fa-trash-o" disabled="#{engTrans.deleteButtonDisabled}" rendered="#{!lexiconCreationControllerRelationDetail.locked}"
+                        <p:commandButton title="Delete translation relation" icon="fa fa-trash-o" disabled="#{engTrans.deleteButtonDisabled or lexiconCreationControllerFormDetail.viewerEnable}" rendered="#{!lexiconCreationControllerRelationDetail.locked}"
                                          actionListener="#{lexiconCreationControllerRelationDetail.removeSenseRelation(sense, engTrans, 'englishTranslation')}" 
                                          update=":editViewTab:lexiconCreationRelationDetailForm:RelationSenseDataList"/> 
                     </h:panelGrid>
@@ -133,7 +134,7 @@
                             <f:attribute name="currentSense" value="#{sense.name}"/>
                         </p:autoComplete>
                         <p:watermark class="filterLabel" for="Rcorrespondence" value="Type a sense"/>
-                        <p:commandButton title="Delete correspondence relation" icon="fa fa-trash-o" disabled="#{corr.deleteButtonDisabled}" rendered="#{!lexiconCreationControllerRelationDetail.locked}"
+                        <p:commandButton title="Delete correspondence relation" icon="fa fa-trash-o" disabled="#{corr.deleteButtonDisabled or lexiconCreationControllerFormDetail.viewerEnable}" rendered="#{!lexiconCreationControllerRelationDetail.locked}"
                                          actionListener="#{lexiconCreationControllerRelationDetail.removeSenseRelation(sense, corr, 'correspondence')}" 
                                          update=":editViewTab:lexiconCreationRelationDetailForm:RelationSenseDataList"/> 
                     </h:panelGrid>
@@ -152,6 +153,7 @@
                     </p:autoComplete>
                     <p:watermark class="filterLabel" for="ROntoRef" value="Type a semantic description"/>
                     <p:commandButton title="Delete ontology reference relation" icon="fa fa-trash-o"
+                                     disabled="#{lexiconCreationControllerFormDetail.viewerEnable}"
                                      rendered="#{!lexiconCreationControllerRelationDetail.locked}"
                                      actionListener="#{lexiconCreationControllerRelationDetail.removeSenseRelation(sense, sense.OWLClass, 'reference')}" 
                                      update=":editViewTab:lexiconCreationRelationDetailForm:RelationSenseDataList"/> 
@@ -160,6 +162,7 @@
                 <h:panelGrid id = "RsenseButtons" columns="4" columnClasses="column" cellpadding="0" 
                              rendered="#{!lexiconCreationControllerRelationDetail.locked}">
                     <p:commandButton id="RmenuButton" type="button" icon="fa fa-plus" title="Add lexico-semantic relations"
+                                     disabled="#{lexiconCreationControllerFormDetail.viewerEnable}"
                                      rendered="#{!lexiconCreationControllerRelationDetail.lemma.correspondence.equals('true')}"/>
                     <p:menu overlay="true" trigger="RmenuButton" my="left top" at="left bottom" rendered="#{!lexiconCreationControllerRelationDetail.lemma.correspondence.equals('true')}">
                         <p:menuitem styleClass="lexiconTabView" value="Add synonym" icon="fa fa-plus"  
@@ -183,7 +186,7 @@
                                      update="RelationSenseDataList :systemMessage" 
                                      onstart="PF('loadingDialog').show()" oncomplete="PF('loadingDialog').hide()"
                                      action="#{lexiconCreationControllerRelationDetail.saveSenseRelation(sense)}"
-                                     disabled="#{sense.saveButtonDisabled}">
+                                     disabled="#{sense.saveButtonDisabled or lexiconCreationControllerFormDetail.viewerEnable}">
                     </p:commandButton>
                 </h:panelGrid>
             </h:panelGrid>
@@ -199,8 +202,11 @@
                     </f:facet>
                     <p:ajax event="save" listener="#{lexiconCreationControllerRelationDetail.saveNote(sense)}" onstart="PF('loadingDialog').show()" 
                             oncomplete="PF('loadingDialog').hide()"
+                            disabled="#{lexiconCreationControllerFormDetail.viewerEnable}"
                             update="RsenseNote :systemMessage"/>
-                    <p:ajax event="cancel" listener="#{lexiconCreationControllerRelationDetail.closeNote(sense.name)}"/>
+                    <p:ajax event="cancel" 
+                            disabled="#{lexiconCreationControllerFormDetail.viewerEnable}"
+                            listener="#{lexiconCreationControllerRelationDetail.closeNote(sense.name)}"/>
                 </p:inplace>
             </p:overlayPanel>
 

@@ -39,7 +39,7 @@
 
                             <p:tabView id="editViewTab" activeIndex="#{lexiconCreationControllerRelationDetail.activeTab}" styleClass="lexiconTabView" cache="false" >
                                 <p:ajax event="tabClose" listener="#{lexiconCreationControllerRelationDetail.unlockRelationalEntry}"/>
-                                <p:tab id="editTab" title="Edit">
+                                <p:tab id="editTab" title="Edit" >
                                     <p:scrollPanel id="editTabScroll" mode="native" style="overflow-x: auto; overflow-y: auto;">
                                         <ui:include src="/lexiconCreationViewLemmaDetail.xhtml"/>
                                     </p:scrollPanel>
@@ -64,7 +64,7 @@
                         </p:layoutUnit>
 
                         <p:layoutUnit id="LU_LBA" styleClass="layoutUnit" position="south" style="overflow-y: hidden;">
-                            <ui:include src="/lexiconCreationViewToolbar.xhtml"/>
+                            <ui:include src="/lexiconCreationViewToolbar.xhtml" />
                         </p:layoutUnit>
 
                     </p:layout>

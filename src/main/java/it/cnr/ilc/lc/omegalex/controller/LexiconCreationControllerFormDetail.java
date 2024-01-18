@@ -99,6 +99,10 @@ public class LexiconCreationControllerFormDetail extends BaseController implemen
     public boolean isUserEnable() {
         return loginController.getAccount().getType().getName().equals(AccountManager.ADMINISTRATOR);
     }
+    
+    public boolean isViewerEnable() {
+        return loginController.getAccount().getType().getName().equals(AccountManager.VIEWER);
+    }
 
     public String getInternalAttestaionFormTabHeader() {
         return internalAttestaionFormTabHeader;

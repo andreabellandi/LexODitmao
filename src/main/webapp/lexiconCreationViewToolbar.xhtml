@@ -5,9 +5,10 @@
                 xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <h:form id="lexiconCreationToolbarForm">
-        <p:toolbar styleClass="lexiconToolbar" >
+        <p:toolbar styleClass="lexiconToolbar">
             <f:facet name="left">
-                <p:commandButton id="newButton" icon="ui-icon-triangle-1-s" value="New" type="button" styleClass="lexiconToolbarButton" />
+                <p:commandButton id="newButton" icon="ui-icon-triangle-1-s" value="New" type="button" styleClass="lexiconToolbarButton" 
+                                 disabled="#{lexiconCreationControllerFormDetail.viewerEnable}" />
                 <p:tieredMenu overlay="true" styleClass="lexiconTabView" trigger="newButton" my="left top" at="left top" style="width:120px">
                     <p:menuitem value="Project" styleClass="lexiconTabView" disabled="true"/>
                     <p:menuitem value="Lexicon" styleClass="lexiconTabView" disabled="true"/>
@@ -40,7 +41,7 @@
                               sizeLimit="100000000" fileLimit="1" allowTypes="/(\.|\/)(owl)$/" label="Import Ontology" disabled="true" rendered="false"/>    
             </f:facet>
             <f:facet name="right">
-                <p:menuButton value="Export" styleClass="lexiconToolbarButton" disabled="false">
+                <p:menuButton value="Export" styleClass="lexiconToolbarButton" disabled="#{lexiconCreationControllerFormDetail.viewerEnable}">
                     <p:menuitem styleClass="lexiconTabView" value="Lexicon only (.rdf)" ajax="false"
                                 onclick="PrimeFaces.monitorDownload(start, stop);">
                         <p:fileDownload value="#{lexiconCreationControllerToolbar.exportLexicon()}"/>

@@ -90,10 +90,10 @@ public class DomainCreator extends HttpServlet {
 //        accountType.setColor("yellow");
 //        manager.insert(accountType);
 //
-//        accountType = new AccountType();
-//        accountType.setName(AccountManager.VIEWER);
-//        accountType.setColor("white");
-//        manager.insert(accountType);
+        accountType = new AccountType();
+        accountType.setName(AccountManager.VIEWER);
+        accountType.setColor("white");
+        manager.insert(accountType);
     }
 
     private void createAdmin(String name, String username, String password) {

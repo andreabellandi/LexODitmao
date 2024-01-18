@@ -27,6 +27,7 @@ public class AccountManager implements Serializable {
 
     public static final String ADMINISTRATOR = "Administrator";
     public static final String USER = "User";
+    public static final String VIEWER = "Viewer";
 
     public enum Access {
 
