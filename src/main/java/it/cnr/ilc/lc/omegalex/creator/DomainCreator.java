@@ -47,12 +47,22 @@ public class DomainCreator extends HttpServlet {
             extra();
         } else if ("import".equals(command)) {
             importDocuments();
+        } else if ("accountType".equals(command)) {
+            accountType();
         } else {
             throw new ServletException("Unknow command");
         }
         response.getOutputStream().print("OK");
     }
 
+    
+    public void accountType() {
+        AccountType accountType = new AccountType();
+        accountType.setName(AccountManager.VIEWER);
+        accountType.setColor("white");
+        manager.insert(accountType);
+    }
+    
     public String update() {
         Configuration configuration = new Configuration().configure();
         SchemaUpdate schemaUpdate = new SchemaUpdate(configuration);
